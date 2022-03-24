@@ -1,23 +1,23 @@
 import React from 'react'
-import Counter from './components/Counter'
+import './App.css'
 
-import CounterProvider from './context/providers/CounterProvider'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import Navbar from './layout/Navbar/Navbar'
+import Home from './pages/Home/Home'
 const Router = () => {
   return (
     <Routes>
-      <Route path='/' element={<Counter />} />
-      <Route path='/home' element={<Counter />} />
+      <Route path='/' element={<Home />} />
+      {/* <Route path='/home' element={<Counter />} /> */}
     </Routes>
   )
 }
 
 const App = () => {
   return (
-    <div>
-        <h1>gourav</h1>
-
-        <Router />
+    <div class='App'>
+      <Navbar />
+      <Router />
     </div>
   )
 }

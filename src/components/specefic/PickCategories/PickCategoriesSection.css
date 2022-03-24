@@ -1,0 +1,26 @@
+.pick-category-card {
+  box-shadow: 10px 8px 5px #aaaaaa;
+
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.pick-category-card:hover {
+  box-shadow: 3px 3px 5px 1px greenyellow;
+  padding: 0.1rem;
+  transition: all 0.2s linear;
+}
+.pick-category-section-heading {
+  text-align: center;
+}
+.pick-category-section-img {
+  width: 30vw;
+  height: 30vh;
+  margin: 1rem;
+}
+.pick-category-section-btn {
+  padding: 0.7rem 1rem;
+  width: 30%;
+  margin: auto;
+}
