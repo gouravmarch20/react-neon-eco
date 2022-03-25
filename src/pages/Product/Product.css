@@ -1,0 +1,8 @@
+.product {
+  display: flex;
+  flex-direction: row;
+}
+.product__header__span {
+  margin: 1rem;
+  font-weight: bold;
+}

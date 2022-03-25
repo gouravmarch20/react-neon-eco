@@ -3,16 +3,19 @@ import Annoncement from '../../components/specefic/Annoncement/Annoncement'
 import './Navbar.css'
 // import { Search, ShoppingCartOutlined } from '@material-ui/icons'
 // import SearchIcon from '@mui/icons-material/Search'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <>
       {/* To do hide if not home page  */}
       <Annoncement />
-      <div class='navbar'>
+      <div className='navbar'>
         <div className='navbar-warpper'>
           <div className='navbar-left'>
-            <h1>neo rail </h1>
+            <Link to='/' className='navbar-link'>
+              <h1>neo rail </h1>
+            </Link>
           </div>
           <div className='navbar-center'>
             <div className='navbar-search'>
@@ -22,11 +25,21 @@ const Navbar = () => {
           </div>
           <div className='navbar-right'>
             {/* TODO: toggle signin / signup, badge icon => CART , WISHLIST */}
-            <div className='navbar-link'>Login</div>
-            <div className='navbar-link'>Signout</div>
-            <div className='navbar-link'>Cart</div>
-            <div className='navbar-link'>WishList </div>
-            <div className='navbar-link'>My profile </div>
+            {/* <Link to='/' className='navbar-link'>
+              Login
+            </Link>
+            <Link to='/' className='navbar-link'>
+              Signout
+            </Link> */}
+            <Link to='/cart' className='navbar-link'>
+              Cart
+            </Link>
+            <Link to='/wishlist' className='navbar-link'>
+              WishList{' '}
+            </Link>
+            <Link to='my-profile' className='navbar-link'>
+              My profile
+            </Link>
           </div>
         </div>
       </div>

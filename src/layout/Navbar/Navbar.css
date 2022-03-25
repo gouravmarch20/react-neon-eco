@@ -1,20 +1,20 @@
 .navbar {
   background-color: black;
-  color: white;
-  /* min-height: 15vh; */
+  /* color: white; */
 }
 .navbar-warpper {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  flex-wrap: wrap;
 }
 .navbar-left {
-  flex: 1;
+  flex: 0.5;
   display: flex;
   align-items: center;
 }
 .navbar-center {
-  /* flex: 1; */
+  flex: 1;
   /* margin-top: 1rem; */
   margin-right: 1rem;
 }
@@ -24,19 +24,23 @@
   align-items: center;
 
   text-align: center;
-  flex: 1.5;
+  flex: 1.3;
 }
 .navbar-search {
-  border: 1px solid lightgrey;
   display: flex;
-  /* padding: 5px; */
-  /* align-items: center; */
+  margin-left: 1rem;
 }
 .navbar-link {
   margin-left: 0.8rem;
   font-weight: 700;
+  text-decoration: none;
+  color: white;
 }
 .navbar-search-input {
-  /* padding: 3px; */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
   border: none;
 }
