@@ -1,0 +1,83 @@
+.buyLater__btn {
+  background-color: red;
+  padding: 0.5rem 0.5rem;
+  margin-top: 1rem;
+  margin-left: 0.7rem;
+  background-color: #edc126;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+.buyLater__btn__green {
+  background-color: #02b290;
+}
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #12b0e8;
+}
+span {
+  font-size: 1.3rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #50dbb4;
+  font-weight: 900;
+}
+ul {
+  list-style: none;
+}
+
+.products {
+  display: flex;
+}
+
+.products__filterBox {
+  min-width: 20%;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-color: #35bdd0;
+  margin: 0;
+}
+
+.products__listing {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+}
+.product__wish {
+  min-width: 25vw;
+  max-width: 33vw;
+  max-height: 40vh;
+  margin: 1rem;
+  transition: all 0.5s linear;
+  padding-bottom: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 1px 1px 2px lightgray;
+}
+.product__image {
+  max-width: 27vw;
+  max-height: 25vh;
+}
+.product__name {
+  font-weight: bold;
+  margin-bottom: 0rem;
+}
+.product__rating {
+  font-weight: 500;
+}
+.product__price {
+  font-weight: 500;
+}
+.product__wish:hover {
+  box-shadow: 4px 3px 3px 3px rgba(13, 105, 28, 0.5);
+
+  transition: all 1s;
+}
