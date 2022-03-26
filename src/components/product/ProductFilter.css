@@ -1,0 +1,20 @@
+.product__filter {
+  display: flex;
+  width: 25vw;
+  height: 100vh !important;
+  flex-direction: column;
+  border: 2px dotted blue;
+  height: 60vh;
+  position: sticky;
+  top: 0;
+}
+/* .product__filter__container {
+    position: sticky;
+  } */
+.product__filter:hover {
+  overflow-y: scroll;
+}
+.product__header {
+  display: flex;
+  justify-content: space-between;
+}
