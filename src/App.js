@@ -10,6 +10,9 @@ import Cart from './pages/Cart/Cart'
 import NotFound from './pages/NotFound/NotFound'
 import MyProfile from './pages/MyProfile/MyProfile'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
+
+import Signin from './pages/auth/Signin'
+import Signup from './pages/auth/Signup'
 const Router = () => {
   return (
     <Routes>
@@ -20,6 +23,8 @@ const Router = () => {
       <Route path='/cart' element={<Cart />} />
       <Route path='/my-profile' element={<MyProfile />} />
       <Route path='/product/:id' element={<ProductDetail />} />
+      <Route path='/signin' element={<Signin />} />
+      <Route path='/signup' element={<Signup />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )
