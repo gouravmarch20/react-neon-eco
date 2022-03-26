@@ -13,6 +13,8 @@ import ProductDetail from './pages/ProductDetail/ProductDetail'
 
 import Signin from './pages/auth/Signin'
 import Signup from './pages/auth/Signup'
+import Mockman from 'mockman-js'
+
 const Router = () => {
   return (
     <Routes>
@@ -26,6 +28,7 @@ const Router = () => {
       <Route path='/signin' element={<Signin />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='*' element={<NotFound />} />
+      <Route path='/mockman' element={<Mockman />} />
     </Routes>
   )
 }
