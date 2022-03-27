@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Slider from '../../components/specefic/Slider/Slider'
 import PickCategories from '../../components/specefic/PickCategories/PickCategories'
-const Home = () => {
+
+export const Home = () => {
   return (
     <div>
       <Slider />
@@ -10,4 +11,3 @@ const Home = () => {
   )
 }
 
-export default Home

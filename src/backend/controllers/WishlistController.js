@@ -1,5 +1,5 @@
-import { Response } from "miragejs";
-import { formatDate, requiresAuth } from "../utils/authUtils";
+import { Response } from 'miragejs'
+import { formatDate, requiresAuth } from '../utils/authUtils'
 
 /**
  * All the routes related to Wishlist are present here.
@@ -13,19 +13,19 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
  * */
 
 export const getWishlistItemsHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
+  const userId = requiresAuth.call(this, request)
   if (!userId) {
     new Response(
       404,
       {},
       {
-        errors: ["The email you entered is not Registered. Not Found error"],
+        errors: ['The email you entered is not Registered. Not Found error']
       }
-    );
+    )
   }
-  const userWishlist = schema.users.findBy({ _id: userId }).wishlist;
-  return new Response(200, {}, { wishlist: userWishlist });
-};
+  const userWishlist = schema.users.findBy({ _id: userId }).wishlist
+  return new Response(200, {}, { wishlist: userWishlist })
+}
 
 /**
  * This handler handles adding items to user's wishlist.
@@ -34,36 +34,36 @@ export const getWishlistItemsHandler = function (schema, request) {
  * */
 
 export const addItemToWishlistHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
+  const userId = requiresAuth.call(this, request)
   try {
     if (!userId) {
       new Response(
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error']
         }
-      );
+      )
     }
-    const userWishlist = schema.users.findBy({ _id: userId }).wishlist;
-    const { product } = JSON.parse(request.requestBody);
+    const userWishlist = schema.users.findBy({ _id: userId }).wishlist
+    const { product } = JSON.parse(request.requestBody)
     userWishlist.push({
       ...product,
       createdAt: formatDate(),
-      updatedAt: formatDate(),
-    });
-    this.db.users.update({ _id: userId }, { wishlist: userWishlist });
-    return new Response(201, {}, { wishlist: userWishlist });
+      updatedAt: formatDate()
+    })
+    this.db.users.update({ _id: userId }, { wishlist: userWishlist })
+    return new Response(201, {}, { wishlist: userWishlist })
   } catch (error) {
     return new Response(
       500,
       {},
       {
-        error,
+        error
       }
-    );
+    )
   }
-};
+}
 
 /**
  * This handler handles removing items to user's wishlist.
@@ -72,29 +72,29 @@ export const addItemToWishlistHandler = function (schema, request) {
  * */
 
 export const removeItemFromWishlistHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
+  const userId = requiresAuth.call(this, request)
   try {
     if (!userId) {
       new Response(
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error']
         }
-      );
+      )
     }
-    let userWishlist = schema.users.findBy({ _id: userId }).wishlist;
-    const productId = request.params.productId;
-    userWishlist = userWishlist.filter((item) => item._id !== productId);
-    this.db.users.update({ _id: userId }, { wishlist: userWishlist });
-    return new Response(200, {}, { wishlist: userWishlist });
+    let userWishlist = schema.users.findBy({ _id: userId }).wishlist
+    const productId = request.params.productId
+    userWishlist = userWishlist.filter(item => item._id !== productId)
+    this.db.users.update({ _id: userId }, { wishlist: userWishlist })
+    return new Response(200, {}, { wishlist: userWishlist })
   } catch (error) {
     return new Response(
       500,
       {},
       {
-        error,
+        error
       }
-    );
+    )
   }
-};
+}

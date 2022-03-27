@@ -3,21 +3,21 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { makeServer } from './server'
 import { BrowserRouter } from 'react-router-dom'
-import CounterProvider from './context/providers/CounterProvider'
-import ProductProvider from './context/providers/ProductProvider'
 
-// Call make Server
+import { ProductProvider } from './context/ProductContext'
+
+
 makeServer()
-
+// TODO: TO KNEW ANY CHANGE IN BROWSER ROUTER BELOW ==> WRAP IN BROWSER ROUTER GOOD WAY
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CounterProvider>
-        <ProductProvider>
-          <App />
-        </ProductProvider>
-      </CounterProvider>
+      <ProductProvider>
+        {/* <FilterProvider> */}
+        <App />
+      </ProductProvider>
     </BrowserRouter>
+    {/* </FilterProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 )

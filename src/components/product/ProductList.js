@@ -1,6 +1,12 @@
 import React from 'react'
 import './ProductList.css'
+
+import { useProduct } from '../../context/ProductContext'
 const ProductList = () => {
+  const {
+    // !TODO: ASK how DESTRUCT destruct
+    state: { products, error }
+  } = useProduct()
   return (
     <div className='productList'>
       <div className='products__listing'>

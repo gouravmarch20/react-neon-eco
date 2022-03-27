@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProductDetail.css'
-const ProductDetail = () => {
+export const ProductDetail = () => {
   return (
     <div>
       <div className='a__product'>
@@ -62,4 +62,3 @@ const ProductDetail = () => {
   )
 }
 
-export default ProductDetail
