@@ -1,6 +1,6 @@
 import React from 'react'
 import SignUp from '../../components/auth/SignUp'
-const Signup = () => {
+export const Signup = () => {
   return (
     <div>
       <SignUp />

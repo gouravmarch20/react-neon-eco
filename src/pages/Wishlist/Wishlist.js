@@ -2,7 +2,7 @@ import React from 'react'
 import './Wishlist.css'
 import Header from '../../components/wishlist/Header'
 import Product from '../../components/wishlist/Product'
-const WishList = () => {
+export const Wishlist = () => {
   return (
     <div>
       <Header />
@@ -11,4 +11,3 @@ const WishList = () => {
   )
 }
 
-export default WishList

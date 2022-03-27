@@ -3,7 +3,7 @@ import React from 'react'
 import ProductFilter from '../../components/product/ProductFilter'
 import ProductList from '../../components/product/ProductList'
 import './Product.css'
-const Product = () => {
+export const Product = () => {
   return (
     <div>
       <section className='product'>
@@ -14,4 +14,3 @@ const Product = () => {
   )
 }
 
-export default Product

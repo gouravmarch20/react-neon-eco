@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Signout = () => {
+export const Signout = () => {
   return (
     <div>Signout</div>
   )
