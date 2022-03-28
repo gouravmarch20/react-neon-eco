@@ -1,31 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getUniqueValues, putCommasInPrice } from '../../helpers'
+import { useProduct } from '../../context/ProductContext'
+import { useFilter } from '../../context/FilterContext'
 import './ProductFilter.css'
 const ProductFilter = () => {
+  const [filterData, setFilterData] = useState({
+    priceRange: 200
+  })
+  const [uniqueCategories, setUniqueCategories] = useState([])
+  const [uniqueBrands, setUniqueBrands] = useState([])
+  const {
+    state: { products }
+  } = useProduct()
+  const { state, dispatch } = useFilter()
+  const {
+    categories,
+    brands,
+    sortBy,
+    minPrice,
+    maxPrice,
+    price,
+    rating,
+    cashOnDelivery,
+    fastDelivery,
+    includeOutOfStock
+  } = state
+
+  useEffect(() => {
+    setUniqueCategories(getUniqueValues(products, 'categoryName'))
+    setUniqueBrands(getUniqueValues(products, 'brand'))
+  }, [products])
   return (
     <>
       <aside className='product__filter'>
         <div className='product__filter__container'>
           <div className='product__header '>
             <span className='product__header__span'>Filter</span>
-            <span className='product__header__span'>Reset</span>
+            <span
+              className='product__header__span'
+              onClick={() => dispatch({ type: 'CLEAR_ALL_FILTERS' })}
+            >
+              Reset
+            </span>
           </div>
           <hr />
+
           <section className='filter-section'>
             <h4>Price</h4>
             <input
+              // id='priceRange'
               type='range'
-              min='500'
-              max='5000'
-              step='1000'
-              list='priceList'
+              min='200'
+              max='1001'
+              step='100'
+              onChange={
+                e => {
+                  console.log(e.target.value)
+                }
+                // filterDispatch({
+                //   type: 'FILTER_BY_PRICE_RANGE',
+                //   payload: e.target.value
+                // })
+              }
             />
-            <datalist id='priceList'>
-              <option label='500' value='500'></option>
-              <option label='500' value='1500'></option>
-              <option label='500' value='2500'></option>
-              <option label='500' value='3500'></option>
-              <option label='500' value='4500'></option>
-            </datalist>
+
+            <p>{filterData.priceRange}</p>
           </section>
           <section className='filter-section'>
             <h4>Product rating</h4>
@@ -57,6 +96,7 @@ const ProductFilter = () => {
               <label htmlFor='copies'> Notebook</label>
             </div>
           </section>
+          {/* option tag  */}
           {/* upcoming */}
           {/* discout, brands  , type , color  , gender , availability , category: a4 size , a5 size  , Sort By
            */}
