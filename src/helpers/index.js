@@ -1,1 +1,1 @@
-export {} from './filterHelper'
+export { getUniqueValues } from './filterHelper'

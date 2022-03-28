@@ -7,39 +7,24 @@ const ProductList = () => {
     // !TODO: ASK how DESTRUCT destruct
     state: { products, error }
   } = useProduct()
+  console.log(products)
   return (
     <div className='productList'>
       <div className='products__listing'>
-        <section className='products'>
-          <img
-            src='./images/stationary.jpg'
-            alt=''
-            className='product__image'
-          />
-          <p className='product__name'>Link Ocean</p>
-          <div className='product__rating'>5 star</div>
-          <span className='product__price'>523</span>
-        </section>
-        <section className='products'>
-          <img
-            src='./images/stationary.jpg'
-            alt=''
-            className='product__image'
-          />
-          <p className='product__name'>Link Ocean</p>
-          <div className='product__rating'>5 star</div>
-          <span className='product__price'>523</span>
-        </section>
-        <section className='products'>
-          <img
-            src='./images/stationary.jpg'
-            alt=''
-            className='product__image'
-          />
-          <p className='product__name'>Link Ocean</p>
-          <div className='product__rating'>5 star</div>
-          <span className='product__price'>523</span>
-        </section>
+        {products.map(({imageScr ,name , rating, price , _id}) => {
+          return (
+            <section className='products' key={_id}>
+              <img src={imageScr} alt='' className='product__image' />
+              <p className='product__name'>{name}</p>
+              <p className='product__rating'>{rating}</p>
+              <p className='product__price'>{price}</p>
+              <div className='product__button'>
+                <button className='btn btn-info'>add to cart </button>
+                <button className='btn btn-success'>add to wishlist </button>
+              </div>
+            </section>
+          )
+        })}
       </div>
     </div>
   )

@@ -9,22 +9,93 @@ export const products = [
   {
     _id: uuid(),
     title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
     author: 'Shiv Khera',
     price: '5000',
     categoryName: 'non-fiction'
   },
   {
     _id: uuid(),
-    title: 'You are Winner',
-    author: 'Junaid Qureshi',
-    price: '3000',
-    categoryName: 'horror'
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
   },
   {
     _id: uuid(),
-    title: 'Think and Grow Rich',
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
     author: 'Shiv Khera',
-    price: '1000',
-    categoryName: 'fiction'
-  }
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+  {
+    _id: uuid(),
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+  {
+    _id: uuid(),
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+  {
+    _id: uuid(),
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+  {
+    _id: uuid(),
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/advantage-book.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+  {
+    _id: uuid(),
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+  {
+    _id: uuid(),
+    title: 'You Can WIN',
+    name: 'link ocean',
+    imageScr: './images/stationary.jpg',
+    rating: "⭐⭐⭐",
+    author: 'Shiv Khera',
+    price: '5000',
+    categoryName: 'non-fiction'
+  },
+ 
+  
 ]

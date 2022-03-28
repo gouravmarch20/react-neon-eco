@@ -27,8 +27,8 @@ const ProductProvider = ({ children }) => {
     const { data, status, error } = await getProductDetails()
 
     status === 200
-      ? dispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data })
-      : dispatch({ type: 'ERROR', payload: error })
+      ? dispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data.products })
+      : dispatch({ type: 'ERROR', payload: error.message })
   }, [])
 
   return (

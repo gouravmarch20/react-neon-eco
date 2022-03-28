@@ -13,8 +13,8 @@
 }
 .products {
   min-width: 25vw;
-  max-width: 33vw;
-  max-height: 40vh;
+  /* max-width: 33vw; */
+  /* max-height: 30vh; */
   margin: 1rem;
   padding-bottom: 0.3rem;
   display: flex;
@@ -24,7 +24,7 @@
   box-shadow: 3px 4px 6px lightgray;
 }
 .products:hover {
-  box-shadow: 3px 3px 2px lightgreen;
+  box-shadow: 3px 3px 4px 5px darkgray;
 }
 .product__image {
   max-width: 27vw;
@@ -39,4 +39,8 @@
 }
 .product__price {
   font-weight: 500;
+}
+.product__button {
+  display: flex;
+  justify-content: space-between;
 }
