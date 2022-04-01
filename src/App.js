@@ -13,10 +13,9 @@ import {
   MyProfile,
   ProductDetail,
   Signin,
-  Signup
+  Signup,MockmanApi
 } from './pages/index'
 
-import Mockman from 'mockman-js'
 
 const Router = () => {
   return (
@@ -27,11 +26,10 @@ const Router = () => {
       <Route path='/wishlist' element={<Wishlist />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/my-profile' element={<MyProfile />} />
-      <Route path='/product/:id' element={<ProductDetail />} />
-      {/* auth todo  */}
+      <Route path='/product/:id' element={<ProductDetail />} /> 
       <Route path='/signin' element={<Signin />} />
       <Route path='/signup' element={<Signup />} />
-      <Route path='/mockman' element={<Mockman />} />
+      <Route path='/mockman' element={<MockmanApi />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

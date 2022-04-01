@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { makeServer } from './server'
 import { BrowserRouter } from 'react-router-dom'
-import './index.css'
 
+import './App.css'
 import { ProductProvider } from './context/ProductContext'
 import { FilterProvider } from './context/FilterContext'
 
