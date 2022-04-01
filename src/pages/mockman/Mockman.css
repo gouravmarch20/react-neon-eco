@@ -1,0 +1,8 @@
+textarea {
+  width: 68vh;
+  min-height: 25vh;
+}
+.mockman {
+  background-color: salmon;
+  min-height: 90vh;
+}

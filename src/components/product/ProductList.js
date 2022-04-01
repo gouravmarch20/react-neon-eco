@@ -1,21 +1,32 @@
 import React from 'react'
 import './ProductList.css'
-
+import {
+  getSortedProducts,
+  getFilteredProducts,
+  priceAfterDiscount,
+  putCommasInPrice
+} from '../../helpers'
 import { useProduct } from '../../context/ProductContext'
+import { useFilter } from '../../context/FilterContext'
+
 const ProductList = () => {
   const {
-    // !TODO: ASK how DESTRUCT destruct
     state: { products, error }
   } = useProduct()
-  console.log(products)
+  const { state, dispatch } = useFilter()
+  const sortedProducts = getSortedProducts(products, state)
+  const filteredProducts = getFilteredProducts(sortedProducts, state)
+
   return (
     <div className='productList'>
+    
       <div className='products__listing'>
-        {products.map(({imageScr ,name , rating, price , _id}) => {
+        {products.map(({ imageSrc, title, rating, price, _id }) => {
           return (
             <section className='products' key={_id}>
-              <img src={imageScr} alt='' className='product__image' />
-              <p className='product__name'>{name}</p>
+
+              <img src={imageSrc} alt='' className='product__image' />
+              <p className='product__name'>{title}</p>
               <p className='product__rating'>{rating}</p>
               <p className='product__price'>{price}</p>
               <div className='product__button'>

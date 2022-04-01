@@ -12,23 +12,18 @@ const initialState = {
 
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ProductReducer, initialState)
-
-  const getProductDetails = async () => {
-    try {
-      const { data, status } = await axios.get('api/products')
-      return { data, status }
-    } catch (error) {
-      return { error }
-    }
-  }
-
-  useEffect(async () => {
+  useEffect(() => {
     dispatch({ type: 'LOADING' })
-    const { data, status, error } = await getProductDetails()
-
-    status === 200
-      ? dispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data.products })
-      : dispatch({ type: 'ERROR', payload: error.message })
+    ;(async () => {
+      try {
+        const { data, status } = await axios.get('api/products')
+        if (status === 200) {
+          dispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data.products })
+        }
+      } catch (error) {
+        dispatch({ type: 'ERROR', payload: error })
+      }
+    })()
   }, [])
 
   return (

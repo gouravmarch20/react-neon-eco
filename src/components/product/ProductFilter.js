@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { getUniqueValues, putCommasInPrice } from '../../helpers'
 import { useProduct } from '../../context/ProductContext'
 import { useFilter } from '../../context/FilterContext'
+// import { getUniqueValues, putCommasInPrice } from '../../helpers'
+
 import './ProductFilter.css'
 const ProductFilter = () => {
   const [filterData, setFilterData] = useState({
@@ -13,6 +15,9 @@ const ProductFilter = () => {
     state: { products }
   } = useProduct()
   const { state, dispatch } = useFilter()
+  {
+    console.log(state)
+  }
   const {
     categories,
     brands,
@@ -25,7 +30,6 @@ const ProductFilter = () => {
     fastDelivery,
     includeOutOfStock
   } = state
-
   useEffect(() => {
     setUniqueCategories(getUniqueValues(products, 'categoryName'))
     setUniqueBrands(getUniqueValues(products, 'brand'))
@@ -40,7 +44,7 @@ const ProductFilter = () => {
               className='product__header__span'
               onClick={() => dispatch({ type: 'CLEAR_ALL_FILTERS' })}
             >
-              Reset
+              Reset Filter
             </span>
           </div>
           <hr />
@@ -48,15 +52,12 @@ const ProductFilter = () => {
           <section className='filter-section'>
             <h4>Price</h4>
             <input
-              // id='priceRange'
               type='range'
               min='200'
               max='1001'
               step='100'
               onChange={
-                e => {
-                  console.log(e.target.value)
-                }
+                e => {}
                 // filterDispatch({
                 //   type: 'FILTER_BY_PRICE_RANGE',
                 //   payload: e.target.value
@@ -68,34 +69,104 @@ const ProductFilter = () => {
           </section>
           <section className='filter-section'>
             <h4>Product rating</h4>
-            <div>
-              <input type='radio' id='5-star' value='5' name='product-rating' />
-              <label htmlFor='5-star'> 5 ⭐️ only</label>
-            </div>
-            <div>
-              <input type='radio' id='4-star' value='4' name='product-rating' />
-              <label htmlFor='4-star'> 4 ⭐️ & Above </label>
-            </div>
-            <div>
-              <input type='radio' id='3-star' value='3' name='product-rating' />
-              <label htmlFor='3-star'> 3 ⭐️ & Above </label>
-            </div>
+
+            <li>
+              <label htmlFor='fourStarRating'>
+                <input
+                  className=''
+                  id='fourStarRating'
+                  type='radio'
+                  name='rating'
+                  // checked={rating && rating === 4}
+                  onClick={
+                    () => console.log('first')
+                    // dispatch({ type: 'FILTER_BY_RATING', payload: 4 })
+                  }
+                />
+                4 or more
+              </label>
+              <label htmlFor='threeStarRating'>
+                <input
+                  className=''
+                  id='threeStarRating'
+                  type='radio'
+                  name='rating'
+                  onChange={
+                    () => console.log('secon')
+                    // dispatch({ type: 'FILTER_BY_RATING', payload: 4 })
+                  }
+                />
+                3 or more
+              </label>
+              <label htmlFor='twoStarRating'>
+                <input
+                  className=''
+                  id='twoStarRating'
+                  type='radio'
+                  name='rating'
+                  onChange={
+                    () => console.log('secon')
+                    // dispatch({ type: 'FILTER_BY_RATING', payload: 4 })
+                  }
+                />
+                2 or more
+              </label>
+            </li>
           </section>
           <section className='filter-section'>
             <h4>Category</h4>
-            <div>
-              <input type='checkbox' id='schoolBag' name='bag' value='Bag' />
-              <label htmlFor='schoolBag'> School Bag</label>
-            </div>
-            <div>
-              <input type='checkbox' id='pens' name='pens' value='Pen' />
-              <label htmlFor='pens'> Pens</label>
-            </div>
-            <div>
-              <input type='checkbox' id='copies' name='bag' value='Copy' />
-              <label htmlFor='copies'> Notebook</label>
-            </div>
+            {uniqueCategories &&
+              uniqueCategories.map((category, index) => {
+                return (
+                  <li key={index}>
+                    <label htmlFor={category}>
+                      <input
+                        className=''
+                        id={category}
+                        type='checkbox'
+                        checked={console.log(categories.includes(category))}
+                        onChange={() => {
+                          dispatch({
+                            type: 'FILTER_BY_CATEGORIES',
+                            payload: category
+                          })
+                        }}
+                      />
+                      {category}
+                    </label>
+                  </li>
+                )
+              })}
+            <input type='checkbox' id='copies' name='bag' value='Copy' />
+            <label htmlFor='copies'> Notebook</label>
           </section>
+
+          <section className='filter-section'>
+            <h4>Short by Price</h4>
+            <label htmlFor='priceHighLow'>
+              <input
+                type='radio'
+                id='priceHighLow'
+                name='priceShort'
+                onChange={() =>
+                  dispatch({ type: 'SORT_BY', payload: 'PRICE_HIGH_TO_LOW' })
+                }
+              />
+              High to Low
+            </label>
+            <label htmlFor='priceLowHigh'>
+              Low to High
+              <input
+                type='radio'
+                id='priceLowHigh'
+                onChange={() =>
+                  dispatch({ type: 'SORT_BY', payload: 'PRICE_LOW_TO_HIGH' })
+                }
+                name='priceShort'
+              />
+            </label>
+          </section>
+
           {/* option tag  */}
           {/* upcoming */}
           {/* discout, brands  , type , color  , gender , availability , category: a4 size , a5 size  , Sort By
