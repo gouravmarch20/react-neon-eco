@@ -1,133 +1,80 @@
 import React, { useEffect, useState } from 'react'
-import { getUniqueValues, putCommasInPrice } from '../../helpers'
 import { useProduct } from '../../context/ProductContext'
 import { useFilter } from '../../context/FilterContext'
-// import { getUniqueValues, putCommasInPrice } from '../../helpers'
+import { getUniqueValues } from '../../utils/filterProduct'
 
 import './ProductFilter.css'
 const ProductFilter = () => {
-  const [filterData, setFilterData] = useState({
-    priceRange: 200
-  })
   const [uniqueCategories, setUniqueCategories] = useState([])
-  const [uniqueBrands, setUniqueBrands] = useState([])
+  const [priceRange, setPriceRange] = useState(1000)
   const {
-    state: { products }
+    productState: { products }
   } = useProduct()
-  const { state, dispatch } = useFilter()
-  {
-    console.log(state)
-  }
+  const { filterState, filterDispatch } = useFilter()
+
   const {
     categories,
-    brands,
+
     sortBy,
-    minPrice,
     maxPrice,
-    price,
-    rating,
-    cashOnDelivery,
-    fastDelivery,
-    includeOutOfStock
-  } = state
+
+    rating
+  } = filterState
   useEffect(() => {
-    setUniqueCategories(getUniqueValues(products, 'categoryName'))
-    setUniqueBrands(getUniqueValues(products, 'brand'))
+    setUniqueCategories(getUniqueValues([...products], 'categoryName'))
   }, [products])
   return (
     <>
       <aside className='product__filter'>
         <div className='product__filter__container'>
           <div className='product__header '>
-            <span className='product__header__span'>Filter</span>
-            <span
-              className='product__header__span'
-              onClick={() => dispatch({ type: 'CLEAR_ALL_FILTERS' })}
+            <button className='product__header__heading btn btn-info'>
+              Filter Box
+            </button>
+            <button
+              className='product__header__heading btn btn-danger'
+              onClick={() => filterDispatch({ type: 'RESET_ALL_FILTER' })}
             >
               Reset Filter
-            </span>
+            </button>
           </div>
-          <hr />
-
+          <div className='divider-mini' />
           <section className='filter-section'>
-            <h4>Price</h4>
+            <h4 className='text-center '>Price</h4>
             <input
               type='range'
               min='200'
               max='1001'
               step='100'
-              onChange={
-                e => {}
-                // filterDispatch({
-                //   type: 'FILTER_BY_PRICE_RANGE',
-                //   payload: e.target.value
-                // })
-              }
+              value={priceRange}
+              onChange={e => {
+                setPriceRange(e.target.value)
+                filterDispatch({
+                  type: 'FILTER_BY_PRICE',
+                  payload: e.target.value
+                })
+              }}
             />
-
-            <p>{filterData.priceRange}</p>
+            <div className='price-detail'>
+              FROM <span>₹200</span> TO
+              <span>₹{priceRange}</span>
+            </div>
           </section>
+          <div className='divider-mini'></div>
           <section className='filter-section'>
-            <h4>Product rating</h4>
-
-            <li>
-              <label htmlFor='fourStarRating'>
-                <input
-                  className=''
-                  id='fourStarRating'
-                  type='radio'
-                  name='rating'
-                  // checked={rating && rating === 4}
-                  onClick={
-                    () => console.log('first')
-                    // dispatch({ type: 'FILTER_BY_RATING', payload: 4 })
-                  }
-                />
-                4 or more
-              </label>
-              <label htmlFor='threeStarRating'>
-                <input
-                  className=''
-                  id='threeStarRating'
-                  type='radio'
-                  name='rating'
-                  onChange={
-                    () => console.log('secon')
-                    // dispatch({ type: 'FILTER_BY_RATING', payload: 4 })
-                  }
-                />
-                3 or more
-              </label>
-              <label htmlFor='twoStarRating'>
-                <input
-                  className=''
-                  id='twoStarRating'
-                  type='radio'
-                  name='rating'
-                  onChange={
-                    () => console.log('secon')
-                    // dispatch({ type: 'FILTER_BY_RATING', payload: 4 })
-                  }
-                />
-                2 or more
-              </label>
-            </li>
-          </section>
-          <section className='filter-section'>
-            <h4>Category</h4>
+            <h4 className='text-center'>Category</h4>
             {uniqueCategories &&
               uniqueCategories.map((category, index) => {
                 return (
                   <li key={index}>
                     <label htmlFor={category}>
                       <input
-                        className=''
                         id={category}
                         type='checkbox'
-                        checked={console.log(categories.includes(category))}
+                        checked={categories.includes(category)}
                         onChange={() => {
-                          dispatch({
-                            type: 'FILTER_BY_CATEGORIES',
+                          filterDispatch({
+                            type: 'FILTER_BY_CATEGORY',
                             payload: category
                           })
                         }}
@@ -137,36 +84,86 @@ const ProductFilter = () => {
                   </li>
                 )
               })}
-            <input type='checkbox' id='copies' name='bag' value='Copy' />
-            <label htmlFor='copies'> Notebook</label>
           </section>
-
+          <div className='divider-mini'></div>
           <section className='filter-section'>
-            <h4>Short by Price</h4>
-            <label htmlFor='priceHighLow'>
+            <h4 className='text-center'>Product rating</h4>
+
+            <li>
+              <label className='display-block' htmlFor='fourStarRating'>
+                <input
+                  className=''
+                  id='fourStarRating'
+                  type='radio'
+                  name='rating'
+                  onChange={() =>
+                    filterDispatch({ type: 'FILTER_BY_RATING', payload: 4 })
+                  }
+                />
+                4 or more
+              </label>
+              <label htmlFor='threeStarRating' className='display-block'>
+                <input
+                  className=''
+                  id='threeStarRating'
+                  type='radio'
+                  name='rating'
+                  onChange={() =>
+                    filterDispatch({ type: 'FILTER_BY_RATING', payload: 3 })
+                  }
+                />
+                3 or more
+              </label>
+              <label htmlFor='twoStarRating' className='display-block'>
+                <input
+                  className=''
+                  id='twoStarRating'
+                  type='radio'
+                  name='rating'
+                  onChange={() =>
+                    filterDispatch({ type: 'FILTER_BY_RATING', payload: 2 })
+                  }
+                />
+                2 or more
+              </label>
+            </li>
+          </section>{' '}
+          <div className='divider-mini'></div>
+          <section className='filter-section'>
+            <h4 className='text-center'>Short by Price</h4>
+
+            <label htmlFor='priceHighLow' className='input-text display-block'>
               <input
                 type='radio'
                 id='priceHighLow'
                 name='priceShort'
                 onChange={() =>
-                  dispatch({ type: 'SORT_BY', payload: 'PRICE_HIGH_TO_LOW' })
+                  filterDispatch({
+                    type: 'SORT_BY',
+                    payload: 'PRICE_HIGH_TO_LOW'
+                  })
                 }
               />
               High to Low
             </label>
-            <label htmlFor='priceLowHigh'>
-              Low to High
+            <label htmlFor='priceLowHigh' className='input-text display-block '>
               <input
                 type='radio'
                 id='priceLowHigh'
                 onChange={() =>
-                  dispatch({ type: 'SORT_BY', payload: 'PRICE_LOW_TO_HIGH' })
+                  filterDispatch({
+                    type: 'SORT_BY',
+                    payload: 'PRICE_LOW_TO_HIGH'
+                  })
                 }
                 name='priceShort'
               />
+              Low to High
             </label>
           </section>
-
+          <div className='divider-mini'></div>
+          <p className='text-center'>❤️ ❤️ ❤️ ❤️</p>
+          <div className='divider'></div>
           {/* option tag  */}
           {/* upcoming */}
           {/* discout, brands  , type , color  , gender , availability , category: a4 size , a5 size  , Sort By

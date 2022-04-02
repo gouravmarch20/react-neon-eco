@@ -11,23 +11,26 @@ const initialState = {
 }
 
 const ProductProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(ProductReducer, initialState)
+  const [productState, productDispatch] = useReducer(
+    ProductReducer,
+    initialState
+  )
   useEffect(() => {
-    dispatch({ type: 'LOADING' })
+    productDispatch({ type: 'LOADING' })
     ;(async () => {
       try {
         const { data, status } = await axios.get('api/products')
         if (status === 200) {
-          dispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data.products })
+          productDispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data.products })
         }
       } catch (error) {
-        dispatch({ type: 'ERROR', payload: error })
+        productDispatch({ type: 'ERROR', payload: error })
       }
     })()
   }, [])
 
   return (
-    <ProductContext.Provider value={{ state, dispatch }}>
+    <ProductContext.Provider value={{ productState, productDispatch }}>
       {children}
     </ProductContext.Provider>
   )

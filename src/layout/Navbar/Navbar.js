@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className='navbar'>
         <div className='navbar-warpper'>
           <div className='navbar-left'>
-            <Link to='/' className='navbar-link'>
+            <Link to='/home' className='navbar-link'>
               <h1>neo rail </h1>
             </Link>
           </div>
