@@ -7,17 +7,19 @@ import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import { ProductProvider } from './context/ProductContext'
 import { FilterProvider } from './context/FilterContext'
+import { CategoryProvider } from './context/CategoryContext'
 
 makeServer()
-// TODO: TO KNEW ANY CHANGE IN BROWSER ROUTER BELOW ==> WRAP IN BROWSER ROUTER GOOD WAY
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductProvider>
-        <FilterProvider>
-          <App />
-        </FilterProvider>
-      </ProductProvider>
+      <CategoryProvider>
+        <ProductProvider>
+          <FilterProvider>
+            <App />
+          </FilterProvider>
+        </ProductProvider>
+      </CategoryProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

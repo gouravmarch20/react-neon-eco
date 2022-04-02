@@ -3,31 +3,25 @@ import { FilterReducer } from '../reducers'
 import { useProduct } from './ProductContext'
 
 const initialState = {
-  sortBy: '',
   categories: [],
-  brands: [],
-  minPrice: 0,
   maxPrice: 0,
-  price: 0,
   rating: 0,
-  cashOnDelivery: false,
-  fastDelivery: false,
-  includeOutOfStock: true
+  sortBy: null
 }
 
 const FilterContext = createContext(initialState)
 
 const FilterProvider = ({ children }) => {
   const {
-    state: { products }
+    productState: { products }
   } = useProduct()
-  const [state, dispatch] = useReducer(FilterReducer, initialState)
+  const [filterState, filterDispatch] = useReducer(FilterReducer, initialState)
   useEffect(() => {
-    dispatch({ type: 'LOAD_MAX_PRICE', payload: products })
+    filterDispatch({ type: 'LOAD_MAX_PRICE', payload: products })
   }, [products])
 
   return (
-    <FilterContext.Provider value={{ state, dispatch }}>
+    <FilterContext.Provider value={{ filterState, filterDispatch }}>
       {children}
     </FilterContext.Provider>
   )

@@ -11,7 +11,25 @@
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb {
-  backgrouDnd-color: #e83a59;
+  backgroudnd-color: #e83a59;
   border-radius: 10px;
   width: 10px;
+}
+/* button  */
+button {
+  cursor: pointer;
+}
+.btn {
+  padding: 1rem 0.6rem;
+  color: white;
+  font-size: 1rem;
+  font-family: serif;
+}
+.divider-mini {
+  width: 100%;
+}
+
+/* more component library */
+.display-block{
+  display: block;
 }

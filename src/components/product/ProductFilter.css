@@ -8,13 +8,29 @@
   position: sticky;
   top: 0;
 }
-/* .product__filter__container {
-    position: sticky;
-  } */
+
 .product__filter:hover {
   overflow-y: scroll;
 }
 .product__header {
   display: flex;
   justify-content: space-between;
+}
+.product__filter__container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.filter-section input {
+  margin: 1rem 0.5rem;
+}
+.input-text {
+  font-family: monospace;
+  font-weight: 0px;
+  color: red;
+}
+.price-detail {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
 }
