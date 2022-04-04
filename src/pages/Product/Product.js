@@ -7,6 +7,7 @@ export const Product = () => {
   return (
     <div>
       <section className='product'>
+
         <ProductFilter />
         <ProductList />
       </section>

@@ -6,6 +6,7 @@ const initialState = {
   categories: []
 }
 const CategoryProvider = ({ children }) => {
+
   const [categoryState, categoryDispatch] = useReducer(
     CategoryReducer,
     initialState

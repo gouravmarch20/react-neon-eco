@@ -1,23 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductDetail.css'
+import { useParams } from 'react-router-dom'
+import { getSpeceficProductDetail } from '../../helpers/'
+import axios from 'axios'
 export const ProductDetail = () => {
+  const { productId } = useParams()
+  const [product, setProduct] = useState({})
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const data = await getSpeceficProductDetail(productId)
+
+        setProduct(data)
+      } catch (error) {
+        console.log(error.message)
+      }
+    })()
+  }, [productId])
+  
   return (
     <div>
+      {typeof product === 'string' && <h1 className="align-center heading">{product}</h1>}
+      {/* {product.keys(empty).length === 0} */}
+
       <div className='a__product'>
         <div>
+          {/* !why image isssue  */}
           <img
-            className='a__product__image'
-            src='./images/classmate.jpg'
+            src='https://rukminim1.flixcart.com/image/416/416/ksoz53k0/television/c/p/h/l43m6-es-mi-original-imag6774wykv4ps8.jpeg?q=70'
             alt=''
+            className='product__image card'
           />
         </div>
         <section className='a__product__details'>
           <div className='a__product__details-1'>
-            <h2>Name</h2>
-            <p>Subheading</p>
+            <h2 className='subheading'>{product.categoryName}</h2>
+            <p>{product.title}</p>
           </div>
           <div className='a__product__details-2'>
-            <h4>Rating : 4 star</h4>
+            <h4>Rating {product.rating}</h4>
+          </div>
+          <div className='a__product__details-2'>
+            <h4>Brand {product.brand}</h4>
+          </div>
+          <div className='a__product__details-2'>
+            <h4>Category : {product.categoryName}</h4>
           </div>
           <div className='a__product__details-3'>
             <h4>Price : 66</h4>
@@ -61,4 +88,3 @@ export const ProductDetail = () => {
     </div>
   )
 }
-

@@ -1,7 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import axios from 'axios'
 import { ProductReducer } from '../reducers'
-// import { LOAD_ALL_PRODUCTS, ERROR } from '../types'
 const ProductContext = createContext(null)
 
 const initialState = {
@@ -21,7 +20,7 @@ const ProductProvider = ({ children }) => {
       try {
         const { data, status } = await axios.get('api/products')
         if (status === 200) {
-          productDispatch({ type: 'LOAD_ALL_PRODUCTS', payload: data.products })
+          productDispatch({ type: 'GET_ALL_PRODUCTS', payload: data.products })
         }
       } catch (error) {
         productDispatch({ type: 'ERROR', payload: error })

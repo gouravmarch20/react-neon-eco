@@ -8,14 +8,19 @@ export const Home = () => {
   const { categoryDispatch } = useCategory()
   useEffect(async () => {
     const tempCategory = await getCategoryDeatail()
-    
-    categoryDispatch({ type: 'LOAD_ALL_CATEGORIES', payload: tempCategory.categories })
+
+    categoryDispatch({
+      type: 'GET_ALL_CATEGORIES',
+      payload: tempCategory.categories
+    })
   }, [])
 
   return (
     <div>
       <Slider />
       <PickCategories />
+
+     
     </div>
   )
 }

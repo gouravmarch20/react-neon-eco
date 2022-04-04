@@ -26,7 +26,7 @@ const Router = () => {
       <Route path='/wishlist' element={<Wishlist />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/my-profile' element={<MyProfile />} />
-      <Route path='/product/:id' element={<ProductDetail />} /> 
+      <Route path='/products/:productId' element={<ProductDetail />} /> 
       <Route path='/signin' element={<Signin />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/mockman' element={<MockmanApi />} />

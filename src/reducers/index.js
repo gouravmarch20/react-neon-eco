@@ -1,4 +1,5 @@
 export { ProductReducer } from './ProductReducer'
 export { FilterReducer } from './FilterReducer'
-// category
 export { CategoryReducer } from './CategoryReducer'
+export { WishlistReducer } from './WishlistReducer'
+export { CartReducer } from './CartReducer'

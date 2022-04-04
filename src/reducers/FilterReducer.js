@@ -29,7 +29,6 @@ export const FilterReducer = (state, { type, payload }) => {
         return { ...state, sortBy: 'PRICE_HIGH_TO_LOW' }
       return { ...state, sortBy: '' }
     case RESET_ALL_FILTER:
-      console.log(state.category)
       return { ...state, sortBy: null, rating: 0, maxPrice: 0, categories: [] }
     default:
       return state

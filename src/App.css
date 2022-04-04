@@ -33,3 +33,6 @@ button {
 .display-block{
   display: block;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
