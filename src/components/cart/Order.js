@@ -1,5 +1,6 @@
 import React from 'react'
 import { useCart } from '../../context/CartContext'
+import { useWishlist } from '../../context/WishlistContext'
 import { deleteFromCart, addToCart, addToWishlist ,updateQuantity} from '../../helpers/index'
 const Order = () => {
   const { cartState, cartDispatch } = useCart()
