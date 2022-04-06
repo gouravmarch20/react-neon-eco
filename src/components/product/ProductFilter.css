@@ -3,7 +3,7 @@
   width: 25vw;
   height: 100vh !important;
   flex-direction: column;
-  border: 2px dotted blue;
+  border: 2px solid blue;
   height: 60vh;
   position: sticky;
   top: 0;

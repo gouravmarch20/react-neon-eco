@@ -1,9 +1,10 @@
 import React from 'react'
-import './App.css'
+import  './App.css'
 
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './layout/Navbar/Navbar'
-
+import { useTheme } from './context/ThemeContext'
+import AppTheme from './Colors'
 import {
   Home,
   Product,
@@ -13,9 +14,9 @@ import {
   MyProfile,
   ProductDetail,
   Signin,
-  Signup,MockmanApi
+  Signup,
+  MockmanApi
 } from './pages/index'
-
 
 const Router = () => {
   return (
@@ -26,7 +27,7 @@ const Router = () => {
       <Route path='/wishlist' element={<Wishlist />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/my-profile' element={<MyProfile />} />
-      <Route path='/products/:productId' element={<ProductDetail />} /> 
+      <Route path='/products/:productId' element={<ProductDetail />} />
       <Route path='/signin' element={<Signin />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/mockman' element={<MockmanApi />} />
@@ -36,9 +37,21 @@ const Router = () => {
 }
 
 const App = () => {
+  const { themeState :{themeMode}, themeDispatch } = useTheme()
+  // console.log(themeState)
+  const currectTheme = AppTheme[themeMode];
+console.log(currectTheme)
   return (
-    <div className='App'>
+    <div
+      className='App'
+      style={{
+        backgroundColor: `${currectTheme.backgroundColor}`,
+        color: `${currectTheme.textColor}`,
+        textAlign: 'center'
+      }}
+    >
       <Navbar />
+     
       <Router />
     </div>
   )

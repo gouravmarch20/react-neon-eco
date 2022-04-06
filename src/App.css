@@ -25,14 +25,40 @@ button {
   font-size: 1rem;
   font-family: serif;
 }
+.App {
+  min-height: 100vh;
+}
 .divider-mini {
   width: 100%;
 }
 
 /* more component library */
-.display-block{
+.display-block {
   display: block;
 }
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
+}
+/*  */
+.m-tb-1 {
+  margin: 1rem 0rem;
+}
+.card-image {
+  object-fit: contain;
+  min-width: 21vw;
+}
+
+.heading {
+  text-align: center;
+  font-size: 3rem;
+  color: #12b0e8;
+}
+.text-alignment {
+  margin-top: 15vh !important;
+  width: 80%;
+
+  margin: 0 auto;
+}
+.mt-1 {
+  margin-top: 1rem !important;
 }

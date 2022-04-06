@@ -14,7 +14,6 @@ const WishlistProvider = ({ children }) => {
   )
 
   useEffect(() => {
-    console.log('wishlist context ')
     // getWishlist(wishlistDispatch)
   }, [])
 

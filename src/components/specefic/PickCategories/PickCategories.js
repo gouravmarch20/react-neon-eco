@@ -11,7 +11,6 @@ const PickCategories = () => {
     <>
       <h1 className='subheading'>Shop By Category</h1>
       <div className='pick-categories'>
-
         {categories?.length > 0 &&
           categories.map((category, index) => {
             return <PickCategoriesSection key={index} category={category} />

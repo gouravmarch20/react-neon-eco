@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Annoncement from '../../components/specefic/Annoncement/Annoncement'
 import './Navbar.css'
-// import { Search, ShoppingCartOutlined } from '@material-ui/icons'
-// import SearchIcon from '@mui/icons-material/Search'
+import { useTheme } from '../../context/ThemeContext'
+import AppTheme from '../../ColorsThree'
+
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+  const { themeState, themeDispatch } = useTheme()
+  const currectTheme = AppTheme[themeState.themeMode]
+
   return (
     <>
       {/* To do hide if not home page  */}
       <Annoncement />
-      <div className='navbar'>
+      <div
+        className='navbar'
+        style={{
+          backgroundColor: `${currectTheme.backgroundColor}`,
+          color: `${currectTheme.textColor}`
+        }}
+      >
         <div className='navbar-warpper'>
           <div className='navbar-left'>
             <Link to='/home' className='navbar-link'>
@@ -32,7 +42,7 @@ const Navbar = () => {
               Signout
             </Link> */}
             <Link to='/products' className='navbar-link'>
-             product
+              product
             </Link>
             <Link to='/cart' className='navbar-link'>
               Cart
@@ -42,6 +52,35 @@ const Navbar = () => {
             </Link>
             <Link to='my-profile' className='navbar-link'>
               My profile
+            </Link>
+            <Link to='#' className='navbar-link'>
+              {console.log(themeState)}
+              <span>
+                {' '}
+                {themeState.themeMode == 'light' ? (
+                  <div
+                    onClick={() =>
+                      themeDispatch({
+                        type: 'LIGHT_MODE',
+                        payload: 'dark'
+                      })
+                    }
+                  >
+                    Dark
+                  </div>
+                ) : (
+                  <div
+                    onClick={() =>
+                      themeDispatch({
+                        type: 'LIGHT_MODE',
+                        payload: 'light'
+                      })
+                    }
+                  >
+                    Light
+                  </div>
+                )}
+              </span>
             </Link>
           </div>
         </div>

@@ -23,7 +23,6 @@ export const getFilteredProducts = (data, filterState) => {
     tempFilterProducts = data.filter(item => item.rating >= rating)
   }
   if (maxPrice) {
-
     tempFilterProducts = tempFilterProducts.filter(
       item => item.price <= maxPrice
     )

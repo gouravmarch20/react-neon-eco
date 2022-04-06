@@ -1,42 +1,46 @@
 import React from 'react'
 import { useCart } from '../../context/CartContext'
-import { deleteFromCart, addToCart, addToWishlist } from '../../helpers/index'
-import { useWishlist } from '../../context/WishlistContext'
-
+import { deleteFromCart, addToCart, addToWishlist ,updateQuantity} from '../../helpers/index'
 const Order = () => {
   const { cartState, cartDispatch } = useCart()
   const { cart, cartError, totalProductInCart } = cartState
   const { wishlistDispatch } = useWishlist()
-  console.log(cart)
 
   return (
-    <div>
+    <>
       <div className='cart'>
         {cart.length === 0 ? (
-          <h1>No product add to cart</h1>
+          <h1 className='heading text-alignment '>No product add to cart</h1>
         ) : (
-          cart.map((cart, index) => {
+          cart.length > 0 &&
+          cart?.map((cart, index) => {
             const { _id, imageSrc } = cart
             return (
               <div className='cart__items' key={index}>
                 <img src={imageSrc} alt='no imag' className='cart__image' />
                 <div className='cart__detail'>
-                  <h3>{cart.title}</h3>
-                  <h5>{cart.price}</h5>
+                  <h3 className='text-info  mt-1'>{cart.title}</h3>
+                  <span className='card-price mt-'>
+                    {cart.price} &#160;
+                    <del className='text-danger'>{cart.priceMrp}</del>
+                  </span>
                 </div>
                 <div className='cart__input'>
                   <button
                     className='btn btn-info'
                     onClick={() => {
-                      decrementProduct(cart)
+                      cart.qty < 2
+                        ? ''
+                        : updateQuantity(_id, 'decrement', cartDispatch)
                     }}
                   >
                     -
                   </button>
+                  <p>{cart.qty}</p>
                   <button
                     className='btn btn-info'
                     onClick={() => {
-                      incrementProduct(cart)
+                      updateQuantity(_id, 'increment', cartDispatch)
                     }}
                   >
                     +
@@ -65,7 +69,7 @@ const Order = () => {
           })
         )}
       </div>
-    </div>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@ const headers = {
 export const getWishlist = async wishlistDispatch => {
   try {
     const response = await axios.get('/api/user/wishlist', { headers })
-    const { data, status } = response 
+    const { data, status } = response
     if (status === 200) {
       wishlistDispatch({
         type: 'GET_ALL_WISHLIST_PRODUCTS',
@@ -43,7 +43,7 @@ export const deleteFromWishlist = async (productId, wishlistDispatch) => {
       headers
     })
     const { status, data } = response
-   
+
     if (status === 200) {
       wishlistDispatch({ type: 'REMOVE_FROM_WISHLIST', payload: data.wishlist })
     }

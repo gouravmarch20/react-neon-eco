@@ -12,13 +12,14 @@
   min-width: 75%;
 }
 .cart__items {
-  min-width: 23vw;
-  margin: 1rem auto;
+  min-width: 20vw;
   border-radius: 1rem;
   box-shadow: 2px 3px 7px red;
-  background-color: #207398;
+  background-color: #daf0fa;
   display: flex;
   flex-direction: column;
+
+  margin: 1rem;
 }
 .cart__items:hover {
   box-shadow: 2px 3px 7px green;
@@ -62,11 +63,13 @@
   display: flex;
   min-width: 20%;
   flex-direction: column;
-  border: 2px dotted blue;
+  border: 2px solid blue;
   height: 60vh;
   position: sticky;
   top: 0;
-  margin: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-left: auto;
 }
 .pay__now {
   padding: 0.9rem 0.7rem;

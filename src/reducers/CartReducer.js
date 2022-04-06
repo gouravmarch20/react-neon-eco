@@ -1,7 +1,8 @@
 import {
   GET_ALL_CART_PRODUCTS,
   ADD_CART_PRODUCT,
-  REMOVE_FROM_CART
+  REMOVE_FROM_CART,
+  INCREMENT_DECREMENT__QUANTITY
 } from '../types'
 export const CartReducer = (state, { type, payload }) => {
   let noOfItemInCart
@@ -10,16 +11,17 @@ export const CartReducer = (state, { type, payload }) => {
       return { ...state, cart: payload }
     case ADD_CART_PRODUCT:
       noOfItemInCart = payload.length
-      console.log(noOfItemInCart)
       return { ...state, cart: payload, totalProductInCart: noOfItemInCart }
     case REMOVE_FROM_CART:
       noOfItemInCart = payload.length
-      console.log(noOfItemInCart)
       return {
         ...state,
         cart: payload,
         totalProductInCart: noOfItemInCart
       }
+    case INCREMENT_DECREMENT__QUANTITY: {
+      return { ...state, cart: payload }
+    }
     default:
       return state
   }

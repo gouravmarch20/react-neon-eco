@@ -8,12 +8,11 @@ const Payment = () => {
   const { cart, cartError, totalProductInCart } = cartState
 
   useEffect(() => {
-    console.log('first')
     let priceDetail = cart.reduce(
       (acc, curr) => ({
         ...acc,
-        price: curr.price + acc.price,
-        priceMrp: curr.priceMrp + acc.priceMrp
+        price: curr.qty * (curr.price + acc.price),
+        priceMrp: curr.qty * (curr.priceMrp + acc.priceMrp)
       }),
       {
         price: 0,
@@ -30,20 +29,20 @@ const Payment = () => {
       {' '}
       <div className='payment'>
         <div className='payment__details'>
-          <h2>Price Detail</h2>
-          <p>
+          <h2 className='m-tb-1'>Price Detail</h2>
+          <p className='m-tb-1'>
             No of items - <span> &nbsp; {totalProductInCart} </span>
           </p>
         </div>
         <div className='payment__checkbox'>
-          <p>
+          <p className='m-tb-1'>
             Total Mrp : &nbsp;
             <span>
               {' '}
               <del className='text-danger'> {value.priceMrp}</del>
             </span>
           </p>
-          <p>
+          <p className='m-tb-1'>
             Special Discount -{' '}
             <span className='text-info'> &nbsp; {discountPrice}</span>
           </p>

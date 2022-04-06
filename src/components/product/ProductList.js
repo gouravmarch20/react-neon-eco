@@ -28,9 +28,12 @@ const ProductList = () => {
 
   return (
     <div className='productList'>
+      <h1 className='heading mt-1'>
+        Total products <span className='subheading'>{filteredProducts.length}</span>
+      </h1>
       <div className='products__listing'>
         {filteredProducts && filteredProducts.length === 0 ? (
-          <h1>No product found</h1>
+          <h1 className='heading text-alignment'>No product found</h1>
         ) : (
           filteredProducts?.map(product => {
             // const isProductAddedToCart = cart.find(cardProduct => cardProduct._id === product._id)

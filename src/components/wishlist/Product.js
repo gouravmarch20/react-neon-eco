@@ -14,7 +14,7 @@ const Product = () => {
     <>
       <div className='products__listing'>
         {wishlist?.length === 0 ? (
-          <h1>No item save in wishlist</h1>
+          <h1 className='heading text-alignment '>No item save in wishlist</h1>
         ) : (
           wishlist &&
           wishlist.map((product, index) => {

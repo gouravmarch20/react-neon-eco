@@ -9,7 +9,7 @@
   left: 1.3rem;
   margin-top: 15vh;
   cursor: pointer;
-  background-color: red;
+  background-color: #8D3DAF;
   padding: 0.3rem;
 }
 .slider-right {
@@ -17,7 +17,7 @@
   right: 1.3rem;
   cursor: pointer;
   padding: 0.3rem;
-  background-color: red;
+  background-color: #8D3DAF;
   margin-top: 15vh;
 }
 .slider-image {

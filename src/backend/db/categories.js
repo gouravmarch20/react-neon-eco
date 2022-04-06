@@ -37,7 +37,7 @@ export const categories = [
     categoryName: 'pen',
     description:
       'literature in the form of prose, especially novels, that describes imaginary events and people',
-    imgUrl: './images/advantage-book.jpg'
+    imgUrl: './assets/category-pick/pen.webp'
   },
 
   {
@@ -45,13 +45,13 @@ export const categories = [
     categoryName: 'book',
     description:
       'Non-fiction is writing that gives information or describes real events, rather than telling a story.',
-    imgUrl: './images/advantage-book.jpg'
-  },
+      imgUrl: './assets/category-pick/book.webp'
+    },
   {
     _id: uuid(),
     categoryName: 'copy',
     description:
       'Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.',
-    imgUrl: './images/advantage-book.jpg'
+    imgUrl: './assets/category-pick/copy.webp'
   }
 ]

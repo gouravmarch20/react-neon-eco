@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       {' '}
-      <h2 className='heading'>
+      <h2 className='heading mt-1'>
         Your saved <span> {wishlist.length} products . </span>
       </h2>
     </>
