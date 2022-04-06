@@ -54,7 +54,6 @@ const Navbar = () => {
               My profile
             </Link>
             <Link to='#' className='navbar-link'>
-              {console.log(themeState)}
               <span>
                 {' '}
                 {themeState.themeMode == 'light' ? (

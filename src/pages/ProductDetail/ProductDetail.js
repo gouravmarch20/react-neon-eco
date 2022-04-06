@@ -13,7 +13,7 @@ export const ProductDetail = () => {
 
         setProduct(data)
       } catch (error) {
-        console.log(error.message)
+        console.warn(error.message)
       }
     })()
   }, [productId])

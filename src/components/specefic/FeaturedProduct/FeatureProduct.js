@@ -20,7 +20,6 @@ const FeatureProduct = () => {
   let featuredProducts = [...products].filter(
     product => product.featured === true
   )
-  console.log(featuredProducts)
   return (
     <div className='feature-product'>
       <div className='divider'></div>
