@@ -38,9 +38,7 @@ const Router = () => {
 
 const App = () => {
   const { themeState :{themeMode}, themeDispatch } = useTheme()
-  // console.log(themeState)
   const currectTheme = AppTheme[themeMode];
-console.log(currectTheme)
   return (
     <div
       className='App'
