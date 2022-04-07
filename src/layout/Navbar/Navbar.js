@@ -2,9 +2,12 @@ import React, { useContext } from 'react'
 import Annoncement from '../../components/specefic/Annoncement/Annoncement'
 import './Navbar.css'
 import { useTheme } from '../../context/ThemeContext'
-import AppTheme from '../../ColorsThree'
+import AppTheme from '../../color/ColorsThree'
 
 import { Link } from 'react-router-dom'
+import { MdDarkMode, MdOutlineFlashlightOn } from 'react-icons/md'
+import { IoBagOutline } from 'react-icons/io5'
+import { TiHeartFullOutline, TiShoppingCart, TiUser } from 'react-icons/ti'
 
 const Navbar = () => {
   const { themeState, themeDispatch } = useTheme()
@@ -41,23 +44,31 @@ const Navbar = () => {
             <Link to='/' className='navbar-link'>
               Signout
             </Link> */}
-            <Link to='/products' className='navbar-link'>
-              product
+            <Link to='/products' className='navbar-link navbar-link-icon
+'>
+              <TiShoppingCart />
             </Link>
-            <Link to='/cart' className='navbar-link'>
-              Cart
+            <Link to='/cart' className='navbar-link navbar-link-icon
+'>
+              <IoBagOutline />
             </Link>
-            <Link to='/wishlist' className='navbar-link'>
-              WishList{' '}
+            <Link to='/wishlist' className='navbar-link navbar-link-icon
+'>
+              <TiHeartFullOutline />{' '}
             </Link>
-            <Link to='my-profile' className='navbar-link'>
-              My profile
+            <Link
+              to='my-profile'
+              className='navbar-link navbar-link-icon
+'
+            >
+              <TiUser />
             </Link>
-            <Link to='#' className='navbar-link'>
+            <Link to='#' className='navbar-link navbar-link-icon
+'>
               <span>
                 {' '}
                 {themeState.themeMode == 'light' ? (
-                  <div
+                  <div className='nav-theme-link'
                     onClick={() =>
                       themeDispatch({
                         type: 'LIGHT_MODE',
@@ -65,10 +76,11 @@ const Navbar = () => {
                       })
                     }
                   >
-                    Dark
+                    <MdDarkMode />
                   </div>
                 ) : (
-                  <div
+                  <div className = 'nav-theme-link'
+
                     onClick={() =>
                       themeDispatch({
                         type: 'LIGHT_MODE',
@@ -76,7 +88,7 @@ const Navbar = () => {
                       })
                     }
                   >
-                    Light
+                    <MdOutlineFlashlightOn />
                   </div>
                 )}
               </span>

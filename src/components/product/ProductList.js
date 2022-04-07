@@ -1,6 +1,10 @@
 import React from 'react'
 import './ProductList.css'
-import { getSortedProducts, getFilteredProducts } from '../../utils/index'
+import {
+  getSortedProducts,
+  getFilteredProducts,
+  discontInPercent
+} from '../../utils/index'
 import { addToWishlist, addToCart } from '../../helpers/index'
 import { useProduct } from '../../context/ProductContext'
 import { useFilter } from '../../context/FilterContext'
@@ -29,14 +33,14 @@ const ProductList = () => {
   return (
     <div className='productList'>
       <h1 className='heading mt-1'>
-        Total products <span className='subheading'>{filteredProducts.length}</span>
+        Total products{' '}
+        <span className='subheading'>{filteredProducts.length}</span>
       </h1>
       <div className='products__listing'>
         {filteredProducts && filteredProducts.length === 0 ? (
           <h1 className='heading text-alignment'>No product found</h1>
         ) : (
           filteredProducts?.map(product => {
-            // const isProductAddedToCart = cart.find(cardProduct => cardProduct._id === product._id)
             const isProductAddedToCart = cart?.find(
               cardProduct => cardProduct._id === product._id
             )
@@ -54,9 +58,19 @@ const ProductList = () => {
                     navigate(`/products/${_id}`)
                   }}
                 />
-                <p className='card-title align-center'>{product.title}</p>
-                <p className='product__rating '>{product.rating}</p>
-                <p className='card-price'>{product.price}</p>
+                <p className='card-title'>{product.title}</p>
+                <p className='card-rating'>{product.rating}</p>
+
+                <div className='card-pricing-detail'>
+                  <span className='card-price'>{product.price} &nbsp; </span>
+                  <span className='card-price-mrp'>
+                    <del>{product.priceMrp}</del>
+                  </span>
+
+                  <span className='card-disount'>
+                    &nbsp; {discontInPercent(product.price, product.priceMrp)}%
+                  </span>
+                </div>
                 <div className='product__button'>
                   {cart.length != 0 && isProductAddedToCart ? (
                     <button

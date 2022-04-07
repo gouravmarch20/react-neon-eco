@@ -34,3 +34,4 @@ export const getFilteredProducts = (data, filterState) => {
   }
   return tempFilterProducts
 }
+

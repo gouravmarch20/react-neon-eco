@@ -28,6 +28,49 @@ button {
 .App {
   min-height: 100vh;
 }
+
+.card-title {
+  font-weight: bolder;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text-content);
+  margin-top: 1rem;
+  text-transform: capitalize;
+}
+.card-subtitle {
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-text-subheading);
+  margin-bottom: 1rem;
+}
+.card-content {
+  margin: 1rem 0rem;
+  font-weight: 500;
+  color: var(--color-text-content);
+  font-family: monospace;
+  width: 80%;
+}
+.card-rating {
+  color: #3944f7;
+  font-weight: 600;
+
+  font-family: monospace;
+}
+.card-price {
+  font-weight: 700;
+  color: green;
+  margin: 0.5rem 0rem;
+  font-size: 1.3rem;
+}
+.card-price-mrp {
+  color: red;
+}
+.card-disount {
+  color: orange;
+  font-weight: 700;
+}
 .divider-mini {
   width: 100%;
 }
@@ -54,10 +97,10 @@ button {
   color: #12b0e8;
 }
 .text-alignment {
-  margin-top: 15vh !important;
-  width: 80%;
+  margin-top: 10vh !important;
 
   margin: 0 auto;
+  text-align: center;
 }
 .mt-1 {
   margin-top: 1rem !important;

@@ -2,4 +2,5 @@ export {
   getUniqueValues,
   getFilteredProducts,
   getSortedProducts
-} from './filterProduct'
+} from './filterUtils'
+export { discontInPercent } from './productUtils'
