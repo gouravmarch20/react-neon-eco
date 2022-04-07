@@ -36,6 +36,14 @@
   text-decoration: none;
   color: white;
 }
+.navbar-link-icon {
+  margin: 0rem .8rem;
+  font-size: 2rem;
+  color: white;
+}
+.nav-theme-link {
+  font-size: 2rem;
+}
 .navbar-search-input {
   flex: 1;
   display: flex;

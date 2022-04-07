@@ -5,7 +5,6 @@ import { discontInPercent } from '../../utils'
 
 import {
   deleteFromCart,
-  addToCart,
   addToWishlist,
   updateQuantity
 } from '../../helpers/index'
@@ -21,7 +20,6 @@ const Order = () => {
           <h1 className='heading text-alignment '>No product add to cart</h1>
         ) : (
           cart.length > 0 &&
-          
           cart?.map((cart, index) => {
             const { _id, imageSrc, title, rating, price, priceMrp } = cart
             return (
