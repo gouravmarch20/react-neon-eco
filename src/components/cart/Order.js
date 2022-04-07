@@ -1,7 +1,14 @@
 import React from 'react'
 import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
-import { deleteFromCart, addToCart, addToWishlist ,updateQuantity} from '../../helpers/index'
+import { discontInPercent } from '../../utils'
+
+import {
+  deleteFromCart,
+  addToCart,
+  addToWishlist,
+  updateQuantity
+} from '../../helpers/index'
 const Order = () => {
   const { cartState, cartDispatch } = useCart()
   const { cart, cartError, totalProductInCart } = cartState
@@ -14,18 +21,27 @@ const Order = () => {
           <h1 className='heading text-alignment '>No product add to cart</h1>
         ) : (
           cart.length > 0 &&
+          
           cart?.map((cart, index) => {
-            const { _id, imageSrc } = cart
+            const { _id, imageSrc, title, rating, price, priceMrp } = cart
             return (
               <div className='cart__items' key={index}>
                 <img src={imageSrc} alt='no imag' className='cart__image' />
-                <div className='cart__detail'>
-                  <h3 className='text-info  mt-1'>{cart.title}</h3>
-                  <span className='card-price mt-'>
-                    {cart.price} &#160;
-                    <del className='text-danger'>{cart.priceMrp}</del>
+
+                <p className='card-title'>{title}</p>
+                <p className='card-rating'>{rating}</p>
+
+                <div className='card-pricing-detail'>
+                  <span className='card-price'>{price} &nbsp; </span>
+                  <span className='card-price-mrp'>
+                    <del>{priceMrp}</del>
+                  </span>
+
+                  <span className='card-disount'>
+                    &nbsp; {discontInPercent(price, priceMrp)}%
                   </span>
                 </div>
+
                 <div className='cart__input'>
                   <button
                     className='btn btn-info'
@@ -37,7 +53,7 @@ const Order = () => {
                   >
                     -
                   </button>
-                  <p>{cart.qty}</p>
+                  <p className='card-rating'>{cart.qty}</p>
                   <button
                     className='btn btn-info'
                     onClick={() => {
@@ -49,7 +65,7 @@ const Order = () => {
                 </div>
                 <div className='cart__action'>
                   <button
-                    className='btn-wait'
+                    className='buyLater__btn__green  buyLater__btn'
                     onClick={() => {
                       deleteFromCart(_id, cartDispatch)
                       addToWishlist(cart, wishlistDispatch)
@@ -58,11 +74,12 @@ const Order = () => {
                     Move to wishlist
                   </button>
                   <button
+                    className='buyLater__btn'
                     onClick={() => {
                       deleteFromCart(_id, cartDispatch)
                     }}
                   >
-                    Remove from cart{' '}
+                    Remove{' '}
                   </button>
                 </div>
               </div>

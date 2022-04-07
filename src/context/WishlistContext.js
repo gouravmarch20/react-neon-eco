@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import { WishlistReducer } from '../reducers'
-import { getWishlist } from '../helpers/Wishlist'
+import { getWishlist } from '../helpers/WishlistHelper'
 const WishlistContext = createContext(null)
 const initialState = {
   wishlist: [],

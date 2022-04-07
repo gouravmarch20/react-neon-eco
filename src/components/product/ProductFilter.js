@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useProduct } from '../../context/ProductContext'
 import { useFilter } from '../../context/FilterContext'
-import { getUniqueValues } from '../../utils/filterProduct'
+import { getUniqueValues } from '../../utils/filterUtils'
 
 import './ProductFilter.css'
 const ProductFilter = () => {

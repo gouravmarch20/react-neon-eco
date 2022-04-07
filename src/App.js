@@ -1,10 +1,10 @@
 import React from 'react'
-import  './App.css'
+import './App.css'
 
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './layout/Navbar/Navbar'
 import { useTheme } from './context/ThemeContext'
-import AppTheme from './Colors'
+import AppTheme from './color/Colors'
 import {
   Home,
   Product,
@@ -37,8 +37,11 @@ const Router = () => {
 }
 
 const App = () => {
-  const { themeState :{themeMode}, themeDispatch } = useTheme()
-  const currectTheme = AppTheme[themeMode];
+  const {
+    themeState: { themeMode },
+    themeDispatch
+  } = useTheme()
+  const currectTheme = AppTheme[themeMode]
   return (
     <div
       className='App'
@@ -49,7 +52,7 @@ const App = () => {
       }}
     >
       <Navbar />
-     
+
       <Router />
     </div>
   )

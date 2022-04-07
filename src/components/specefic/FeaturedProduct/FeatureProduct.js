@@ -3,6 +3,7 @@ import { useProduct } from '../../../context/ProductContext'
 
 import { useCart } from '../../../context/CartContext'
 import { addToCart } from '../../../helpers/index'
+import { discontInPercent } from '../../../utils/index'
 import { useNavigate } from 'react-router-dom'
 
 import './FeatureProduct.css'
@@ -42,9 +43,20 @@ const FeatureProduct = () => {
                     navigate(`/products/${_id}`)
                   }}
                 />
-                <p className='card-title align-center'>{product.title}</p>
-                <p className='product__rating '>{product.rating}</p>
-                <p className='card-price'>{product.price}</p>
+                <p className='card-title'>{product.title}</p>
+                <p className='card-rating'>{product.rating}</p>
+
+                <div className='card-pricing-detail'>
+                  <span className='card-price'>{product.price} &nbsp; </span>
+                  <span className='card-price-mrp'>
+                    <del>{product.priceMrp}</del>
+                  </span>
+
+                  <span className='card-disount'>
+                    &nbsp; {discontInPercent(product.price, product.priceMrp)}%
+                  </span>
+                </div>
+
                 <div className='product__button'>
                   <button
                     className='btn btn-success'

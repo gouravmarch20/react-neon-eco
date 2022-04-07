@@ -1,7 +1,7 @@
 import React from 'react'
 import './Annoncement.css'
 import { useTheme } from '../../../context/ThemeContext'
-import AppTheme from '../../../ColorsTwo'
+import AppTheme from '../../../color/ColorsTwo'
 
 const Annoncement = () => {
   const {

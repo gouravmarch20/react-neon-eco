@@ -2,7 +2,9 @@ import React from 'react'
 import { useWishlist } from '../../context/WishlistContext'
 
 const Header = () => {
-  const { wishlistState : {wishlist} } = useWishlist()
+  const {
+    wishlistState: { wishlist }
+  } = useWishlist()
 
   return (
     <>

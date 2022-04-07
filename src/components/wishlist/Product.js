@@ -3,6 +3,7 @@ import './WishlistProduct.css'
 import { useWishlist } from '../../context/WishlistContext'
 import { useCart } from '../../context/CartContext'
 import { deleteFromWishlist, addToCart } from '../../helpers/index'
+import { discontInPercent } from '../../utils'
 
 const Product = () => {
   const {
@@ -31,9 +32,20 @@ const Product = () => {
               <div key={index}>
                 <section className='card card-spacing'>
                   <img src={imageSrc} alt='ws' className='product__image' />
-                  <p className='product__name'>{title}</p>
-                  <div className='product__rating'>{rating}</div>
-                  <span className='product__price'>{price}</span>
+
+                  <p className='card-title'>{title}</p>
+                  <p className='card-rating'>{rating}</p>
+
+                  <div className='card-pricing-detail'>
+                    <span className='card-price'>{price} &nbsp; </span>
+                    <span className='card-price-mrp'>
+                      <del>{priceMrp}</del>
+                    </span>
+
+                    <span className='card-disount'>
+                      &nbsp; {discontInPercent(price, priceMrp)}%
+                    </span>
+                  </div>
 
                   <div>
                     <button
