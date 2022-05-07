@@ -5,6 +5,7 @@ import { getCategoryDeatail } from '../../helpers'
 
 import { useCategory } from '../../context/CategoryContext'
 import FeatureProduct from '../../components/specefic/FeaturedProduct/FeatureProduct'
+
 export const Home = () => {
   const { categoryDispatch } = useCategory()
   useEffect(async () => {

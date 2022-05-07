@@ -28,9 +28,7 @@ const ProductFilter = () => {
       <aside className='product__filter'>
         <div className='product__filter__container'>
           <div className='product__header '>
-            <button className='product__header__heading btn btn-info'>
-              Filter Box
-            </button>
+            <button className='btn btn-info'>Filter Box</button>
             <button
               className='product__header__heading btn btn-danger'
               onClick={() => filterDispatch({ type: 'RESET_ALL_FILTER' })}
@@ -40,7 +38,7 @@ const ProductFilter = () => {
           </div>
           <div className='divider-mini' />
           <section className='filter-section'>
-            <h4 className='text-center '>Price</h4>
+            <h4>Price</h4>
             <input
               type='range'
               min='200'
@@ -55,14 +53,13 @@ const ProductFilter = () => {
                 })
               }}
             />
-            <div className='price-detail'>
-              FROM <span>₹200</span> TO
-              <span>₹{priceRange}</span>
-            </div>
+            <p>
+              ₹200 to <span className='text-green'> ₹{priceRange}</span>{' '}
+            </p>
           </section>
           <div className='divider-mini'></div>
           <section className='filter-section'>
-            <h4 className='text-center'>Category</h4>
+            <h4>Category</h4>
             {uniqueCategories &&
               uniqueCategories.map((category, index) => {
                 return (
@@ -87,10 +84,10 @@ const ProductFilter = () => {
           </section>
           <div className='divider-mini'></div>
           <section className='filter-section'>
-            <h4 className='text-center'>Product rating</h4>
+            <h4>Product rating</h4>
 
             <li>
-              <label className='display-block' htmlFor='fourStarRating'>
+              <label className='d-block' htmlFor='fourStarRating'>
                 <input
                   className=''
                   id='fourStarRating'
@@ -102,7 +99,7 @@ const ProductFilter = () => {
                 />
                 4 or more
               </label>
-              <label htmlFor='threeStarRating' className='display-block'>
+              <label htmlFor='threeStarRating' className='d-block '>
                 <input
                   className=''
                   id='threeStarRating'
@@ -114,7 +111,7 @@ const ProductFilter = () => {
                 />
                 3 or more
               </label>
-              <label htmlFor='twoStarRating' className='display-block'>
+              <label htmlFor='twoStarRating' className='d-block'>
                 <input
                   className=''
                   id='twoStarRating'
@@ -130,9 +127,9 @@ const ProductFilter = () => {
           </section>{' '}
           <div className='divider-mini'></div>
           <section className='filter-section'>
-            <h4 className='text-center'>Short by Price</h4>
+            <h4 className=''>Short by Price</h4>
 
-            <label htmlFor='priceHighLow' className='input-text display-block'>
+            <label htmlFor='priceHighLow' className='input-text d-block'>
               <input
                 type='radio'
                 id='priceHighLow'
@@ -146,7 +143,7 @@ const ProductFilter = () => {
               />
               High to Low
             </label>
-            <label htmlFor='priceLowHigh' className='input-text display-block '>
+            <label htmlFor='priceLowHigh' className='input-text d-block '>
               <input
                 type='radio'
                 id='priceLowHigh'
@@ -162,10 +159,8 @@ const ProductFilter = () => {
             </label>
           </section>
           <div className='divider-mini'></div>
-          <p className='text-center'>❤️ ❤️ ❤️ ❤️</p>
-          <div className='divider'></div>
-          {/* option tag  */}
-          {/* upcoming */}
+          <p className=''>🐨 🎀 🐨 </p>
+          {/* TODO: ADD MORE FILTER */}
           {/* discout, brands  , type , color  , gender , availability , category: a4 size , a5 size  , Sort By
            */}
         </div>

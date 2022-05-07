@@ -4,95 +4,89 @@ import { useWishlist } from '../../context/WishlistContext'
 import { useCart } from '../../context/CartContext'
 import { deleteFromWishlist, addToCart } from '../../helpers/index'
 import { discontInPercent } from '../../utils'
+import { useAuth } from '../../context/AuthContext'
+import { Link } from 'react-router-dom'
 
 const Product = () => {
   const {
     wishlistState: { wishlist },
     wishlistDispatch
   } = useWishlist()
+  const {
+    authState: { userInfo, token, isLoggedIn }
+  } = useAuth()
   const { cartDispatch } = useCart()
   return (
     <>
-      <div className='products__listing'>
-        {wishlist?.length === 0 ? (
-          <h1 className='heading text-alignment '>No item save in wishlist</h1>
-        ) : (
-          wishlist &&
-          wishlist.map((product, index) => {
-            const {
-              _id,
-              title,
-              rating,
-              priceMrp,
-              price,
-              imageSrc,
-              categoryName
-            } = product
-            return (
-              <div key={index}>
-                <section className='card card-spacing'>
-                  <img src={imageSrc} alt='ws' className='product__image' />
+      {token && isLoggedIn ? (
+        <div className='products__listing'>
+          {wishlist?.length === 0 ? (
+            <div>
+              <h2 className='heading '>No item save in wishlist</h2>
+              <h3 className='subheading'>
+                Your saved <span> {wishlist.length} products . </span>
+              </h3>
+            </div>
+          ) : (
+            wishlist &&
+            wishlist.length > 0 &&
+            wishlist.map((product, index) => {
+              const { _id, title, rating, priceMrp, price, imageSrc } = product
+              return (
+                <div key={index}>
+                  <section className='cart__items'>
+                    <img src={imageSrc} alt='ws' className='cart__image' />
 
-                  <p className='card-title'>{title}</p>
-                  <p className='card-rating'>{rating}</p>
+                    <p className='card-title'>{title}</p>
+                    <p className='card-rating'>{rating}</p>
 
-                  <div className='card-pricing-detail'>
-                    <span className='card-price'>{price} &nbsp; </span>
-                    <span className='card-price-mrp'>
-                      <del>{priceMrp}</del>
-                    </span>
+                    <div className='card-pricing-detail'>
+                      <span className='card-price'>{price} &nbsp; </span>
+                      <span className='card-price-mrp'>
+                        <del>{priceMrp}</del>
+                      </span>
 
-                    <span className='card-disount'>
-                      &nbsp; {discontInPercent(price, priceMrp)}%
-                    </span>
-                  </div>
+                      <span className='card-disount'>
+                        &nbsp; {discontInPercent(price, priceMrp)}%
+                      </span>
+                    </div>
 
-                  <div>
-                    <button
-                      className='buyLater__btn__green buyLater__btn'
-                      onClick={() => {
-                        deleteFromWishlist(_id, wishlistDispatch)
-                        addToCart(product, cartDispatch)
-                      }}
-                    >
-                      Move to Cart
-                    </button>
-                    <button
-                      className='buyLater__btn'
-                      onClick={() => {
-                        deleteFromWishlist(_id, wishlistDispatch)
-                      }}
-                    >
-                      Remove{' '}
-                    </button>
-                  </div>
-                </section>
-              </div>
-            )
-          })
-        )}
-        {/* {wishlistState.length && (
-          <div>
-            <section className='card card-spacing'>
-              <img
-                src='./images/advantage-book.jpg'
-                alt='ws'
-                className='product__image'
-              />
-              <p className='product__name'>Link Ocean</p>
-              <div className='product__rating'>5 star</div>
-              <span className='product__price'>523</span>
-
-              <div>
-                <button className='buyLater__btn__green buyLater__btn'>
-                  Move to Cart
-                </button>
-                <button className='buyLater__btn'>Remove</button>
-              </div>
-            </section>
+                    <div>
+                      <button
+                        className=' card-button card-btn-add-to-cart'
+                        onClick={() => {
+                          deleteFromWishlist(_id, wishlistDispatch)
+                          addToCart(product, cartDispatch)
+                        }}
+                      >
+                        Move to Cart
+                      </button>
+                      <button
+                        className='card-button card-btn-remove '
+                        onClick={() => {
+                          deleteFromWishlist(_id, wishlistDispatch)
+                        }}
+                      >
+                        Remove{' '}
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              )
+            })
+          )}
+        </div>
+      ) : (
+        <div className='auth-login'>
+          <h2 className='login-message-heading4'>Please login first </h2>
+          <br />
+          <div className='login-cta'>
+            <Link to='/signin'>
+              <button class='ctn-btn'>Login Now</button>
+            </Link>
           </div>
-        )} */}
-      </div>
+        </div>
+      )}
     </>
   )
 }

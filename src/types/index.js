@@ -25,3 +25,8 @@ export const INCREMENT_DECREMENT__QUANTITY = 'INCREMENT_DECREMENT__QUANTITY'
 //THEME
 export const DARK_MODE = 'DARK_MODE'
 export const LIGHT_MODE = 'LIGHT_MODE'
+// auth
+export const SAVE_USER_INFO = 'SAVE_USER_INFO'
+export const SAVE_TOKEN = 'SAVE_TOKEN'
+export const AUTH_ERROR = 'AUTH_ERROR'
+export const LOG_OUT = 'LOG_OUT'

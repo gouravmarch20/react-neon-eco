@@ -1,0 +1,85 @@
+.btn {
+  padding: 0.5rem;
+  border: none;
+  margin: 0.3rem;
+}
+.btn-lg {
+  padding: 0.55rem 1.25rem;
+}
+.btn-info {
+  background-color: var(--color-info);
+}
+.btn-danger {
+  background-color: var(--color-danger);
+  transition: all 0.7s;
+  color: white;
+  font-size: large;
+}
+.btn-success {
+  background-color: #02b290;
+
+  transition: all 0.7s;
+}
+.btn-space {
+  background-color: var(--color-space);
+}
+/*  outline  btn */
+.btn-outline-success {
+  font-weight: bold;
+  color: var(--color-sucess);
+  border: solid 2px var(--color-sucess);
+}
+.btn-outline-danger {
+  font-weight: bold;
+  color: var(--color-danger);
+  border: solid 2px var(--color-danger);
+}
+.btn-outline-wait {
+  font-weight: bold;
+  color: var(--color-wait);
+  border: solid 2px var(--color-wait);
+}
+.btn-round {
+  border-radius: 2rem !important;
+}
+/* link */
+.btn-link {
+  text-align: center;
+}
+/* floating */
+.btn-floating {
+  border-radius: 50%;
+}
+/* hover  */
+.btn-space:hover {
+  background-color: #207398;
+}
+
+.btn-info:hover {
+  background-color: skyblue;
+  transition: all 0.7s;
+}
+.btn-success:hover {
+  background-color: #50dbb4;
+  transition: all 0.7s;
+}
+.btn-danger:hover {
+  background-color: #ef5354;
+  transition: all 0.7s;
+}
+
+.btn-outline-success:hover {
+  background-color: var(--color-sucess);
+  color: white;
+  transition: all 0.7s;
+}
+.btn-outline-wait:hover {
+  background-color: var(--color-wait);
+  transition: all 0.7s;
+  color: white;
+}
+.btn-outline-danger:hover {
+  background-color: var(--color-danger);
+  transition: all 0.7s;
+  color: white;
+}

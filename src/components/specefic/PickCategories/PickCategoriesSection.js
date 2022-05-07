@@ -9,7 +9,7 @@ const PickCategoriesSection = ({ category }) => {
 
   return (
     <div
-      className='card'
+      className='pick-category-section'
       onClick={() => {
         filterDispatch({
           type: 'RESET_ALL_FILTER'
@@ -21,15 +21,11 @@ const PickCategoriesSection = ({ category }) => {
         navigate('/products')
       }}
     >
-      <h2 className='pick-category-section-heading'>{category.categoryName}</h2>
-
-      <img
-        className='card-image'
-        src={category.imgUrl}
-        alt={category.categoryName}
-      />
-
-      {/* <button className='pick-category-section-btn'>View details</button> */}
+      <button className='ctn-btn btn-round'>
+        <h2 className='pick-category-section-heading'>
+          {category.categoryName}
+        </h2>
+      </button>
     </div>
   )
 }

@@ -71,17 +71,17 @@ const ProductList = () => {
                     &nbsp; {discontInPercent(product.price, product.priceMrp)}%
                   </span>
                 </div>
-                <div className='product__button'>
+                <div className=''>
                   {cart.length != 0 && isProductAddedToCart ? (
                     <button
-                      className='btn btn-danger'
+                      className='card-button card-btn-view-cart '
                       onClick={() => navigate('/cart')}
                     >
                       View cart
                     </button>
                   ) : (
                     <button
-                      className='btn btn-info'
+                      className='card-button card-btn-add-to-cart'
                       onClick={() => {
                         addToCart(product, cartDispatch)
                       }}
@@ -93,14 +93,14 @@ const ProductList = () => {
                   {/* wishlist  */}
                   {wishlist.length != 0 && isProductAddToWishlist ? (
                     <button
-                      className='btn btn-danger'
+                      className='card-button card-btn-view-wishlist'
                       onClick={() => navigate('/wishlist')}
                     >
                       View Wishlist
                     </button>
                   ) : (
                     <button
-                      className='btn btn-success'
+                      className='card-button card-btn-add-to-wishlist'
                       onClick={() => addToWishlist(product, wishlistDispatch)}
                     >
                       add to wishlist{' '}

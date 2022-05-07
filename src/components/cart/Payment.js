@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useCart } from '../../context/CartContext'
-
+import './css/payment.css'
 const Payment = () => {
   const { cartState, cartDispatch } = useCart()
   const [value, setValue] = useState({ price: 0, priceMrp: 0 })
@@ -28,30 +28,29 @@ const Payment = () => {
     <>
       {' '}
       <div className='payment'>
-        <div className='payment__details'>
-          <h2 className='m-tb-1'>Price Detail</h2>
-          <p className='m-tb-1'>
+        <div className=''>
+          <h2 className='payment-heading'>Price Detail</h2>
+          <p className='payment-item'>
             No of items - <span> &nbsp; {totalProductInCart} </span>
           </p>
         </div>
-        <div className='payment__checkbox'>
-          <p className='m-tb-1'>
+        <div>
+          <p className='payment-mrp '>
             Total Mrp : &nbsp;
             <span>
               {' '}
-              <del className='text-danger'> {value.priceMrp}</del>
+              <del className='payment-mrp'> {value.priceMrp}</del>
             </span>
           </p>
-          <p className='m-tb-1'>
-            Special Discount -{' '}
-            <span className='text-info'> &nbsp; {discountPrice}</span>
+          <p className='payment-discount'>
+            Special Discount - <span className='payment-discount'> &nbsp; {discountPrice}</span>
           </p>
-          <p>
+          <p className='payment-final'>
             Final Payment - <span> &nbsp; {value.price}</span>
           </p>
         </div>
-        <div className='payment__button'>
-          <button className='pay__now'>Pay now</button>
+        <div className=''>
+          <button className='ctn-btn-pay  '>Pay now</button>
         </div>
       </div>
     </>

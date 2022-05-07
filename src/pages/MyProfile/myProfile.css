@@ -1,0 +1,69 @@
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28vh;
+}
+.my-profile {
+  background-color: #0d0d0d;
+  padding: 2rem;
+  color: #39ff14;
+  line-height: 24px;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 2rem;
+}
+.my-profile-content {
+  margin: 1rem 0rem;
+}
+.login-message {
+  margin-top: 15vh;
+}
+.login-message-heading4 {
+  font-weight: 800;
+  color: #5A20CB;
+  /* text-shadow: 0px 2px 1px rgba(38, 136, 62, 0.4); */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2.2rem;
+}
+
+.login-cta {
+  margin-top: 1rem;
+}
+.ctn-btn {
+  background-color: #202eee;
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 24px;
+
+  padding: 1rem 1.2rem;
+
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.ctn-btn-pay {
+  margin: 1rem;
+  background-color: #02b290;
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 24px;
+
+  padding: 1rem 1.2rem;
+
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.ctn-btn:hover {
+  background-color: #3944f7;
+  transform: translateY(-2px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.ctn-btn-pay:hover {
+  background-color: #1faa59;
+  transform: translateY(-2px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

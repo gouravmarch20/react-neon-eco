@@ -1,7 +1,3 @@
-.navbar {
-  background-color: black;
-  /* color: white; */
-}
 .navbar-warpper {
   display: flex;
   justify-content: space-between;
@@ -15,15 +11,12 @@
 }
 .navbar-center {
   flex: 1;
-  /* margin-top: 1rem; */
-  margin-right: 1rem;
 }
 .navbar-right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 
-  text-align: center;
   flex: 1.3;
 }
 .navbar-search {
@@ -37,7 +30,7 @@
   color: white;
 }
 .navbar-link-icon {
-  margin: 0rem .8rem;
+  margin: 0rem 0.8rem;
   font-size: 2rem;
   color: white;
 }
@@ -51,4 +44,22 @@
   align-items: center;
   padding: 3px;
   border: none;
+}
+.relative {
+  position: relative;
+}
+.badge-counter {
+  position: absolute;
+  background-color: red;
+  right: -8px;
+  top: -7px;
+  font-size: 18px;
+  padding: 0rem 0.2rem;
+}
+.btn-auth {
+  color: white;
+  background-color: #758283;
+  font-size: 18px;
+  padding: 0.4rem;
+  border-radius: 1rem;
 }

@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import './App.css'
 import { ProductProvider } from './context/ProductContext'
+import { AuthProvider } from './context/AuthContext'
 import { FilterProvider } from './context/FilterContext'
 import { CategoryProvider } from './context/CategoryContext'
 import { WishlistProvider } from './context/WishlistContext'
@@ -15,21 +16,23 @@ import { ThemeProvider } from './context/ThemeContext'
 makeServer()
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <BrowserRouter>
-        <CategoryProvider>
-          <ProductProvider>
-            <WishlistProvider>
-              <CartProvider>
-                <FilterProvider>
-                  <App />
-                </FilterProvider>
-              </CartProvider>
-            </WishlistProvider>
-          </ProductProvider>
-        </CategoryProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider>
+          <CategoryProvider>
+            <ProductProvider>
+              <WishlistProvider>
+                <CartProvider>
+                  <FilterProvider>
+                    <App />
+                  </FilterProvider>
+                </CartProvider>
+              </WishlistProvider>
+            </ProductProvider>
+          </CategoryProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

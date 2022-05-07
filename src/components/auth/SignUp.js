@@ -1,53 +1,110 @@
 import React, { useState } from 'react'
-import './css/SignUp.css'
+import './css/signup.css'
+// import { createUser } from '../../actions/authAction'
+import { Link } from 'react-router-dom'
+
 const SignUp = () => {
-  const [newUserName, setNewUserName] = useState('')
-  const [newUserEmail, setNewUserEmail] = useState('')
-  const [newUserPassword, setNewUserPassword] = useState('')
-  const [newUserConformPassword, setNewUserConformPassword] = useState('')
 
-  const signupUser = (event) => {
-    event.preventDefault()
-    
-
+  const [userSignUpData, setUserSignUpData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  })
+  const handleInput = e => {
+    const tempName = e.target.name
+    const tempvalue = e.target.value
+    setUserSignUpData({ ...userSignUpData, [tempName]: tempvalue })
   }
+  const handleSubmit = e => {
+    e.preventDefault()
+    // createUser({ ...userSignUpData })
+  }
+
   return (
     <div className='signup'>
-      <h2 className='subheading'>
-        SignUp - <span>Create an account</span>
-      </h2>
-      <div className='signup__form'>
-        <form onSubmit={signupUser}>
-          <div>
-            <label htmlFor='username'>User Name</label>
-            <input type='text' name='' id='' />
-          </div>
-          <div>
-            <label htmlFor='email' className='email-label'>
-              Email
-            </label>
-            <input type='email' name='' id='' />
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <input type='password' name='' id='' />
-          </div>
-          <div>
-            <label htmlFor='cPassword'>Confirm Password</label>
-            <input type='password' name='' id='' />
-          </div>
+      <h2>Registration</h2>
+      <button>
+    
+      </button>
+      <form className='signup-form'>
+        <div className='input-box'>
+          <label htmlFor='firstName' className='label'>
+            {' '}
+            FirstName
+          </label>
 
-          <button type='submit' className='signup__button'>
-            SignUp
+          <input
+            type='text'
+            className='input-style'
+            id='firstName'
+            name='firstName'
+            placeholder='Enter your firstName'
+            value={userSignUpData.firstName}
+            required
+            onChange={e => handleInput(e)}
+          />
+        </div>
+        <div className='input-box'>
+          <label htmlFor='lastName' className='label'>
+            {' '}
+            LastName
+          </label>
+
+          <input
+            type='text'
+            className='input-style'
+            id='lastName'
+            name='lastName'
+            placeholder='Enter your lastName'
+            onChange={e => handleInput(e)}
+            required
+          />
+        </div>
+        <div className='input-box'>
+          <label htmlFor='email' className='label'>
+            {' '}
+            Email
+          </label>
+          <input
+            className='input-style'
+            type='email'
+            name='email'
+            id='email'
+            placeholder='Enter your email'
+            required
+            onChange={e => handleInput(e)}
+          />
+        </div>
+
+        <div className='input-box'>
+          <label htmlFor='password' className='label'>
+            {' '}
+            Password
+          </label>
+
+          <input
+            className='input-style'
+            type='password'
+            name='password'
+            id='password'
+            placeholder='Create password'
+            onChange={e => handleInput(e)}
+            required
+          />
+        </div>
+
+        <div className=''>
+          <button className='signup-btn' onClick={handleSubmit}>
+            Register Now
           </button>
-          <div>
-            Already signed up go to
-            <a href='./signIn.html' className='signin__button'>
-              Signin
-            </a>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div className=''>
+          <p className='signin-btn'>
+            Already have an account? <Link to='/signin'>Login now</Link>
+          </p>
+        </div>
+      </form>
     </div>
   )
 }

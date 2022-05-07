@@ -1,28 +1,5 @@
-.buyLater__btn {
-  background-color: red;
-  padding: 0.5rem 0.5rem;
-  margin-top: 1rem;
-  margin-left: 0.7rem;
-  background-color: #edc126;
-  border: none;
-  border-radius: 1rem;
-  font-weight: 700;
-  color: white;
-  cursor: pointer;
-}
-.buyLater__btn__green {
-  background-color: #02b290;
-}
 
-span {
-  font-size: 1.3rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: #50dbb4;
-  font-weight: 900;
-}
-ul {
-  list-style: none;
-}
+
 
 .products {
   display: flex;

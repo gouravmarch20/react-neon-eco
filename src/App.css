@@ -1,7 +1,13 @@
+@import url("./css/var.css");
+@import url("./css/Button.css");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.text-decoration {
+  text-decoration: none;
 }
 /* coustumize component library css */
 ::-webkit-scrollbar {
@@ -19,14 +25,31 @@
 button {
   cursor: pointer;
 }
-.btn {
-  padding: 1rem 0.6rem;
-  color: white;
-  font-size: 1rem;
-  font-family: serif;
+
+li {
+  list-style: none;
 }
+
 .App {
   min-height: 100vh;
+}
+
+.divider-mini {
+  width: 80%;
+  border-top: 3px solid grey;
+  margin: 0.5rem auto;
+}
+
+/* more component library */
+.d-block {
+  display: block;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .card-title {
@@ -34,7 +57,7 @@ button {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--color-text-content);
   margin-top: 1rem;
   text-transform: capitalize;
@@ -55,8 +78,16 @@ button {
 .card-rating {
   color: #3944f7;
   font-weight: 600;
-
+  margin: 0.3rem;
   font-family: monospace;
+}
+.card-pricing-detail {
+  margin: 3px;
+}
+.card-quantity {
+  color: #8d3daf;
+  font-weight: 600;
+  margin: 0.3rem;
 }
 .card-price {
   font-weight: 700;
@@ -71,37 +102,70 @@ button {
   color: orange;
   font-weight: 700;
 }
-.divider-mini {
+.card-button {
+  padding: 0.5rem;
+  border: none;
+  margin: 0.3rem;
+}
+
+.card-btn-view-more {
+  background-color: #383cc1;
+
+  color: white;
+  font-weight: 500;
+}
+.card-btn-add-to-cart {
+  background-color: #1c8d73;
+  /* background-color: #e6425e; */
+
+  color: white;
+  font-weight: 500;
+}
+.card-btn-view-cart {
+  background-color: #1b98f5;
+  color: white;
+  font-weight: 500;
+}
+.card-btn-add-to-wishlist {
+  background-color: #e03b8b;
+  color: white;
+  font-weight: 500;
+}
+.card-btn-view-wishlist {
+  background-color: #1c8d73;
+  color: white;
+  font-weight: 500;
+}
+.card-btn-remove {
+  background-color: #ddd101;
+  color: white;
+  font-weight: 500;
+}
+.auth-login {
   width: 100%;
+  margin: 10vh auto;
 }
-
-/* more component library */
-.display-block {
-  display: block;
-}
-.cursor-pointer {
-  cursor: pointer;
-}
-/*  */
-.m-tb-1 {
-  margin: 1rem 0rem;
-}
-.card-image {
-  object-fit: contain;
-  min-width: 21vw;
-}
-
 .heading {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.3rem;
+  margin: 0.5rem;
+
   color: #12b0e8;
 }
-.text-alignment {
-  margin-top: 10vh !important;
-
-  margin: 0 auto;
+.subheading {
   text-align: center;
+  font-size: 2rem;
+  margin: 0.5rem;
+  color: #02b290;
 }
-.mt-1 {
-  margin-top: 1rem !important;
+.mt-10 {
+  margin: 0 auto;
+  width: 100%;
+}
+.flex-column {
+  flex-direction: column;
+}
+.margin-left-auto {
+  width: 100%;
+  margin: 0 auto;
 }

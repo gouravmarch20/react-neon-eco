@@ -1,0 +1,43 @@
+.payment {
+  /* display: flex; */
+  min-width: 22%;
+  flex-direction: column;
+  border: 2px solid greenyellow;
+  height: 60vh;
+  position: sticky;
+  top: 5rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-left: auto;
+}
+.payment-item {
+  color: #808080;
+  font-weight: 700;
+  margin: 0.6rem 0.3rem;
+  font-size: 1.4rem;
+}
+.payment-heading {
+  color: #36454F;
+  font-weight: 700;
+  margin: 1rem;
+  font-size: 1.8rem;
+
+}
+.payment-mrp {
+  color: red;
+  font-weight: 600;
+  margin: 0.5rem ;
+  font-size: 1.4rem;
+}
+.payment-discount {
+  color: orange;
+  font-weight: 600;
+  margin: 0.5rem ;
+  font-size: 1.4rem;
+}
+.payment-final {
+  color: #03C6C7;
+  font-weight: 600;
+  margin: 0.5rem ;
+  font-size: 1.5rem;
+}

@@ -23,7 +23,6 @@ const FeatureProduct = () => {
   )
   return (
     <div className='feature-product'>
-      <div className='divider'></div>
       <h1 className='heading'> Feature Product </h1>
       <div className='products__listing'>
         {featuredProducts && featuredProducts.length === 0 ? (
@@ -59,21 +58,21 @@ const FeatureProduct = () => {
 
                 <div className='product__button'>
                   <button
-                    className='btn btn-success'
+                    className='card-button card-btn-view-more '
                     onClick={() => navigate('/products')}
                   >
                     View more
                   </button>
                   {featuredProducts.length != 0 && isProductAddedToCart ? (
                     <button
-                      className='btn btn-danger'
+                      className='card-button   card-btn-view-cart'
                       onClick={() => navigate('/cart')}
                     >
                       View cart
                     </button>
                   ) : (
                     <button
-                      className='btn btn-info'
+                      className='card-button card-btn-add-to-cart '
                       onClick={() => {
                         addToCart(product, cartDispatch)
                       }}

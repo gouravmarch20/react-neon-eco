@@ -1,12 +1,12 @@
 .product__filter {
-  display: flex;
+  /* display: flex; */
   width: 25vw;
-  height: 100vh !important;
+  height: 70vh;
   flex-direction: column;
-  border: 2px solid blue;
-  height: 60vh;
+  border-right: 2px solid blue;
+  min-height: 100vh;
   position: sticky;
-  top: 0;
+  top: 4rem;
 }
 
 .product__filter:hover {
