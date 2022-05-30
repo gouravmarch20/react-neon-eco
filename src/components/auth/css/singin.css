@@ -64,18 +64,10 @@
   text-decoration: underline;
 }
 .sign-test {
-  background-color: #1c8d73 !important;
+  background-color: teal !important;
   font-weight: 500;
   color: white;
 }
 .sign-test:hover {
-  background-color: #02b290 !important;
-}
-.signin-btn-text {
-  color: blueviolet;
-  text-decoration: none;
-}
-.signin-btn-text:hover {
-  color: blueviolet;
-  text-decoration: none;
+  background-color: green !important;
 }
