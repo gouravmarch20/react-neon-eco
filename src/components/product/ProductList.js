@@ -1,5 +1,8 @@
 import React from 'react'
 import './ProductList.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import Rating from '@mui/material/Rating'
+
 import {
   getSortedProducts,
   getFilteredProducts,
@@ -50,16 +53,23 @@ const ProductList = () => {
 
             return (
               <section className='products card' key={product._id}>
-                <img
+                <LazyLoadImage
                   src={product.imageSrc}
                   alt='no found'
-                  className='product__image cursor-pointer'
+                  className='product__image '
                   onClick={() => {
                     navigate(`/products/${_id}`)
                   }}
                 />
+
                 <p className='card-title'>{product.title}</p>
-                <p className='card-rating'>{product.rating}</p>
+                <p className='card-rating'>
+                  <Rating
+                    value={product.rating}
+                    readOnly={true}
+                    precision={0.5}
+                  />
+                </p>
 
                 <div className='card-pricing-detail'>
                   <span className='card-price'>{product.price} &nbsp; </span>
@@ -74,7 +84,7 @@ const ProductList = () => {
                 <div className=''>
                   {cart.length != 0 && isProductAddedToCart ? (
                     <button
-                      className='card-button card-btn-view-cart '
+                      className='card-button card-btn-add-to-cart '
                       onClick={() => navigate('/cart')}
                     >
                       View cart
@@ -93,7 +103,7 @@ const ProductList = () => {
                   {/* wishlist  */}
                   {wishlist.length != 0 && isProductAddToWishlist ? (
                     <button
-                      className='card-button card-btn-view-wishlist'
+                      className='card-button card-btn-add-to-wishlist'
                       onClick={() => navigate('/wishlist')}
                     >
                       View Wishlist

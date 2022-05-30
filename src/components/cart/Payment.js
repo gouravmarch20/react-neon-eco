@@ -3,24 +3,34 @@ import { useCart } from '../../context/CartContext'
 import './css/payment.css'
 const Payment = () => {
   const { cartState, cartDispatch } = useCart()
-  const [value, setValue] = useState({ price: 0, priceMrp: 0 })
+  const [value, setValue] = useState({
+    price: 0,
+    priceMrp: 0,
+    totalItemsInCart: 0
+  })
   const [discountPrice, setDiscountPrice] = useState(0)
   const { cart, cartError, totalProductInCart } = cartState
-
   useEffect(() => {
     let priceDetail = cart.reduce(
       (acc, curr) => ({
         ...acc,
         price: curr.qty * (curr.price + acc.price),
-        priceMrp: curr.qty * (curr.priceMrp + acc.priceMrp)
+        priceMrp: curr.qty * (curr.priceMrp + acc.priceMrp),
+        totalItemsInCart: curr.qty + acc.totalItemsInCart 
       }),
       {
         price: 0,
-        priceMrp: 0
+        priceMrp: 0,
+        totalItemsInCart: 0
       }
     )
     let discountPrice = priceDetail.priceMrp - priceDetail.price
-    setValue(priceDetail)
+    setValue(prev => ({
+      ...prev,
+      priceMrp: priceDetail.priceMrp,
+      price: priceDetail.price,
+      totalItemsInCart: priceDetail.totalItemsInCart
+    }))
     setDiscountPrice(discountPrice)
   }, [cartState])
 
@@ -31,7 +41,7 @@ const Payment = () => {
         <div className=''>
           <h2 className='payment-heading'>Price Detail</h2>
           <p className='payment-item'>
-            No of items - <span> &nbsp; {totalProductInCart} </span>
+            No of items - <span> &nbsp; {value?.totalItemsInCart} </span>
           </p>
         </div>
         <div>
@@ -43,7 +53,8 @@ const Payment = () => {
             </span>
           </p>
           <p className='payment-discount'>
-            Special Discount - <span className='payment-discount'> &nbsp; {discountPrice}</span>
+            Special Discount -{' '}
+            <span className='payment-discount'> &nbsp; {discountPrice}</span>
           </p>
           <p className='payment-final'>
             Final Payment - <span> &nbsp; {value.price}</span>

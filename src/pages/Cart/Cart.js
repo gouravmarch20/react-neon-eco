@@ -1,15 +1,24 @@
 import React from 'react'
-import Order from '../../components/cart/Order'
+import OrderProduct from '../../components/cart/OrderProduct'
 import Payment from '../../components/cart/Payment'
 import './Cart.css'
+import { useAuth } from '../../context/AuthContext'
+import { useCart } from '../../context/CartContext'
+
 export const Cart = () => {
+  const {
+    authState: { userInfo, token, isLoggedIn }
+  } = useAuth()
+  const { cartState, cartDispatch } = useCart()
+  const { cart, cartError, totalProductInCart } = cartState
+
   return (
     <>
       <div>
         <div className='container'>
-          <Order />
+          <OrderProduct />
 
-          <Payment />
+          {token && cart.length && <Payment />}
         </div>
       </div>
     </>

@@ -9,9 +9,7 @@
   top: 4rem;
 }
 
-.product__filter:hover {
-  overflow-y: scroll;
-}
+
 .product__header {
   display: flex;
   justify-content: space-between;
@@ -24,10 +22,10 @@
 .filter-section input {
   margin: 1rem 0.5rem;
 }
-.input-text {
+.input-text-red {
   font-family: monospace;
   font-weight: 0px;
-  color: red;
+  color: #D82E2F;
 }
 .price-detail {
   width: 80%;

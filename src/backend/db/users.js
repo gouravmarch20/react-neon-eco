@@ -20,8 +20,8 @@ export const users = [
     _id: uuid(),
     firstName: 'gourav',
     lastName: 'mishra',
-    email: 'gourahitmanv@gmail.com',
-    password: 'gourav123456',
+    email: 'gouravm@gmail.com',
+    password: 'educationrail2022@X',
     createdAt: formatDate(),
     updatedAt: formatDate()
   }

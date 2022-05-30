@@ -1,4 +1,4 @@
 export const discontInPercent = (price, priceMrp) => {
-  return Math.ceil(((priceMrp - price) * 100) / priceMrp
+  return Math.floor(((priceMrp - price) * 100) / priceMrp
 )
 }

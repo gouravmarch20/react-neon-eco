@@ -28,9 +28,8 @@ const ProductFilter = () => {
       <aside className='product__filter'>
         <div className='product__filter__container'>
           <div className='product__header '>
-            <button className='btn btn-info'>Filter Box</button>
             <button
-              className='product__header__heading btn btn-danger'
+              className=' btn btn-danger ml-auto'
               onClick={() => filterDispatch({ type: 'RESET_ALL_FILTER' })}
             >
               Reset Filter
@@ -64,11 +63,12 @@ const ProductFilter = () => {
               uniqueCategories.map((category, index) => {
                 return (
                   <li key={index}>
-                    <label htmlFor={category}>
+                    <label htmlFor={category} className='cursor-pointer'>
                       <input
                         id={category}
                         type='checkbox'
                         checked={categories.includes(category)}
+                        className='text-uppercase'
                         onChange={() => {
                           filterDispatch({
                             type: 'FILTER_BY_CATEGORY',
@@ -87,36 +87,47 @@ const ProductFilter = () => {
             <h4>Product rating</h4>
 
             <li>
-              <label className='d-block' htmlFor='fourStarRating'>
+              <label
+                className='d-block'
+                htmlFor='fourStarRating'
+                className='cursor-pointer'
+              >
                 <input
                   className=''
                   id='fourStarRating'
                   type='radio'
                   name='rating'
+                  checked={rating && rating === 4}
                   onChange={() =>
                     filterDispatch({ type: 'FILTER_BY_RATING', payload: 4 })
                   }
                 />
                 4 or more
               </label>
-              <label htmlFor='threeStarRating' className='d-block '>
+              {console.log(rating)}
+              <label
+                htmlFor='threeStarRating'
+                className='d-block cursor-pointer '
+              >
                 <input
-                  className=''
+                  className='content text-uppercase'
                   id='threeStarRating'
                   type='radio'
                   name='rating'
+                  checked={rating && rating === 3}
                   onChange={() =>
                     filterDispatch({ type: 'FILTER_BY_RATING', payload: 3 })
                   }
                 />
                 3 or more
               </label>
-              <label htmlFor='twoStarRating' className='d-block'>
+              <label htmlFor='twoStarRating' className='d-block cursor-pointer'>
                 <input
                   className=''
                   id='twoStarRating'
                   type='radio'
                   name='rating'
+                  checked={rating && rating === 2}
                   onChange={() =>
                     filterDispatch({ type: 'FILTER_BY_RATING', payload: 2 })
                   }
@@ -129,11 +140,15 @@ const ProductFilter = () => {
           <section className='filter-section'>
             <h4 className=''>Short by Price</h4>
 
-            <label htmlFor='priceHighLow' className='input-text d-block'>
+            <label
+              htmlFor='priceHighLow'
+              className='input-text-red d-block cursor-pointer '
+            >
               <input
                 type='radio'
                 id='priceHighLow'
                 name='priceShort'
+                checked={sortBy && sortBy === 'PRICE_HIGH_TO_LOW'}
                 onChange={() =>
                   filterDispatch({
                     type: 'SORT_BY',
@@ -143,10 +158,14 @@ const ProductFilter = () => {
               />
               High to Low
             </label>
-            <label htmlFor='priceLowHigh' className='input-text d-block '>
+            <label
+              htmlFor='priceLowHigh'
+              className='input-text-red d-block cursor-pointer '
+            >
               <input
                 type='radio'
                 id='priceLowHigh'
+                checked={sortBy && sortBy === 'PRICE_LOW_TO_HIGH'}
                 onChange={() =>
                   filterDispatch({
                     type: 'SORT_BY',

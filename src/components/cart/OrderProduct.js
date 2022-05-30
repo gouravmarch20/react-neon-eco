@@ -5,12 +5,15 @@ import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 import './css/order.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import Rating from '@mui/material/Rating'
+
 import {
   deleteFromCart,
   addToWishlist,
   updateQuantity
 } from '../../helpers/index'
-const Order = () => {
+const OrderProduct = () => {
   const {
     authState: { userInfo, token, isLoggedIn }
   } = useAuth()
@@ -26,7 +29,7 @@ const Order = () => {
             <div>
               <h2 className='heading'>No product add to cart</h2>
               <h3 className='   subheading'>
-                Your saved <span> {cart.length} products . </span>
+                Your saved <span> {cart.length} product . </span>
               </h3>
             </div>
           ) : (
@@ -47,14 +50,20 @@ const Order = () => {
                     } = cart
                     return (
                       <div className='cart__items' key={index}>
-                        <img
+                        <LazyLoadImage
                           src={imageSrc}
-                          alt='no imag'
-                          className='cart__image'
+                          alt=''
+                          className='cart__image cursor-pointer-none'
                         />
 
                         <p className='card-title'>{title}</p>
-                        <p className='card-rating'>{rating}</p>
+                        <p className='card-rating'>
+                          <Rating
+                            value={rating}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </p>
 
                         <div className='card-pricing-detail'>
                           <span className='card-price'>{price} &nbsp; </span>
@@ -69,7 +78,9 @@ const Order = () => {
 
                         <div className='cart__input'>
                           <button
-                            className='card-button'
+                            className={`btn btn-danger  ${
+                              cart.qty < 2 ? 'btn-disable' : ''
+                            }`}
                             onClick={() => {
                               cart.qty < 2
                                 ? ''
@@ -80,7 +91,7 @@ const Order = () => {
                           </button>
                           <p className='card-quantity'>{cart.qty}</p>
                           <button
-                            className='card-button'
+                            className='btn btn-info'
                             onClick={() => {
                               updateQuantity(_id, 'increment', cartDispatch)
                             }}
@@ -121,7 +132,7 @@ const Order = () => {
           <br />
           <div className='login-cta'>
             <Link to='/signin'>
-              <button class='ctn-btn'>Login Now</button>
+              <button className='ctn-btn'>Login Now</button>
             </Link>
           </div>
         </div>
@@ -130,4 +141,4 @@ const Order = () => {
   )
 }
 
-export default Order
+export default OrderProduct

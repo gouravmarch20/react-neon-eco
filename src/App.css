@@ -5,7 +5,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  overflow-x: hidden;
+}
+.btn-disable {
+  /* opacity: 0.6; */
+  background-color: #ff6263;
+  pointer-events: none;
+  user-select: none;
+}
 .text-decoration {
   text-decoration: none;
 }
@@ -51,7 +59,12 @@ li {
 .cursor-pointer {
   cursor: pointer;
 }
-
+.cursor-pointer-none {
+  pointer-events: none;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
 .card-title {
   font-weight: bolder;
   text-align: center;
@@ -109,27 +122,39 @@ li {
 }
 
 .card-btn-view-more {
-  background-color: #383cc1;
-
+  background-color: #202eee;
+  border-radius: 0.2rem;
   color: white;
   font-weight: 500;
+}
+.card-btn-view-more:hover {
+  background-color: #3944f7;
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .card-btn-add-to-cart {
-  background-color: #1c8d73;
-  /* background-color: #e6425e; */
-
-  color: white;
-  font-weight: 500;
-}
-.card-btn-view-cart {
-  background-color: #1b98f5;
-  color: white;
-  font-weight: 500;
-}
-.card-btn-add-to-wishlist {
   background-color: #e03b8b;
+  color: whitesmoke;
+  font-weight: 500;
+  border-radius: 0.2rem;
+}
+.card-btn-add-to-cart:hover {
+  background-color: #e21717;
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-btn-add-to-wishlist {
+  background-color: #1c8d73;
   color: white;
   font-weight: 500;
+}
+.card-btn-add-to-wishlist:hover {
+  background-color: #02b290;
+  color: white;
+  font-weight: 500;
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .card-btn-view-wishlist {
   background-color: #1c8d73;
@@ -141,22 +166,34 @@ li {
   color: white;
   font-weight: 500;
 }
+.card-btn-remove:hover {
+  background-color: #d9d55b;
+}
 .auth-login {
   width: 100%;
   margin: 10vh auto;
 }
 .heading {
-  text-align: center;
+  /* text-align: center;
   font-size: 2.3rem;
   margin: 0.5rem;
 
+  color: #12b0e8; */
   color: #12b0e8;
+  text-shadow: 1px 1px 1px blueviolet;
+  text-transform: capitalize;
+  font-size: 2.4rem;
+  font-family: cursive;
+  margin: 0 1rem;
+  text-align: center;
 }
 .subheading {
   text-align: center;
   font-size: 2rem;
   margin: 0.5rem;
   color: #02b290;
+  font-family: cursive;
+  text-transform: capitalize;
 }
 .mt-10 {
   margin: 0 auto;
@@ -168,4 +205,8 @@ li {
 .margin-left-auto {
   width: 100%;
   margin: 0 auto;
+}
+.ml-auto {
+  margin-left: auto;
+  margin-right: 1rem;
 }

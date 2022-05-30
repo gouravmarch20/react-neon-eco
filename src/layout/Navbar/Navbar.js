@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import Annoncement from '../../components/specefic/Annoncement/Annoncement'
 import './Navbar.css'
 import { useTheme } from '../../context/ThemeContext'
 import AppTheme from '../../color/ColorsThree'
 import { useAuth } from '../../context/AuthContext'
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { MdDarkMode, MdOutlineFlashlightOn } from 'react-icons/md'
 import { TiHeartFullOutline, TiShoppingCart, TiUser } from 'react-icons/ti'
 // context
@@ -13,6 +13,13 @@ import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
 
 const Navbar = () => {
+  let location = useLocation()
+
+  const [currentTab, setCurrentTab] = useState('')
+  useEffect(() => {
+    setCurrentTab(location.pathname)
+  }, [location])
+
   const {
     authState: { isLoggedIn },
     logoutHandler
@@ -24,21 +31,18 @@ const Navbar = () => {
     wishlistState: { totalProductInWishlist }
   } = useWishlist()
 
-  const navigate = useNavigate()
-
   const { themeState, themeDispatch } = useTheme()
   const currectTheme = AppTheme[themeState.themeMode]
 
   return (
     <>
-      {/* TODO: only home page display  */}
-      <Annoncement />
+      {currentTab === ('/home' || '/' )? <Annoncement /> : null}
       <div
         className='navbar'
         style={{
           position: 'sticky',
           top: '0px',
-          zIndex: 1,
+          zIndex: 100,
           backgroundColor: `${currectTheme.backgroundColor}`,
           color: `${currectTheme.textColor}`
         }}
@@ -46,10 +50,18 @@ const Navbar = () => {
         <div className='navbar-warpper'>
           <div className='navbar-left'>
             <Link to='/home' className='navbar-link'>
-              <h1>neo rail </h1>
+              <h2
+                className='subheading'
+                style={{
+                  color: '#5DA3FA'
+                }}
+              >
+                {' '}
+                railcom{' '}
+              </h2>
             </Link>
           </div>
-          <div className='navbar-center'></div>
+
           <div className='navbar-right'>
             <Link
               to='/products'
@@ -66,7 +78,7 @@ const Navbar = () => {
 '
             >
               <div className='relative'>
-                <span className='badge-counter'>{totalProductInCart}</span>
+                <span className='badge-counter-red'>{totalProductInCart}</span>
                 <TiShoppingCart />
               </div>
             </Link>
@@ -77,7 +89,7 @@ const Navbar = () => {
 '
             >
               <div className='relative'>
-                <p className='badge-counter'>{totalProductInWishlist}</p>
+                <p className='badge-counter-green'>{totalProductInWishlist}</p>
                 <TiHeartFullOutline />{' '}
               </div>
             </Link>
@@ -128,7 +140,7 @@ const Navbar = () => {
                 className='navbar-link 
 '
               >
-                <button className='btn-auth'>SignIn</button>
+                <button className='btn btn-danger-light'>SignIn</button>
               </Link>
             )}
             {isLoggedIn && (

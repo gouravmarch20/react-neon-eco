@@ -6,11 +6,14 @@
   align-items: center;
 }
 
-.image {
+.slider-image {
   min-width: 80%;
+  max-width: 90%;
   max-height: 30vh;
   border-radius: 10px;
+
   object-fit: cover;
+  overflow: hidden;
 }
 
 .right-arrow {
@@ -48,29 +51,3 @@
 .mt-1 {
   margin-top: 1rem;
 }
-/*
-
-
-.slider-left {
-  position: absolute;
-  left: 1.3rem;
-  margin-top: 15vh;
-  cursor: pointer;
-  background-color: #8D3DAF;
-  padding: 0.3rem;
-}
-.slider-right {
-  position: absolute;
-  right: 1.3rem;
-  cursor: pointer;
-  padding: 0.3rem;
-  background-color: #8D3DAF;
-  margin-top: 15vh;
-}
-.slider-image {
-  object-position: center;
-  width: 100%;
-  height: 90%;
-
-  max-inline-size: 100%;
-} */

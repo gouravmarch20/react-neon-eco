@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './css/signin.css'
+import './css/singin.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 
@@ -12,12 +12,15 @@ const SignIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const submitLoginData = () => {
-    loginHandler(email, password)
+    if (email && password) {
+      loginHandler(email, password)
+    }
   }
+
   const submitLoginWithCredentials = () => {
-    setEmail('adarshbalika@gmail.com')
-    setPassword('adarshBalika123')
-    loginHandler('adarshbalika@gmail.com', 'adarshBalika123')
+    setEmail('gouravm@gmail.com')
+    setPassword('educationrail2022@X')
+    loginHandler('gouravm@gmail.com', 'educationrail2022@X')
   }
   return (
     <div className='signin'>

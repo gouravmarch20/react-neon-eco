@@ -19,7 +19,9 @@
   border: 1px solid grey;
 }
 .products:hover {
-  box-shadow: 3px 3px 4px 5px darkgray;
+  box-shadow: 3px 3px 4px 5px #758283;
+  transition: all 0.8 ease-in-out;
+  border: 1px dashed blueviolet;
 }
 .product__image {
   margin-top: 1rem;

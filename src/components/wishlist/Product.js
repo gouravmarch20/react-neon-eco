@@ -6,6 +6,7 @@ import { deleteFromWishlist, addToCart } from '../../helpers/index'
 import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
+import Rating from '@mui/material/Rating'
 
 const Product = () => {
   const {
@@ -19,61 +20,87 @@ const Product = () => {
   return (
     <>
       {token && isLoggedIn ? (
-        <div className='products__listing'>
+        <div className=''>
           {wishlist?.length === 0 ? (
             <div>
               <h2 className='heading '>No item save in wishlist</h2>
               <h3 className='subheading'>
-                Your saved <span> {wishlist.length} products . </span>
+                Your saved <span> {wishlist.length} product . </span>
               </h3>
             </div>
           ) : (
             wishlist &&
-            wishlist.length > 0 &&
-            wishlist.map((product, index) => {
-              const { _id, title, rating, priceMrp, price, imageSrc } = product
-              return (
-                <div key={index}>
-                  <section className='cart__items'>
-                    <img src={imageSrc} alt='ws' className='cart__image' />
+            wishlist.length > 0 && (
+              <>
+                <h2 className='   heading'>
+                  Your saved <span> {wishlist.length} products . </span>
+                </h2>
+                <div className='products__listing'>
+                  {wishlist.map((product, index) => {
+                    const {
+                      _id,
+                      title,
+                      rating,
+                      priceMrp,
+                      price,
+                      imageSrc
+                    } = product
+                    return (
+                      <div key={index}>
+                        <section className='cart__items'>
+                          <img
+                            src={imageSrc}
+                            alt='ws'
+                            className='cart__image '
+                          />
 
-                    <p className='card-title'>{title}</p>
-                    <p className='card-rating'>{rating}</p>
+                          <p className='card-title'>{title}</p>
 
-                    <div className='card-pricing-detail'>
-                      <span className='card-price'>{price} &nbsp; </span>
-                      <span className='card-price-mrp'>
-                        <del>{priceMrp}</del>
-                      </span>
+                          <p className='card-rating'>
+                            <Rating
+                              value={rating}
+                              readOnly={true}
+                              precision={0.5}
+                            />
+                          </p>
 
-                      <span className='card-disount'>
-                        &nbsp; {discontInPercent(price, priceMrp)}%
-                      </span>
-                    </div>
+                          <div className='card-pricing-detail'>
+                            <span className='card-price'>{price} &nbsp; </span>
+                            <span className='card-price-mrp'>
+                              <del>{priceMrp}</del>
+                            </span>
 
-                    <div>
-                      <button
-                        className=' card-button card-btn-add-to-cart'
-                        onClick={() => {
-                          deleteFromWishlist(_id, wishlistDispatch)
-                          addToCart(product, cartDispatch)
-                        }}
-                      >
-                        Move to Cart
-                      </button>
-                      <button
-                        className='card-button card-btn-remove '
-                        onClick={() => {
-                          deleteFromWishlist(_id, wishlistDispatch)
-                        }}
-                      >
-                        Remove{' '}
-                      </button>
-                    </div>
-                  </section>
+                            <span className='card-disount'>
+                              &nbsp; {discontInPercent(price, priceMrp)}%
+                            </span>
+                          </div>
+
+                          <div>
+                            <button
+                              className=' card-button card-btn-add-to-cart'
+                              onClick={() => {
+                                deleteFromWishlist(_id, wishlistDispatch)
+                                addToCart(product, cartDispatch)
+                              }}
+                            >
+                              Move to Cart
+                            </button>
+                            <button
+                              className='card-button card-btn-remove '
+                              onClick={() => {
+                                deleteFromWishlist(_id, wishlistDispatch)
+                              }}
+                            >
+                              Remove{' '}
+                            </button>
+                          </div>
+                        </section>
+                      </div>
+                    )
+                  })}{' '}
                 </div>
-              )
-            })
+              </>
+            )
           )}
         </div>
       ) : (
@@ -82,7 +109,7 @@ const Product = () => {
           <br />
           <div className='login-cta'>
             <Link to='/signin'>
-              <button class='ctn-btn'>Login Now</button>
+              <button className='ctn-btn'>Login Now</button>
             </Link>
           </div>
         </div>

@@ -4,3 +4,9 @@
   font-family: "Times New Roman", Times, serif;
   font-weight: 700;
 }
+.announcement-link {
+  text-decoration: none;
+}
+.announcement-link:visited{
+  color: #03203C;
+}

@@ -37,7 +37,8 @@ export const categories = [
     categoryName: 'pen',
     description:
       'literature in the form of prose, especially novels, that describes imaginary events and people',
-    imgUrl: './assets/category-pick/pen.webp'
+    imgUrl:
+      'https://www.reynolds-pens.com/wp-content/uploads/2021/08/Reynolds-Home-Page-Marketing-Stats-Box-2.webp'
   },
 
   {
@@ -45,8 +46,9 @@ export const categories = [
     categoryName: 'book',
     description:
       'Non-fiction is writing that gives information or describes real events, rather than telling a story.',
-      imgUrl: './assets/category-pick/book.webp'
-    },
+    imgUrl:
+      'https://images-na.ssl-images-amazon.com/images/I/A1neM65XRaL.jpg'
+  },
   {
     _id: uuid(),
     categoryName: 'copy',
