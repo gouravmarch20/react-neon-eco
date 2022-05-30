@@ -3,8 +3,8 @@
   font-weight: 500;
   font-size: 1.5rem;
 }
-.signup {
-  margin: 0 auto;
+.signin {
+  margin: 10vh auto;
   max-width: 430px;
   width: 100%;
   padding: 34px;
@@ -13,19 +13,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.signin {
-  margin: 1rem auto;
-  max-width: 430px;
-  width: 100%;
-  padding: 34px;
-  border-radius: 1rem;
-  box-shadow: 0 5px 10px rgba(0, 4, 0, 0.6);
-  font-family: "Poppins", sans-serif;
-}
-.input-box {
-  height: 52px;
-  margin: 2rem 0;
-}
 .input-box {
   height: 52px;
   margin: 3rem 0;
@@ -52,21 +39,21 @@
   letter-spacing: 1px;
   border: none;
   background: #4070f4;
-  padding: 1.2rem;
+  padding: 1.6rem;
   border-radius: 1rem;
   cursor: pointer;
   display: flex;
   margin: 1rem auto;
 }
 .signin-btn {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: grey;
 }
 .signin-btn a {
   color: rgb(176, 111, 236);
   text-decoration: none;
   transition: all 0.3 ease;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 500;
 }
 /* hover  */
@@ -77,18 +64,10 @@
   text-decoration: underline;
 }
 .sign-test {
-  background-color: #1c8d73 !important;
+  background-color: teal !important;
   font-weight: 500;
   color: white;
 }
 .sign-test:hover {
-  background-color: #02b290 !important;
-}
-.signin-btn-text {
-  color: blueviolet;
-  text-decoration: none;
-}
-.signin-btn-text:hover {
-  color: blueviolet;
-  text-decoration: none;
+  background-color: green !important;
 }
