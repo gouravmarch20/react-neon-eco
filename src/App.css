@@ -5,6 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  overflow-x: hidden;
+ 
+}
 
 .text-decoration {
   text-decoration: none;
@@ -51,8 +55,11 @@ li {
 .cursor-pointer {
   cursor: pointer;
 }
-.cursor-pointer-none{
+.cursor-pointer-none {
   pointer-events: none;
+}
+.text-uppercase {
+  text-transform: uppercase;
 }
 .card-title {
   font-weight: bolder;
@@ -128,18 +135,18 @@ li {
   border-radius: 0.2rem;
 }
 .card-btn-add-to-cart:hover {
-  background-color: rgb(212, 71, 160);
+  background-color: #E21717;
   transform: translateY(-1px);
   transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.card-btn-view-cart {
-  background-color: #1ecfcf;
+
+.card-btn-add-to-wishlist {
+  background-color: #1c8d73;
   color: white;
   font-weight: 500;
-  border-radius: 0.2rem;
 }
-.card-btn-add-to-wishlist {
-  background-color: #e03b8b;
+.card-btn-add-to-wishlist:hover {
+  background-color: #02b290;
   color: white;
   font-weight: 500;
 }
@@ -178,7 +185,6 @@ li {
   color: #02b290;
   font-family: cursive;
   text-transform: capitalize;
-
 }
 .mt-10 {
   margin: 0 auto;
@@ -190,4 +196,8 @@ li {
 .margin-left-auto {
   width: 100%;
   margin: 0 auto;
+}
+.ml-auto{
+  margin-left: auto;
+  margin-right: 1rem;
 }

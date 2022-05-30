@@ -53,7 +53,7 @@ const ProductList = () => {
                 <img
                   src={product.imageSrc}
                   alt='no found'
-                  className='product__image cursor-pointer'
+                  className='product__image '
                   onClick={() => {
                     navigate(`/products/${_id}`)
                   }}
@@ -74,7 +74,7 @@ const ProductList = () => {
                 <div className=''>
                   {cart.length != 0 && isProductAddedToCart ? (
                     <button
-                      className='card-button card-btn-view-cart '
+                      className='card-button card-btn-add-to-cart '
                       onClick={() => navigate('/cart')}
                     >
                       View cart
@@ -93,7 +93,7 @@ const ProductList = () => {
                   {/* wishlist  */}
                   {wishlist.length != 0 && isProductAddToWishlist ? (
                     <button
-                      className='card-button card-btn-view-wishlist'
+                      className='card-button card-btn-add-to-wishlist'
                       onClick={() => navigate('/wishlist')}
                     >
                       View Wishlist

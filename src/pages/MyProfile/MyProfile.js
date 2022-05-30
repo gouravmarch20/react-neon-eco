@@ -32,7 +32,7 @@ export const MyProfile = () => {
           <br />
           <div className='login-cta'>
             <Link to='/signin'>
-              <button class='ctn-btn'>Login Now</button>
+              <button clasclassName='ctn-btn'>Login Now</button>
             </Link>
           </div>
         </div>

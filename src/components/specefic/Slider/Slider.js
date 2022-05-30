@@ -14,7 +14,7 @@ const Slider = () => {
   }
 
   return (
-    <div className='mt-1'>
+    <div className='mt-1 '>
       <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
       <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
       {SliderData.map((slide, index) => {
@@ -24,7 +24,7 @@ const Slider = () => {
             key={index}
           >
             {index === current && (
-              <img src={slide.image} alt='travel image' className='image' />
+              <img src={slide.image} alt='travel' className='slider-image' />
             )}
           </div>
         )

@@ -26,7 +26,7 @@ const Order = () => {
             <div>
               <h2 className='heading'>No product add to cart</h2>
               <h3 className='   subheading'>
-                Your saved <span> {cart.length} products . </span>
+                Your saved <span> {cart.length} product . </span>
               </h3>
             </div>
           ) : (
@@ -121,7 +121,7 @@ const Order = () => {
           <br />
           <div className='login-cta'>
             <Link to='/signin'>
-              <button class='ctn-btn'>Login Now</button>
+              <button className='ctn-btn'>Login Now</button>
             </Link>
           </div>
         </div>

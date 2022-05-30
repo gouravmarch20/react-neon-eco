@@ -28,9 +28,8 @@ const ProductFilter = () => {
       <aside className='product__filter'>
         <div className='product__filter__container'>
           <div className='product__header '>
-            <button className='btn btn-info'>Filter Box</button>
             <button
-              className='product__header__heading btn btn-danger'
+              className=' btn btn-danger ml-auto'
               onClick={() => filterDispatch({ type: 'RESET_ALL_FILTER' })}
             >
               Reset Filter
@@ -64,11 +63,12 @@ const ProductFilter = () => {
               uniqueCategories.map((category, index) => {
                 return (
                   <li key={index}>
-                    <label htmlFor={category}>
+                    <label htmlFor={category} className="cursor-pointer">
                       <input
                         id={category}
                         type='checkbox'
                         checked={categories.includes(category)}
+                        className="text-uppercase"
                         onChange={() => {
                           filterDispatch({
                             type: 'FILTER_BY_CATEGORY',
@@ -87,7 +87,7 @@ const ProductFilter = () => {
             <h4>Product rating</h4>
 
             <li>
-              <label className='d-block' htmlFor='fourStarRating'>
+              <label className='d-block' htmlFor='fourStarRating' className="cursor-pointer">
                 <input
                   className=''
                   id='fourStarRating'
@@ -99,9 +99,9 @@ const ProductFilter = () => {
                 />
                 4 or more
               </label>
-              <label htmlFor='threeStarRating' className='d-block '>
+              <label htmlFor='threeStarRating' className='d-block cursor-pointer '>
                 <input
-                  className=''
+                  className='content text-uppercase'
                   id='threeStarRating'
                   type='radio'
                   name='rating'
@@ -111,7 +111,7 @@ const ProductFilter = () => {
                 />
                 3 or more
               </label>
-              <label htmlFor='twoStarRating' className='d-block'>
+              <label htmlFor='twoStarRating' className='d-block cursor-pointer'>
                 <input
                   className=''
                   id='twoStarRating'
@@ -129,7 +129,7 @@ const ProductFilter = () => {
           <section className='filter-section'>
             <h4 className=''>Short by Price</h4>
 
-            <label htmlFor='priceHighLow' className='input-text d-block'>
+            <label htmlFor='priceHighLow' className='input-text-red d-block cursor-pointer '>
               <input
                 type='radio'
                 id='priceHighLow'
@@ -143,7 +143,7 @@ const ProductFilter = () => {
               />
               High to Low
             </label>
-            <label htmlFor='priceLowHigh' className='input-text d-block '>
+            <label htmlFor='priceLowHigh' className='input-text-red d-block cursor-pointer '>
               <input
                 type='radio'
                 id='priceLowHigh'
