@@ -5,11 +5,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+body {
   overflow-x: hidden;
- 
 }
-
+.btn-disable {
+  /* opacity: 0.6; */
+  background-color: #FF6263;
+  pointer-events: none;
+  user-select: none;
+}
 .text-decoration {
   text-decoration: none;
 }
@@ -135,7 +139,7 @@ li {
   border-radius: 0.2rem;
 }
 .card-btn-add-to-cart:hover {
-  background-color: #E21717;
+  background-color: #e21717;
   transform: translateY(-1px);
   transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -159,6 +163,11 @@ li {
   background-color: #ddd101;
   color: white;
   font-weight: 500;
+}
+.card-btn-remove:hover {
+
+  background-color: #D9D55B;
+
 }
 .auth-login {
   width: 100%;
@@ -197,7 +206,7 @@ li {
   width: 100%;
   margin: 0 auto;
 }
-.ml-auto{
+.ml-auto {
   margin-left: auto;
   margin-right: 1rem;
 }

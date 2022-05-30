@@ -5,12 +5,14 @@ import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 import './css/order.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+
 import {
   deleteFromCart,
   addToWishlist,
   updateQuantity
 } from '../../helpers/index'
-const Order = () => {
+const OrderProduct = () => {
   const {
     authState: { userInfo, token, isLoggedIn }
   } = useAuth()
@@ -47,9 +49,10 @@ const Order = () => {
                     } = cart
                     return (
                       <div className='cart__items' key={index}>
-                        <img
+                     
+                        <LazyLoadImage
                           src={imageSrc}
-                          alt='no imag'
+                          alt=''
                           className='cart__image cursor-pointer-none'
                         />
 
@@ -69,7 +72,9 @@ const Order = () => {
 
                         <div className='cart__input'>
                           <button
-                            className='card-button'
+                            className={`btn btn-danger  ${
+                              cart.qty < 2 ? 'btn-disable' : ''
+                            }`}
                             onClick={() => {
                               cart.qty < 2
                                 ? ''
@@ -80,7 +85,7 @@ const Order = () => {
                           </button>
                           <p className='card-quantity'>{cart.qty}</p>
                           <button
-                            className='card-button'
+                            className='btn btn-info'
                             onClick={() => {
                               updateQuantity(_id, 'increment', cartDispatch)
                             }}
@@ -130,4 +135,4 @@ const Order = () => {
   )
 }
 
-export default Order
+export default OrderProduct

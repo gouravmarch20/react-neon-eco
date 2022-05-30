@@ -1,5 +1,7 @@
 import React from 'react'
 import './ProductList.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { Rating } from '@mui/material';
 import {
   getSortedProducts,
   getFilteredProducts,
@@ -50,7 +52,7 @@ const ProductList = () => {
 
             return (
               <section className='products card' key={product._id}>
-                <img
+                <LazyLoadImage
                   src={product.imageSrc}
                   alt='no found'
                   className='product__image '
@@ -58,6 +60,7 @@ const ProductList = () => {
                     navigate(`/products/${_id}`)
                   }}
                 />
+
                 <p className='card-title'>{product.title}</p>
                 <p className='card-rating'>{product.rating}</p>
 
