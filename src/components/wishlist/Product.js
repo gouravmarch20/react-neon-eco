@@ -5,7 +5,7 @@ import { useCart } from '../../context/CartContext'
 import { deleteFromWishlist, addToCart } from '../../helpers/index'
 import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating'
 
 const Product = () => {
@@ -14,9 +14,11 @@ const Product = () => {
     wishlistDispatch
   } = useWishlist()
   const {
-    authState: { userInfo, token, isLoggedIn }
+    authState: { token, isLoggedIn }
   } = useAuth()
   const { cartDispatch } = useCart()
+  const navigate = useNavigate()
+
   return (
     <>
       {token && isLoggedIn ? (
@@ -27,6 +29,14 @@ const Product = () => {
               <h3 className='subheading'>
                 Your saved <span> {wishlist.length} product . </span>
               </h3>
+              <div className='login-cta'>
+                <button
+                  className='ctn-btn'
+                  onClick={() => navigate('/products')}
+                >
+                  Shop Now
+                </button>
+              </div>
             </div>
           ) : (
             wishlist &&

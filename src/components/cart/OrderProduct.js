@@ -3,7 +3,7 @@ import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
 import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './css/order.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Rating from '@mui/material/Rating'
@@ -15,11 +15,12 @@ import {
 } from '../../helpers/index'
 const OrderProduct = () => {
   const {
-    authState: { userInfo, token, isLoggedIn }
+    authState: { token, isLoggedIn }
   } = useAuth()
   const { cartState, cartDispatch } = useCart()
   const { cart, cartError, totalProductInCart } = cartState
   const { wishlistDispatch } = useWishlist()
+  const navigate = useNavigate()
 
   return (
     <>
@@ -31,6 +32,15 @@ const OrderProduct = () => {
               <h3 className='   subheading'>
                 Your saved <span> {cart.length} product . </span>
               </h3>
+
+              <div className='login-cta'>
+                <button
+                  className='ctn-btn'
+                  onClick={() => navigate('/products')}
+                >
+                  Shop Now
+                </button>
+              </div>
             </div>
           ) : (
             cart.length > 0 && (

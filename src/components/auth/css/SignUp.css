@@ -1,16 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .label {
   margin-left: 0.5rem;
   font-weight: 500;
   font-size: 1.1rem;
 }
+
 .signup {
-  margin: 10vh auto;
+  margin: 0 auto;
   max-width: 430px;
   width: 100%;
   padding: 34px;
