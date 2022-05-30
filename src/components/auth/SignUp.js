@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './css/signup.css'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 
