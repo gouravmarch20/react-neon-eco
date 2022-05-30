@@ -36,7 +36,6 @@ const Navbar = () => {
 
   return (
     <>
-      {console.log(currentTab === '/')}
       {currentTab === ('/home' || '/' )? <Annoncement /> : null}
       <div
         className='navbar'
@@ -141,7 +140,7 @@ const Navbar = () => {
                 className='navbar-link 
 '
               >
-                <button className='btn-auth'>SignIn</button>
+                <button className='btn btn-danger-light'>SignIn</button>
               </Link>
             )}
             {isLoggedIn && (

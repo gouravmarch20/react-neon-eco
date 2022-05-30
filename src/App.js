@@ -2,10 +2,11 @@ import React from 'react'
 import './App.css'
 import Mockman from 'mockman-js'
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './layout/Navbar/Navbar'
 import { useTheme } from './context/ThemeContext'
 import { useAuth } from './context/AuthContext'
+import { ToasterWrapper } from './utils/ToasterUtils'
 
 import AppTheme from './color/Colors'
 import {
@@ -13,7 +14,6 @@ import {
   Product,
   Wishlist,
   Cart,
-  NotFound,
   MyProfile,
   ProductDetail,
   Signin,
@@ -38,7 +38,7 @@ const Router = () => {
       {!isLoggedIn && <Route path='/signin' element={<Signin />} />}
       {!isLoggedIn && <Route path='/signup' element={<Signup />} />}
       <Route path='/mockman' element={<Mockman />} />
-      <Route path='*' element={<NotFound />} />
+      <Route path='*' element={<Navigate replace to='/' />} />
     </Routes>
   )
 }
@@ -57,6 +57,8 @@ const App = () => {
         textAlign: 'center'
       }}
     >
+      <ToasterWrapper />
+
       <Navbar />
 
       <Router />

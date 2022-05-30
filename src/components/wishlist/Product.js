@@ -6,6 +6,7 @@ import { deleteFromWishlist, addToCart } from '../../helpers/index'
 import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
+import Rating from '@mui/material/Rating'
 
 const Product = () => {
   const {
@@ -55,7 +56,13 @@ const Product = () => {
 
                           <p className='card-title'>{title}</p>
 
-                          <p className='card-rating'>{rating}</p>
+                          <p className='card-rating'>
+                            <Rating
+                              value={rating}
+                              readOnly={true}
+                              precision={0.5}
+                            />
+                          </p>
 
                           <div className='card-pricing-detail'>
                             <span className='card-price'>{price} &nbsp; </span>

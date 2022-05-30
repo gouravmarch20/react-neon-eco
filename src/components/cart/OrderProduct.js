@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 import './css/order.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import Rating from '@mui/material/Rating'
 
 import {
   deleteFromCart,
@@ -49,7 +50,6 @@ const OrderProduct = () => {
                     } = cart
                     return (
                       <div className='cart__items' key={index}>
-                     
                         <LazyLoadImage
                           src={imageSrc}
                           alt=''
@@ -57,7 +57,13 @@ const OrderProduct = () => {
                         />
 
                         <p className='card-title'>{title}</p>
-                        <p className='card-rating'>{rating}</p>
+                        <p className='card-rating'>
+                          <Rating
+                            value={rating}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </p>
 
                         <div className='card-pricing-detail'>
                           <span className='card-price'>{price} &nbsp; </span>

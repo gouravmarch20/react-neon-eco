@@ -10,7 +10,7 @@ body {
 }
 .btn-disable {
   /* opacity: 0.6; */
-  background-color: #FF6263;
+  background-color: #ff6263;
   pointer-events: none;
   user-select: none;
 }
@@ -153,6 +153,8 @@ li {
   background-color: #02b290;
   color: white;
   font-weight: 500;
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .card-btn-view-wishlist {
   background-color: #1c8d73;
@@ -165,9 +167,7 @@ li {
   font-weight: 500;
 }
 .card-btn-remove:hover {
-
-  background-color: #D9D55B;
-
+  background-color: #d9d55b;
 }
 .auth-login {
   width: 100%;

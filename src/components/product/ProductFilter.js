@@ -63,12 +63,12 @@ const ProductFilter = () => {
               uniqueCategories.map((category, index) => {
                 return (
                   <li key={index}>
-                    <label htmlFor={category} className="cursor-pointer">
+                    <label htmlFor={category} className='cursor-pointer'>
                       <input
                         id={category}
                         type='checkbox'
                         checked={categories.includes(category)}
-                        className="text-uppercase"
+                        className='text-uppercase'
                         onChange={() => {
                           filterDispatch({
                             type: 'FILTER_BY_CATEGORY',
@@ -87,24 +87,34 @@ const ProductFilter = () => {
             <h4>Product rating</h4>
 
             <li>
-              <label className='d-block' htmlFor='fourStarRating' className="cursor-pointer">
+              <label
+                className='d-block'
+                htmlFor='fourStarRating'
+                className='cursor-pointer'
+              >
                 <input
                   className=''
                   id='fourStarRating'
                   type='radio'
                   name='rating'
+                  checked={rating && rating === 4}
                   onChange={() =>
                     filterDispatch({ type: 'FILTER_BY_RATING', payload: 4 })
                   }
                 />
                 4 or more
               </label>
-              <label htmlFor='threeStarRating' className='d-block cursor-pointer '>
+              {console.log(rating)}
+              <label
+                htmlFor='threeStarRating'
+                className='d-block cursor-pointer '
+              >
                 <input
                   className='content text-uppercase'
                   id='threeStarRating'
                   type='radio'
                   name='rating'
+                  checked={rating && rating === 3}
                   onChange={() =>
                     filterDispatch({ type: 'FILTER_BY_RATING', payload: 3 })
                   }
@@ -117,6 +127,7 @@ const ProductFilter = () => {
                   id='twoStarRating'
                   type='radio'
                   name='rating'
+                  checked={rating && rating === 2}
                   onChange={() =>
                     filterDispatch({ type: 'FILTER_BY_RATING', payload: 2 })
                   }
@@ -129,11 +140,15 @@ const ProductFilter = () => {
           <section className='filter-section'>
             <h4 className=''>Short by Price</h4>
 
-            <label htmlFor='priceHighLow' className='input-text-red d-block cursor-pointer '>
+            <label
+              htmlFor='priceHighLow'
+              className='input-text-red d-block cursor-pointer '
+            >
               <input
                 type='radio'
                 id='priceHighLow'
                 name='priceShort'
+                checked={sortBy && sortBy === 'PRICE_HIGH_TO_LOW'}
                 onChange={() =>
                   filterDispatch({
                     type: 'SORT_BY',
@@ -143,10 +158,14 @@ const ProductFilter = () => {
               />
               High to Low
             </label>
-            <label htmlFor='priceLowHigh' className='input-text-red d-block cursor-pointer '>
+            <label
+              htmlFor='priceLowHigh'
+              className='input-text-red d-block cursor-pointer '
+            >
               <input
                 type='radio'
                 id='priceLowHigh'
+                checked={sortBy && sortBy === 'PRICE_LOW_TO_HIGH'}
                 onChange={() =>
                   filterDispatch({
                     type: 'SORT_BY',

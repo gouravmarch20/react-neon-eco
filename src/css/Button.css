@@ -20,13 +20,13 @@
   font-size: large;
 }
 .btn-danger-light {
-  background-color: #e6425e;
+  background-color: #bd3f63;
   transition: all 0.7s;
   color: white;
   font-size: large;
 }
 .btn-danger-light:hover {
-  background-color: #b9345a;
+  background-color: #e83a59;
 }
 .btn-success {
   background-color: #02b290;

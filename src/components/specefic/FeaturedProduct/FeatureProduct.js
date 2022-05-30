@@ -5,7 +5,7 @@ import { useCart } from '../../../context/CartContext'
 import { addToCart } from '../../../helpers/index'
 import { discontInPercent } from '../../../utils/index'
 import { useNavigate } from 'react-router-dom'
-// import StarRatings from './react-star-ratings';
+import Rating from '@mui/material/Rating'
 
 import './FeatureProduct.css'
 const FeatureProduct = () => {
@@ -44,7 +44,13 @@ const FeatureProduct = () => {
                   }}
                 />
                 <p className='card-title'>{product.title}</p>
-                <p className='card-rating'>{product.rating}</p>
+                <p className='card-rating'>
+                  <Rating
+                    value={product.rating}
+                    readOnly={true}
+                    precision={0.5}
+                  />
+                </p>
 
                 <div className='card-pricing-detail'>
                   <span className='card-price'>{product.price} &nbsp; </span>

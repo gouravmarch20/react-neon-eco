@@ -1,33 +1,38 @@
 import React, { useState } from 'react'
 import './css/signup.css'
-// import { createUser } from '../../actions/authAction'
+import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 
 const SignUp = () => {
-
   const [userSignUpData, setUserSignUpData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: ''
   })
-  const handleInput = e => {
-    const tempName = e.target.name
-    const tempvalue = e.target.value
-    setUserSignUpData({ ...userSignUpData, [tempName]: tempvalue })
-  }
-  const handleSubmit = e => {
-    e.preventDefault()
-    // createUser({ ...userSignUpData })
-  }
 
+  const {
+    // state: { error },
+    signupHandler
+  } = useAuth()
+
+  const { firstName, lastName, email, password } = userSignUpData
+
+  const handleSubmit = e => {
+    if (
+      firstName !== '' &&
+      lastName !== '' &&
+      email !== '' &&
+      password !== ''
+    ) {
+      signupHandler(firstName, lastName, email, password)
+    }
+  }
   return (
     <div className='signup'>
-      <h2>Registration</h2>
-      <button>
-    
-      </button>
-      <form className='signup-form'>
+      <h2 className='text-center'>Registration</h2>
+
+      <form className='signup-form' onSubmit={e => e.preventDefault()}>
         <div className='input-box'>
           <label htmlFor='firstName' className='label'>
             {' '}
@@ -42,9 +47,15 @@ const SignUp = () => {
             placeholder='Enter your firstName'
             value={userSignUpData.firstName}
             required
-            onChange={e => handleInput(e)}
+            onChange={e =>
+              setUserSignUpData({
+                ...userSignUpData,
+                firstName: e.target.value
+              })
+            }
           />
         </div>
+
         <div className='input-box'>
           <label htmlFor='lastName' className='label'>
             {' '}
@@ -57,7 +68,10 @@ const SignUp = () => {
             id='lastName'
             name='lastName'
             placeholder='Enter your lastName'
-            onChange={e => handleInput(e)}
+            onChange={e =>
+              setUserSignUpData({ ...userSignUpData, lastName: e.target.value })
+            }
+            value={userSignUpData.lastName}
             required
           />
         </div>
@@ -73,7 +87,10 @@ const SignUp = () => {
             id='email'
             placeholder='Enter your email'
             required
-            onChange={e => handleInput(e)}
+            value={userSignUpData.email}
+            onChange={e =>
+              setUserSignUpData({ ...userSignUpData, email: e.target.value })
+            }
           />
         </div>
 
@@ -89,21 +106,19 @@ const SignUp = () => {
             name='password'
             id='password'
             placeholder='Create password'
-            onChange={e => handleInput(e)}
+            value={userSignUpData.password}
+            onChange={e =>
+              setUserSignUpData({ ...userSignUpData, password: e.target.value })
+            }
             required
           />
         </div>
-
-        <div className=''>
-          <button className='signup-btn' onClick={handleSubmit}>
-            Register Now
-          </button>
-        </div>
-        <div className=''>
-          <p className='signin-btn'>
-            Already have an account? <Link to='/signin'>Login now</Link>
-          </p>
-        </div>
+        <button type='submit' className='signup-btn' onClick={handleSubmit}>
+          Register Now
+        </button>
+        <p className='signin-btn'>
+          Already have an account? <Link to='/signin'>Login now</Link>
+        </p>
       </form>
     </div>
   )

@@ -10,7 +10,6 @@ const Payment = () => {
   })
   const [discountPrice, setDiscountPrice] = useState(0)
   const { cart, cartError, totalProductInCart } = cartState
-  console.log(cart);
   useEffect(() => {
     let priceDetail = cart.reduce(
       (acc, curr) => ({
@@ -26,7 +25,6 @@ const Payment = () => {
       }
     )
     let discountPrice = priceDetail.priceMrp - priceDetail.price
-    console.log(priceDetail)
     setValue(prev => ({
       ...prev,
       priceMrp: priceDetail.priceMrp,
