@@ -1,7 +1,6 @@
-//: OPPOSITE  DID BY MSITAKE
 const AppTheme = {
   light: {
-    textColor: '#5A20CB',
+    textColor: 'red',
     backgroundColor: '#CAD5E2',
     border: '2px solid #000'
   },

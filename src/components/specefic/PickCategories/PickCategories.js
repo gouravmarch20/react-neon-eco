@@ -11,7 +11,7 @@ const PickCategories = () => {
       <div className='pick-categories'>
         {categories?.length > 0 &&
           categories.map((category, index) => (
-            <div  key={index}>
+            <div key={index}>
               <PickCategoriesSection category={category} />
             </div>
           ))}

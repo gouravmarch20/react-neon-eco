@@ -5,6 +5,7 @@ import { useCart } from '../../../context/CartContext'
 import { addToCart } from '../../../helpers/index'
 import { discontInPercent } from '../../../utils/index'
 import { useNavigate } from 'react-router-dom'
+// import StarRatings from './react-star-ratings';
 
 import './FeatureProduct.css'
 const FeatureProduct = () => {
@@ -26,7 +27,7 @@ const FeatureProduct = () => {
       <h1 className='heading'> Feature Product </h1>
       <div className='products__listing'>
         {featuredProducts && featuredProducts.length === 0 ? (
-          <h1>No product found</h1>
+          <h1 className='heading'>No product found</h1>
         ) : (
           featuredProducts?.map(product => {
             const isProductAddedToCart = cart?.find(
@@ -37,7 +38,7 @@ const FeatureProduct = () => {
                 <img
                   src={product.imageSrc}
                   alt='no found'
-                  className='product__image cursor-pointer'
+                  className='product__image cursor-pointer-none'
                   onClick={() => {
                     navigate(`/products/${_id}`)
                   }}
@@ -65,7 +66,7 @@ const FeatureProduct = () => {
                   </button>
                   {featuredProducts.length != 0 && isProductAddedToCart ? (
                     <button
-                      className='card-button   card-btn-view-cart'
+                      className='card-button   card-btn-add-to-cart '
                       onClick={() => navigate('/cart')}
                     >
                       View cart

@@ -51,7 +51,9 @@ li {
 .cursor-pointer {
   cursor: pointer;
 }
-
+.cursor-pointer-none{
+  pointer-events: none;
+}
 .card-title {
   font-weight: bolder;
   text-align: center;
@@ -109,22 +111,32 @@ li {
 }
 
 .card-btn-view-more {
-  background-color: #383cc1;
-
+  background-color: #202eee;
+  border-radius: 0.2rem;
   color: white;
   font-weight: 500;
+}
+.card-btn-view-more:hover {
+  background-color: #3944f7;
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .card-btn-add-to-cart {
-  background-color: #1c8d73;
-  /* background-color: #e6425e; */
-
-  color: white;
+  background-color: #e03b8b;
+  color: whitesmoke;
   font-weight: 500;
+  border-radius: 0.2rem;
+}
+.card-btn-add-to-cart:hover {
+  background-color: rgb(212, 71, 160);
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .card-btn-view-cart {
-  background-color: #1b98f5;
+  background-color: #1ecfcf;
   color: white;
   font-weight: 500;
+  border-radius: 0.2rem;
 }
 .card-btn-add-to-wishlist {
   background-color: #e03b8b;
@@ -146,17 +158,27 @@ li {
   margin: 10vh auto;
 }
 .heading {
-  text-align: center;
+  /* text-align: center;
   font-size: 2.3rem;
   margin: 0.5rem;
 
+  color: #12b0e8; */
   color: #12b0e8;
+  text-shadow: 1px 1px 1px blueviolet;
+  text-transform: capitalize;
+  font-size: 2.4rem;
+  font-family: cursive;
+  margin: 0 1rem;
+  text-align: center;
 }
 .subheading {
   text-align: center;
   font-size: 2rem;
   margin: 0.5rem;
   color: #02b290;
+  font-family: cursive;
+  text-transform: capitalize;
+
 }
 .mt-10 {
   margin: 0 auto;

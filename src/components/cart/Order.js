@@ -50,7 +50,7 @@ const Order = () => {
                         <img
                           src={imageSrc}
                           alt='no imag'
-                          className='cart__image'
+                          className='cart__image cursor-pointer-none'
                         />
 
                         <p className='card-title'>{title}</p>
