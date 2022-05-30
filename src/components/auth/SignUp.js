@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
-import './css/signUp.css'
+// import './css/signUp.css'
 const SignUp = () => {
   const [userSignUpData, setUserSignUpData] = useState({
     firstName: '',

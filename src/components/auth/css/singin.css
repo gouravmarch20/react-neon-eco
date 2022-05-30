@@ -3,8 +3,8 @@
   font-weight: 500;
   font-size: 1.5rem;
 }
-.signin {
-  margin: 10vh auto;
+.signup {
+  margin: 0 auto;
   max-width: 430px;
   width: 100%;
   padding: 34px;
@@ -13,6 +13,19 @@
   font-family: "Poppins", sans-serif;
 }
 
+.signin {
+  margin: 0 auto;
+  max-width: 430px;
+  width: 100%;
+  padding: 34px;
+  border-radius: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 4, 0, 0.6);
+  font-family: "Poppins", sans-serif;
+}
+.input-box {
+  height: 52px;
+  margin: 3rem 0;
+}
 .input-box {
   height: 52px;
   margin: 3rem 0;
