@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from 'react'
 import { AuthReducer } from '../reducers'
 
 import { useNavigate } from 'react-router-dom'
-import {  signupAction, signinAction } from '../actions/authAction'
+import { signupAction, signinAction } from '../actions/authAction'
 import toast from 'react-hot-toast'
 
 const initialState = {

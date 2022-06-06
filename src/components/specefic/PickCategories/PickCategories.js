@@ -7,7 +7,7 @@ const PickCategories = () => {
   let categories = categoryState.categories
   return (
     <>
-      <h1 className='heading'>Shop By Category</h1>
+      <h1 className='heading mt-1'>Shop By Category</h1>
       <div className='pick-categories'>
         {categories?.length > 0 &&
           categories.map((category, index) => (

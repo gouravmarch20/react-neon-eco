@@ -7,10 +7,10 @@ import { useCart } from '../../context/CartContext'
 
 export const Cart = () => {
   const {
-    authState: { userInfo, token, isLoggedIn }
+    authState: { token }
   } = useAuth()
-  const { cartState, cartDispatch } = useCart()
-  const { cart, cartError, totalProductInCart } = cartState
+  const { cartState } = useCart()
+  const { cart } = cartState
 
   return (
     <>

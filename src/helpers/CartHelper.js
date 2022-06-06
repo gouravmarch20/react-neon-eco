@@ -42,7 +42,6 @@ export const addToCart = async (product, cartDispatch) => {
     toast.error('Some error occured. Try Again.', {
       id: toastId
     })
-    console.warn(error)
   }
 }
 export const deleteFromCart = async (productId, cartDispatch) => {
@@ -52,7 +51,6 @@ export const deleteFromCart = async (productId, cartDispatch) => {
       headers
     })
     const { status, data } = response
-
     if (status === 200) {
       cartDispatch({ type: 'REMOVE_FROM_CART', payload: data.cart })
       toast.success('Item deleted from cart.', {

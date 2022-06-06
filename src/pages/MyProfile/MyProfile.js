@@ -6,7 +6,6 @@ export const MyProfile = () => {
   const {
     authState: { userInfo, token, isLoggedIn }
   } = useAuth()
-
   return (
     <div className=' '>
       {token && isLoggedIn ? (

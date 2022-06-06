@@ -148,6 +148,8 @@ li {
   background-color: #1c8d73;
   color: white;
   font-weight: 500;
+  border-radius: 0.2rem;
+
 }
 .card-btn-add-to-wishlist:hover {
   background-color: #02b290;
@@ -165,9 +167,15 @@ li {
   background-color: #ddd101;
   color: white;
   font-weight: 500;
+  border-radius: 0.2rem;
+
 }
 .card-btn-remove:hover {
-  background-color: #d9d55b;
+  background-color: #D9D55B;
+  color: white;
+  font-weight: 500;
+  transform: translateY(-1px);
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .auth-login {
   width: 100%;

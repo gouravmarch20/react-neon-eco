@@ -18,9 +18,9 @@ import { useCart } from '../../context/CartContext'
 const ProductList = () => {
   const navigate = useNavigate()
   const {
-    productState: { products, error }
+    productState: { products }
   } = useProduct()
-  const { filterState, filterDispatch } = useFilter()
+  const { filterState } = useFilter()
   const {
     cartState: { cart },
     cartDispatch

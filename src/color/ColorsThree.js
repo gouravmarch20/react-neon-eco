@@ -1,4 +1,3 @@
-//: OPPOSITE  DID BY MSITAKE
 const AppTheme = {
   light: {
     textColor: '#000000',

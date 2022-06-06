@@ -23,7 +23,6 @@ export const WishlistReducer = (state, { type, payload }) => {
         totalProductInWishlist: noOfItemInWishlist
       }
 
-
     default:
       return state
   }

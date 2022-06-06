@@ -104,7 +104,6 @@ const ProductFilter = () => {
                 />
                 4 or more
               </label>
-              {console.log(rating)}
               <label
                 htmlFor='threeStarRating'
                 className='d-block cursor-pointer '
@@ -138,7 +137,7 @@ const ProductFilter = () => {
           </section>{' '}
           <div className='divider-mini'></div>
           <section className='filter-section'>
-            <h4 className=''>Short by Price</h4>
+            <h4 className=''>Sort by Price</h4>
 
             <label
               htmlFor='priceHighLow'
@@ -147,7 +146,7 @@ const ProductFilter = () => {
               <input
                 type='radio'
                 id='priceHighLow'
-                name='priceShort'
+                name='priceSort'
                 checked={sortBy && sortBy === 'PRICE_HIGH_TO_LOW'}
                 onChange={() =>
                   filterDispatch({
@@ -172,7 +171,7 @@ const ProductFilter = () => {
                     payload: 'PRICE_LOW_TO_HIGH'
                   })
                 }
-                name='priceShort'
+                name='priceSort'
               />
               Low to High
             </label>
