@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating'
 
-const Product = () => {
+const WishlistProduct = () => {
   const {
     wishlistState: { wishlist },
     wishlistDispatch
@@ -128,4 +128,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default WishlistProduct

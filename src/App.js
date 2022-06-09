@@ -1,17 +1,16 @@
 import React from 'react'
 import './App.css'
-import Mockman from 'mockman-js'
 
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Navbar from './layout/Navbar/Navbar'
+import Navbar from './components/navbar/Navbar'
 import { useTheme } from './context/ThemeContext'
 import { useAuth } from './context/AuthContext'
 import { ToasterWrapper } from './utils/ToasterUtils'
 
-import AppTheme from './color/Colors'
+import AppTheme from './color/ColorsOne'
 import {
   Home,
-  Product,
+  Products,
   Wishlist,
   Cart,
   MyProfile,
@@ -29,7 +28,7 @@ const Router = () => {
       <Route path='/' element={<Home />} />
 
       <Route path='/home' element={<Home />} />
-      <Route path='/products' element={<Product />} />
+      <Route path='/products' element={<Products />} />
       <Route path='/wishlist' element={<Wishlist />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/my-profile' element={<MyProfile />} />
@@ -37,7 +36,6 @@ const Router = () => {
       <Route path='/products/:productId' element={<ProductDetail />} />
       {!isLoggedIn && <Route path='/signin' element={<Signin />} />}
       {!isLoggedIn && <Route path='/signup' element={<Signup />} />}
-      <Route path='/mockman' element={<Mockman />} />
       <Route path='*' element={<Navigate replace to='/' />} />
     </Routes>
   )

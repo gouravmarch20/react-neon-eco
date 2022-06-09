@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from 'react'
 import { ThemeReducer } from '../reducers'
-const ThemeContext = createContext(['light', () => {}])
+const ThemeContext = createContext()
 const initialState = {
   themeMode: 'light'
 }

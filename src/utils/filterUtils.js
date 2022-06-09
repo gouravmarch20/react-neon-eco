@@ -17,7 +17,7 @@ export const getSortedProducts = (data, filterState) => {
 }
 export const getFilteredProducts = (data, filterState) => {
   let tempFilterProducts = [...data]
-  const { rating, price, categories, maxPrice } = filterState
+  const { rating, categories, maxPrice } = filterState
 
   if (rating) {
     tempFilterProducts = data.filter(item => item.rating >= rating)
@@ -27,6 +27,7 @@ export const getFilteredProducts = (data, filterState) => {
       item => item.price <= maxPrice
     )
   }
+  
   if (categories.length !== 0) {
     tempFilterProducts = tempFilterProducts.filter(item =>
       categories.includes(item.categoryName)

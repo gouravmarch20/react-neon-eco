@@ -9,6 +9,7 @@ import FeatureProduct from '../../components/specefic/FeaturedProduct/FeaturePro
 export const Home = () => {
   const { categoryDispatch } = useCategory()
   useEffect(async () => {
+    // TODO: OPTIMISE AVOID THIS
     const tempCategory = await getCategoryDeatail()
 
     categoryDispatch({
