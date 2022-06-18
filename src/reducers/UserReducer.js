@@ -10,6 +10,8 @@ import { v4 as uuid } from 'uuid'
 
 export const UserReducer = (state, { type, payload }) => {
   switch (type) {
+    case GET_ADDRESS:
+      return { ...state }
     case UPDATE_ADDRESS:
       return { ...state, address: payload }
     case ADD_ADDRESS:
@@ -17,11 +19,11 @@ export const UserReducer = (state, { type, payload }) => {
       return { ...state, address: [...state.address, toadd] }
     case DELETE_ADDRESS:
       return { ...state, address: payload }
+
+    // order
     case ADD_ORDER:
       return { ...state }
     case GET_ORDER:
-      return { ...state }
-    case GET_ADDRESS:
       return { ...state }
 
     default:

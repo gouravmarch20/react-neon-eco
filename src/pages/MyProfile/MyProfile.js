@@ -1,5 +1,7 @@
 import React from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { useUser } from '../../context/UserContext'
+
 import { Link } from 'react-router-dom'
 import './myProfile.css'
 export const MyProfile = () => {
@@ -15,6 +17,9 @@ export const MyProfile = () => {
 
             <Link to='/my-address'>
               <button>Address</button>
+            </Link>
+            <Link to='/my-order'>
+              <button>Order</button>
             </Link>
           </div>
           <div className='align-center'>

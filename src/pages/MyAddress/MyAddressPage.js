@@ -26,6 +26,9 @@ export const MyAddressPage = () => {
             <Link to='/my-address'>
               <button>Address</button>
             </Link>
+            <Link to='/my-order'>
+              <button>Order</button>
+            </Link>
           </div>
 
           <div>
@@ -41,7 +44,7 @@ export const MyAddressPage = () => {
                 onAddClick
               />
             )}
-            <AddressCard/>
+            <AddressCard />
           </div>
         </>
       ) : (

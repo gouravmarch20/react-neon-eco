@@ -54,7 +54,6 @@ export const EditAddressModal = ({
     isEditAddressModal &&
       updateAddress(editAddressId, addressForm, address, userDispatch)
     onClose()
-    console.log('first')
   }
   const fillFormValueWithDummy = () => {
     setAddressForm(form => ({

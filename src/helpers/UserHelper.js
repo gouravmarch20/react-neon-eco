@@ -28,3 +28,11 @@ export const addAddress = async () => {
     console.warn(error)
   }
 }
+//TODO:
+export const addOrder = async order => {
+  try {
+    console.log(order)
+  } catch (error) {
+    console.warn(error)
+  }
+}

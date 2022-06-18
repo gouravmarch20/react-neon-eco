@@ -9,6 +9,12 @@ export {
   addToCart,
   getCart,
   deleteFromCart,
-  updateQuantity
+  updateQuantity,
+  emptyCart
 } from './CartHelper'
-export { updateAddress, deleteAddress, addAddress } from './UserHelper'
+export {
+  updateAddress,
+  deleteAddress,
+  addAddress,
+  addOrder
+} from './UserHelper'

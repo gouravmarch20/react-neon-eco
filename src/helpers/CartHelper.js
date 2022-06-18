@@ -64,9 +64,15 @@ export const deleteFromCart = async (productId, cartDispatch) => {
   }
 }
 
+export const emptyCart = async cartDispatch => {
+  try {
+    cartDispatch({ type: 'EMPTY_CART', payload: [] })
+  } catch (error) {}
+}
 export const updateQuantity = async (productId, toDo, cartDispatch) => {
   const toastId = toast.loading('Updating quantity...')
   try {
+    // TODO: NOTE THIS
     const response = await axios.post(
       `/api/user/cart/${productId}`,
       {
