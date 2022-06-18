@@ -9,20 +9,29 @@ export const MyProfile = () => {
   return (
     <div className=' '>
       {token && isLoggedIn ? (
-        <div className='align-center'>
-          <div className='  my-profile'>
-            <p className='my-profile-content'>
-              FirstName - <span>{userInfo?.user?.firstName} </span>
-            </p>
-            <p className='my-profile-content'>
-              {' '}
-              LastName - {userInfo?.user?.lastName}
-            </p>
-            <p className='my-profile-content'>
-              Email - {userInfo?.user?.email}
-            </p>
+        <>
+          <div>
+            <button>Myprofile</button>
+
+            <Link to='/my-address'>
+              <button>Address</button>
+            </Link>
           </div>
-        </div>
+          <div className='align-center'>
+            <div className='  my-profile'>
+              <p className='my-profile-content'>
+                FirstName - <span>{userInfo?.user?.firstName} </span>
+              </p>
+              <p className='my-profile-content'>
+                {' '}
+                LastName - {userInfo?.user?.lastName}
+              </p>
+              <p className='my-profile-content'>
+                Email - {userInfo?.user?.email}
+              </p>
+            </div>
+          </div>{' '}
+        </>
       ) : (
         <div className='auth-login'>
           <h2 className='login-message-heading4'>Please login first </h2>

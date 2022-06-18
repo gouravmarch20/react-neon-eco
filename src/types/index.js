@@ -30,3 +30,11 @@ export const SAVE_USER_INFO = 'SAVE_USER_INFO'
 export const SAVE_TOKEN = 'SAVE_TOKEN'
 export const AUTH_ERROR = 'AUTH_ERROR'
 export const LOG_OUT = 'LOG_OUT'
+//user 
+export const UPDATE_ADDRESS = 'UPDATE_ADDRESS'
+export const ADD_ADDRESS = 'ADD_ADDRESS'
+export const DELETE_ADDRESS = 'DELETE_ADDRESS'
+export const GET_ADDRESS = 'GET_ADDRESS'
+//
+export const ADD_ORDER = 'ADD_ORDER'
+export const GET_ORDER = 'GET_ADDRESS'

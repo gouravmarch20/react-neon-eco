@@ -90,7 +90,7 @@ const ProductFilter = () => {
               <label
                 className='d-block'
                 htmlFor='fourStarRating'
-                className='cursor-pointer'
+          
               >
                 <input
                   className=''

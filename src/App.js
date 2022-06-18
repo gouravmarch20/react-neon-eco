@@ -14,6 +14,7 @@ import {
   Wishlist,
   Cart,
   MyProfile,
+  MyAddressPage,
   ProductDetail,
   Signin,
   Signup
@@ -32,6 +33,7 @@ const Router = () => {
       <Route path='/wishlist' element={<Wishlist />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/my-profile' element={<MyProfile />} />
+      <Route path='/my-address' element={<MyAddressPage />} />
       {/* TODO: */}
       <Route path='/products/:productId' element={<ProductDetail />} />
       {!isLoggedIn && <Route path='/signin' element={<Signin />} />}
