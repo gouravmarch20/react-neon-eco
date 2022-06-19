@@ -23,12 +23,37 @@
   background: red;
   border-radius: 4px;
 }
-.modal-main {
-  background-color: #6a1b4d;
-  padding: 1rem;
+.add-address-modal {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.address-card {
+  border: 2px solid blue;
+  margin: 1rem auto;
+  padding: 0.2rem 0;
+  width: 50%;
+  border-radius: 1rem;
+  box-shadow: 3px 4px rgb(189, 137, 238);
+}
+.address-card:hover {
+  box-shadow: 2px 4px 8px blueviolet;
+
+  transition: all 0.4s;
+}
+.modal-main {
+  background-color: #6a1b4d;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+.default-address {
+  padding: 0.1rem;
+  background-color: red;
+  color: white;
 }
 .modal-item {
   display: flex;

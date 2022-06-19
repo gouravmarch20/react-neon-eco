@@ -68,7 +68,7 @@ const ProductFilter = () => {
                         id={category}
                         type='checkbox'
                         checked={categories.includes(category)}
-                        className='text-uppercase'
+                        className='text-capitalize'
                         onChange={() => {
                           filterDispatch({
                             type: 'FILTER_BY_CATEGORY',
@@ -109,7 +109,7 @@ const ProductFilter = () => {
                 className='d-block cursor-pointer '
               >
                 <input
-                  className='content text-uppercase'
+                  className='content text-capitalize'
                   id='threeStarRating'
                   type='radio'
                   name='rating'

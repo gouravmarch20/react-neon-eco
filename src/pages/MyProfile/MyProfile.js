@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useUser } from '../../context/UserContext'
+import { MyTabThree } from './MyTabThree'
+import { useLocation } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 import './myProfile.css'
 export const MyProfile = () => {
+  let location = useLocation()
+  const [currentLocation, setCurrentLocation] = useState('')
+  useEffect(() => {
+    setCurrentLocation(location.pathname)
+  }, [location])
   const {
     authState: { userInfo, token, isLoggedIn }
   } = useAuth()
@@ -12,16 +19,7 @@ export const MyProfile = () => {
     <div className=' '>
       {token && isLoggedIn ? (
         <>
-          <div>
-            <button>Myprofile</button>
-
-            <Link to='/my-address'>
-              <button>Address</button>
-            </Link>
-            <Link to='/my-order'>
-              <button>Order</button>
-            </Link>
-          </div>
+          <MyTabThree />
           <div className='align-center'>
             <div className='  my-profile'>
               <p className='my-profile-content'>

@@ -17,7 +17,9 @@
   --color-text-blue-heading: #3944f7;
   --color-text-blue-subheading: #12b0e8;
 }
-
+.text-blue {
+  color: var(--color-text-blue-heading);
+}
 /* grey shades  */
 .text-grey-100 {
   color: #c5c5c5;
@@ -29,7 +31,7 @@
 }
 .text-grey-300 {
   color: #979797;
-  font-weight: 600;
+  font-weight: 300;
 }
 .text-grey-400 {
   color: #808080;

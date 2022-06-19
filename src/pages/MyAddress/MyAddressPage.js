@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useUser } from '../../context/UserContext'
+import { MyTabThree } from '../MyProfile/MyTabThree'
 
 import { Link } from 'react-router-dom'
 import { AddAddressModal } from './AddAddressModal'
@@ -18,22 +19,11 @@ export const MyAddressPage = () => {
     <div className=' '>
       {token && isLoggedIn ? (
         <>
-          <div>
-            <Link to='/my-profile'>
-              {' '}
-              <button>Myprofile</button>
-            </Link>
-            <Link to='/my-address'>
-              <button>Address</button>
-            </Link>
-            <Link to='/my-order'>
-              <button>Order</button>
-            </Link>
-          </div>
+          <MyTabThree />
 
           <div>
-            <button onClick={() => setToogleAddressModal(!toogleAddressModal)}>
-              add address
+            <button onClick={() => setToogleAddressModal(!toogleAddressModal)} className="btn btn mini-ctn-btn" >
+              Add Address
             </button>
 
             {toogleAddressModal && (

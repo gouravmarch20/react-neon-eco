@@ -7,7 +7,6 @@ export const AddAddressModal = ({ onClose }) => {
     userState: { address },
     userDispatch
   } = useUser()
-  const [title, setTitle] = useState('')
   const stateArr = [
     'Andhra Pradesh',
     'Arunachal Pradesh',
@@ -60,12 +59,12 @@ export const AddAddressModal = ({ onClose }) => {
   const fillFormValueWithDummy = () => {
     setAddressForm(form => ({
       ...form,
-      name: 'Gourav',
-      street: '81/5 Westside PatelNagar ',
-      city: 'Kota',
-      state: 'Rajasthan',
+      name: 'Gourav Mishra',
+      street: '81/5 Arya line  ',
+      city: 'Ranchi',
+      state: 'Jharkhand',
       country: 'India',
-      zipCode: '110009',
+      zipCode: '492331',
       mobileNo: '8949525253'
     }))
   }
@@ -83,9 +82,10 @@ export const AddAddressModal = ({ onClose }) => {
   }
 
   return (
-    <main className='modal-container'>
-      <div className='modal-main mb-10'>
-        <p className='save-title '>Save to </p>
+    <main className='modal-container add-address-modal'>
+      <div className='modal-main '>
+        <h4>Add Address</h4>
+
         <button className='btn btn-danger p-10' onClick={onClose}>
           <i className='modal-close-icon'>
             <RiCloseCircleFill />
@@ -94,11 +94,11 @@ export const AddAddressModal = ({ onClose }) => {
       </div>
 
       <form onSubmit={e => e.preventDefault()}>
-        <h2>Add Address</h2>
         <input
           type='text'
           name=''
           id=''
+          className='input-block'
           value={addressForm.name}
           placeholder='enter name'
           required
@@ -107,6 +107,7 @@ export const AddAddressModal = ({ onClose }) => {
         <input
           type='text'
           name=''
+          className='input-block'
           id=' '
           placeholder='enter address  '
           value={addressForm.street}
@@ -117,6 +118,7 @@ export const AddAddressModal = ({ onClose }) => {
           type='text'
           name=''
           id=' '
+          className='input-block'
           placeholder='enter city  '
           value={addressForm.city}
           onChange={e => fillFormValue(e, 'city')}
@@ -126,6 +128,7 @@ export const AddAddressModal = ({ onClose }) => {
           type='text'
           name=''
           id=' '
+          className='input-block'
           placeholder='enter zipCode  '
           value={addressForm.zipCode}
           onChange={e => fillFormValue(e, 'zipCode')}
@@ -137,6 +140,7 @@ export const AddAddressModal = ({ onClose }) => {
           name=''
           id=' '
           placeholder='enter state  '
+          className='input-block'
           value={addressForm.state}
           onChange={e => fillFormValue(e, 'state')}
           required
@@ -149,19 +153,32 @@ export const AddAddressModal = ({ onClose }) => {
           type='number'
           name=''
           id=''
+          className='input-block'
           placeholder='enter mobile number'
           value={addressForm.mobileNo}
           onChange={e => fillFormValue(e, 'mobileNo')}
           required
         />
-        <button onClick={() => fillFormValueWithDummy()}>fill dummy</button>
-        <button onClick={() => resetFormValue()}>Reset Form</button>
+        <button
+          onClick={() => fillFormValueWithDummy()}
+          className='btn  btn-outline-blue'
+        >
+          fill dummy
+        </button>
+        <button
+          onClick={() => resetFormValue()}
+          className='btn  btn-outline-blue'
+        >
+          Reset Form
+        </button>
         <button
           // disabled={title === ''}
           className='btn btn-info'
           onClick={
-            handleEditSave
-            // addPlayist(title, token, playlistDispatch)
+            () => {
+              handleEditSave(), resetFormValue()
+            }
+
             // onClose()
             // setTitle('')
           }
@@ -169,24 +186,6 @@ export const AddAddressModal = ({ onClose }) => {
           Save Address
         </button>
       </form>
-      <div className='create-playlist'>
-        <input
-          className='input-item'
-          type='text'
-          placeholder='Enter playlist name...'
-          onChange={e => setTitle(e.target.value)}
-        />
-        <button
-          disabled={title === ''}
-          className='btn btn-info'
-          onClick={() => {
-            onClose()
-            setTitle('')
-          }}
-        >
-          Add
-        </button>
-      </div>
     </main>
   )
 }

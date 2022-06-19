@@ -10,70 +10,84 @@ export const AddressCard = ({ defaultAddress }) => {
   } = useUser()
   return (
     <div>
-      AddressCard
       {address.length !== 0 ? (
-        address.map(userAddress => {
-          const {
-            name,
-            zipCode,
-            street,
-            state,
-            mobileNo,
-            country,
-            city,
-            _id
-          } = userAddress
+        <>
+          <h2 className='subheading'>Your Address</h2>
+          {address.map(userAddress => {
+            const {
+              name,
+              zipCode,
+              street,
+              state,
+              mobileNo,
+              country,
+              city,
+              _id
+            } = userAddress
 
-          const isDefaultAddress = _id == defaultAddress._id
+            const isDefaultAddress = _id == defaultAddress._id
 
-          return (
-            <div key={_id} className={`${isDefaultAddress ? 'bg-light ' : ''}`}>
-              <p>{name}</p>
-              <p>{zipCode}</p>
-              <p>{city}</p>
-              <p>{state}</p>
-              <p>{mobileNo}</p>
-              <p>{country}</p>
-              <p>{street}</p>
-              {isDefaultAddress && <mark> Default address</mark>}
-              <button
-                onClick={() => {
-                  deleteAddress(_id, address, userDispatch)
-                }}
+            return (
+              <div
+                key={_id}
+                className={`${
+                  isDefaultAddress ? 'bg-light  address-card' : 'address-card'
+                }`}
               >
-                delete
-              </button>
-              <button onClick={() => setToggleEditAddressModal(true)}>
-                edit
-              </button>
-              {!isDefaultAddress && (
+                <p>{name}</p>
+                <p>{zipCode}</p>
+                <p>{city}</p>
+                <p>{state}</p>
+                <p>{mobileNo}</p>
+                <p>{country}</p>
+                <p>{street}</p>
+                {isDefaultAddress && (
+                  <mark className='default-address'> Default address</mark>
+                )}
                 <button
-                  onClick={() =>
-                    userDispatch({
-                      type: 'DEFAULT_ADDRESS',
-                      payload: userAddress
-                    })
-                  }
-                >
-                  Make Default
-                </button>
-              )}
-
-              {toggleEditAddressModal && (
-                <EditAddressModal
-                  onClose={() => {
-                    setToggleEditAddressModal(false)
+                  className='btn btn-outline-blue btn-sm'
+                  onClick={() => {
+                    deleteAddress(_id, address, userDispatch)
                   }}
-                  editAddressData={userAddress}
-                  editAddressId={_id}
-                  isEditAddressModal
-                />
-              )}
-            </div>
-          )
-        })
+                >
+                  delete
+                </button>
+                <button
+                  onClick={() => setToggleEditAddressModal(true)}
+                  className='btn btn-outline-blue btn-sm'
+                >
+                  edit
+                </button>
+                {!isDefaultAddress && (
+                  <button
+                    className='btn btn-outline-blue btn-sm'
+                    onClick={() =>
+                      userDispatch({
+                        type: 'DEFAULT_ADDRESS',
+                        payload: userAddress
+                      })
+                    }
+                  >
+                    Make Default
+                  </button>
+                )}
+
+                {toggleEditAddressModal && (
+                  <EditAddressModal
+                    onClose={() => {
+                      setToggleEditAddressModal(false)
+                    }}
+                    editAddressData={userAddress}
+                    editAddressId={_id}
+                    isEditAddressModal
+                  />
+                )}
+              </div>
+            )
+          })}{' '}
+        </>
       ) : (
-        <h2>No address added</h2>
+        <h2 className='subheading'>Please add address </h2>
       )}
     </div>
   )

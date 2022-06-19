@@ -58,12 +58,12 @@ export const EditAddressModal = ({
   const fillFormValueWithDummy = () => {
     setAddressForm(form => ({
       ...form,
-      name: 'Gourav',
-      street: '81/5 Westside PatelNagar ',
-      city: 'Kota',
-      state: 'Rajasthan',
+      name: 'Gourav Mishra',
+      street: '81/5 Arya line  ',
+      city: 'Ranchi',
+      state: 'Jharkhand',
       country: 'India',
-      zipCode: '110009',
+      zipCode: '492331',
       mobileNo: '8949525253'
     }))
   }
@@ -81,9 +81,10 @@ export const EditAddressModal = ({
   }
 
   return (
-    <main className='modal-container'>
-      <div className='modal-main mb-10'>
-        <p className='save-title '>Save to </p>
+    <main className='modal-container add-address-modal'>
+      <div className='modal-main '>
+        <h4>Add Address</h4>
+
         <button className='btn btn-danger p-10' onClick={onClose}>
           <i className='modal-close-icon'>
             <RiCloseCircleFill />
@@ -92,8 +93,9 @@ export const EditAddressModal = ({
       </div>
 
       <form onSubmit={e => e.preventDefault()}>
-        <h2>Edit  Address</h2>
+        <h2>Edit Address</h2>
         <input
+          className='input-block'
           type='text'
           name=''
           id=''
@@ -103,6 +105,7 @@ export const EditAddressModal = ({
           onChange={e => fillFormValue(e, 'name')}
         />
         <input
+          className='input-block'
           type='text'
           name=''
           id=' '
@@ -112,6 +115,7 @@ export const EditAddressModal = ({
           required
         />
         <input
+          className='input-block'
           type='text'
           name=''
           id=' '
@@ -121,6 +125,7 @@ export const EditAddressModal = ({
           required
         />
         <input
+          className='input-block'
           type='text'
           name=''
           id=' '
@@ -132,6 +137,7 @@ export const EditAddressModal = ({
         {/* FIXME: DEFAULT_ADDRESS VALUE */}
         <select
           type='text'
+          className='input-block'
           name=''
           id=' '
           placeholder='enter state  '
@@ -144,6 +150,7 @@ export const EditAddressModal = ({
           })}
         </select>
         <input
+          className='input-block'
           type='number'
           name=''
           id=''
@@ -152,17 +159,19 @@ export const EditAddressModal = ({
           onChange={e => fillFormValue(e, 'mobileNo')}
           required
         />
-        <button onClick={() => fillFormValueWithDummy()}>fill dummy</button>
-        <button onClick={() => resetFormValue()}>Reset Form</button>
+
+        <button
+          onClick={() => resetFormValue()}
+          className='btn  btn-outline-blue'
+        >
+          Reset Form
+        </button>
         <button
           // disabled={title === ''}
           className='btn btn-info'
-          onClick={
-            handleEditSave
-            // addPlayist(title, token, playlistDispatch)
-            // onClose()
-            // setTitle('')
-          }
+          onClick={() => {
+            handleEditSave(), resetFormValue()
+          }}
         >
           Save Address
         </button>
