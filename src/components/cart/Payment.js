@@ -73,7 +73,7 @@ const Payment = () => {
         // TODO: CLEAR CART , ADD ORDER
         // clearCartService(token, dispatch)
         addOrder(orderData ,userDispatch)
-        emptyCart(cartDispatch)
+        emptyCart(cart , token , cartDispatch)
         navigate('/my-order', { state: orderData })
       },
       prefill: {

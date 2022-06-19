@@ -145,7 +145,6 @@ export const updateCartItemHandler = function (schema, request) {
       }
     )
   }
-  d
 }
 
 export const emptyCartHandler = function (schema, request) {

@@ -14,8 +14,7 @@ export const CartReducer = (state, { type, payload }) => {
       noOfItemInCart = payload.length
       return { ...state, cart: payload, totalProductInCart: noOfItemInCart }
     case EMPTY_CART: {
-      console.log(payload)
-      return { ...state, cart: [], totalProductInCart: 0 }
+      return { ...state, cart: payload, totalProductInCart: 0 }
     }
     case REMOVE_FROM_CART:
       noOfItemInCart = payload.length

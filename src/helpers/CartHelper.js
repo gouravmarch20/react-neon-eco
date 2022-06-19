@@ -63,15 +63,20 @@ export const deleteFromCart = async (productId, cartDispatch) => {
     })
   }
 }
-
-export const emptyCart = async cartDispatch => {
-  try {
-    const { data } = await axios.delete('/user/cart', {
+// FIXME: LATER DO
+export const emptyCart = async (cart, token, cartDispatch) => {
+  const removeOneByOne = async productId =>
+    await axios.delete(`/api/user/cart/${productId}`, {
       headers
     })
+  try {
+    cart.forEach(cartItem => {
+      removeOneByOne(cartItem._id)
+    })
+
     cartDispatch({
       type: 'EMPTY_CART',
-      payload: data.cart
+      payload: []
     })
   } catch (error) {
     console.warn(error)
