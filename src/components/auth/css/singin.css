@@ -12,7 +12,11 @@
   box-shadow: 0 5px 10px rgba(0, 4, 0, 0.6);
   font-family: "Poppins", sans-serif;
 }
-
+.input-block {
+  display: block;
+  padding: 0.4rem;
+  margin: 0.2rem;
+}
 .input-box {
   height: 52px;
   margin: 3rem 0;

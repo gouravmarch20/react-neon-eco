@@ -14,6 +14,12 @@ body {
   pointer-events: none;
   user-select: none;
 }
+.m-tb-4{
+  margin: 4px 0;
+}
+.m-tb-2 {
+  margin: 2px 0;
+}
 .text-decoration {
   text-decoration: none;
 }
@@ -62,8 +68,8 @@ li {
 .cursor-pointer-none {
   pointer-events: none;
 }
-.text-uppercase {
-  text-transform: uppercase;
+.text-capitalize {
+  text-transform: capitalize;
 }
 .card-title {
   font-weight: bolder;
@@ -149,7 +155,6 @@ li {
   color: white;
   font-weight: 500;
   border-radius: 0.2rem;
-
 }
 .card-btn-add-to-wishlist:hover {
   background-color: #02b290;
@@ -168,10 +173,9 @@ li {
   color: white;
   font-weight: 500;
   border-radius: 0.2rem;
-
 }
 .card-btn-remove:hover {
-  background-color: #D9D55B;
+  background-color: #d9d55b;
   color: white;
   font-weight: 500;
   transform: translateY(-1px);

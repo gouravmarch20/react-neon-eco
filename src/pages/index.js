@@ -1,6 +1,8 @@
 export { Home } from './Home/Home'
 export { Cart } from './Cart/Cart'
 export { MyProfile } from './MyProfile/MyProfile'
+export { MyAddressPage } from './MyAddress/MyAddressPage'
+export { MyOrderPage } from './MyOrder/MyOrderPage'
 export { NotFound } from './NotFound/NotFound'
 export { Products } from './Products/Products'
 export { ProductDetail } from './ProductDetail/ProductDetail'

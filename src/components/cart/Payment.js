@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useCart } from '../../context/CartContext'
 import { useAuth } from '../../context/AuthContext'
-
+import { v4 as uuid } from 'uuid'
+import { useNavigate } from 'react-router-dom'
+import { addOrder, emptyCart } from '../../helpers'
 import './css/payment.css'
+import { useUser } from '../../context/UserContext'
 const Payment = () => {
+  const navigate = useNavigate()
+
   const { cartState, cartDispatch } = useCart()
+  const {
+    userState: { defaultAddress },
+    userDispatch
+  } = useUser()
   const [value, setValue] = useState({
     price: 0,
     priceMrp: 0,
@@ -37,29 +46,43 @@ const Payment = () => {
     const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
     if (!res) {
-      alert('Razorpay SDK failed to load. Are you online?')
+      alert('Razorpay SDK failed to load, check you connection')
       return
     }
 
     const options = {
       key: process.env.REACT_APP_RAZORPAY_KEY_ID,
-      currency: 'INR',
       amount: value.price * 100,
+      currency: 'INR',
       name: 'rail-com',
       description: 'Thankyou for shopping with us',
+      image: 'https://trixoon.com/icons/code.svg',
       theme: { color: '#2563eb' },
       handler: function (response) {
-        const paymentId = response.razorpay_payment_id
         const orderId = uuid()
-        clearCartService(token, dispatch)
-        navigate('/order-summary', { state: { orderId } })
+        const orderData = {
+          orderId,
+          products: [...cart],
+          amount: value.price,
+          paymentId: response.razorpay_payment_id,
+          name: defaultAddress?.name,
+          mobileNo: defaultAddress?.mobileNo,
+          delivery: ` ${defaultAddress?.street} ${defaultAddress?.city},${defaultAddress?.state}, ${defaultAddress?.zipCode}`
+        }
+
+        // TODO: CLEAR CART , ADD ORDER
+        // clearCartService(token, dispatch)
+        addOrder(orderData ,userDispatch)
+        emptyCart(cart , token , cartDispatch)
+        navigate('/my-order', { state: orderData })
       },
       prefill: {
         name: userInfo.firstName,
-        email: 'gaurav.m@example.com',
-        contact: '9999999999'
+        email: 'gaurav@tmail.com',
+        contact: '8899889899'
       }
     }
+
     const paymentObject = new window.Razorpay(options)
     paymentObject.open()
   }

@@ -16,9 +16,11 @@ const WishlistProduct = () => {
   const {
     authState: { token, isLoggedIn }
   } = useAuth()
-  const { cartDispatch } = useCart()
+  const {
+    cartDispatch,
+    cartState: { cart }
+  } = useCart()
   const navigate = useNavigate()
-
   return (
     <>
       {token && isLoggedIn ? (
@@ -55,6 +57,9 @@ const WishlistProduct = () => {
                       price,
                       imageSrc
                     } = product
+                    const isAlreadyAddToCart = cart.find(
+                      _cart => _cart._id === _id
+                    )
                     return (
                       <div key={index}>
                         <section className='cart__items'>
@@ -86,15 +91,25 @@ const WishlistProduct = () => {
                           </div>
 
                           <div>
-                            <button
-                              className=' card-button card-btn-add-to-cart'
-                              onClick={() => {
-                                deleteFromWishlist(_id, wishlistDispatch)
-                                addToCart(product, cartDispatch)
-                              }}
-                            >
-                              Move to Cart
-                            </button>
+                            {isAlreadyAddToCart ? (
+                              <button
+                                className='card-button card-btn-view-more '
+                                onClick={() => navigate('/cart')}
+                              >
+                                View cart
+                              </button>
+                            ) : (
+                              <button
+                                className=' card-button card-btn-add-to-cart'
+                                onClick={() => {
+                                  deleteFromWishlist(_id, wishlistDispatch)
+                                  addToCart(product, cartDispatch)
+                                }}
+                              >
+                                Move to Cart
+                              </button>
+                            )}
+
                             <button
                               className='card-button card-btn-remove '
                               onClick={() => {

@@ -63,10 +63,29 @@ export const deleteFromCart = async (productId, cartDispatch) => {
     })
   }
 }
+// FIXME: LATER DO
+export const emptyCart = async (cart, token, cartDispatch) => {
+  const removeOneByOne = async productId =>
+    await axios.delete(`/api/user/cart/${productId}`, {
+      headers
+    })
+  try {
+    cart.forEach(cartItem => {
+      removeOneByOne(cartItem._id)
+    })
 
+    cartDispatch({
+      type: 'EMPTY_CART',
+      payload: []
+    })
+  } catch (error) {
+    console.warn(error)
+  }
+}
 export const updateQuantity = async (productId, toDo, cartDispatch) => {
   const toastId = toast.loading('Updating quantity...')
   try {
+    // TODO: NOTE THIS
     const response = await axios.post(
       `/api/user/cart/${productId}`,
       {

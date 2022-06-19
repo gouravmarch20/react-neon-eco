@@ -9,6 +9,7 @@ import { ProductProvider } from './context/ProductContext'
 import { AuthProvider } from './context/AuthContext'
 import { FilterProvider } from './context/FilterContext'
 import { CategoryProvider } from './context/CategoryContext'
+import { UserProvider } from './context/UserContext'
 import { WishlistProvider } from './context/WishlistContext'
 import { CartProvider } from './context/CartContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -21,13 +22,15 @@ ReactDOM.render(
         <ThemeProvider>
           <CategoryProvider>
             <ProductProvider>
-              <WishlistProvider>
-                <CartProvider>
-                  <FilterProvider>
-                    <App />
-                  </FilterProvider>
-                </CartProvider>
-              </WishlistProvider>
+              <UserProvider>
+                <WishlistProvider>
+                  <CartProvider>
+                    <FilterProvider>
+                      <App />
+                    </FilterProvider>
+                  </CartProvider>
+                </WishlistProvider>
+              </UserProvider>
             </ProductProvider>
           </CategoryProvider>
         </ThemeProvider>

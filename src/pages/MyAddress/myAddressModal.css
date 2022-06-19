@@ -1,0 +1,73 @@
+.modal-container {
+  background-color: lavender;
+  color: white;
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+  width: 45%;
+  height: 400px;
+
+  padding: 1rem;
+  display: flex;
+  overflow: hidden;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+.modal-container::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-container::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 4px;
+}
+.add-address-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.address-card {
+  border: 2px solid blue;
+  margin: 1rem auto;
+  padding: 0.2rem 0;
+  width: 50%;
+  border-radius: 1rem;
+  box-shadow: 5px 6px rgb(189, 137, 238);
+}
+.address-card:hover {
+  box-shadow: 2px 4px 8px blueviolet;
+
+  transition: all 0.4s;
+}
+.modal-main {
+  background-color: #6a1b4d;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+.default-address {
+  padding: 0.1rem;
+  background-color: red;
+  color: white;
+}
+.modal-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.checkbox-item {
+  margin-left: 1rem;
+  color: black;
+}
+.create-playlist {
+  display: flex;
+
+  justify-content: center;
+}
