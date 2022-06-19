@@ -54,7 +54,16 @@ export const AddAddressModal = ({ onClose }) => {
   }
 
   const handleEditSave = () => {
-    userDispatch({ type: 'ADD_ADDRESS', payload: addressForm })
+    if (
+      addressForm.city !== '' &&
+      address.name !== '' &&
+      address.street !== '' &&
+      address.city !== '' &&
+      address.state !== ''
+    ) {
+      userDispatch({ type: 'ADD_ADDRESS', payload: addressForm })
+      onClose()
+    }
   }
   const fillFormValueWithDummy = () => {
     setAddressForm(form => ({

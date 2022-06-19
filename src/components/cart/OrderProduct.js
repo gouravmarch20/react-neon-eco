@@ -19,7 +19,10 @@ const OrderProduct = () => {
   } = useAuth()
   const { cartState, cartDispatch } = useCart()
   const { cart, cartError, totalProductInCart } = cartState
-  const { wishlistDispatch } = useWishlist()
+  const {
+    wishlistDispatch,
+    wishlistState: { wishlist }
+  } = useWishlist()
   const navigate = useNavigate()
 
   return (
@@ -58,6 +61,10 @@ const OrderProduct = () => {
                       price,
                       priceMrp
                     } = cart
+
+                    const isAlreadyAddedToWishlist = wishlist.find(
+                      _wishlist => _wishlist._id === _id
+                    )
                     return (
                       <div className='cart__items' key={index}>
                         <LazyLoadImage
@@ -110,15 +117,25 @@ const OrderProduct = () => {
                           </button>
                         </div>
                         <div className=''>
-                          <button
-                            className='card-button card-btn-add-to-wishlist'
-                            onClick={() => {
-                              deleteFromCart(_id, cartDispatch)
-                              addToWishlist(cart, wishlistDispatch)
-                            }}
-                          >
-                            Move to wishlist
-                          </button>
+                          {isAlreadyAddedToWishlist ? (
+                            <button
+                              className='card-button card-btn-view-more '
+                              onClick={() => navigate('/wishlist')}
+                            >
+                              View Wishlist
+                            </button>
+                          ) : (
+                            <button
+                              className='card-button card-btn-add-to-wishlist'
+                              onClick={() => {
+                                deleteFromCart(_id, cartDispatch)
+                                addToWishlist(cart, wishlistDispatch)
+                              }}
+                            >
+                              Move to wishlist
+                            </button>
+                          )}
+
                           <button
                             className='card-button card-btn-remove'
                             onClick={() => {

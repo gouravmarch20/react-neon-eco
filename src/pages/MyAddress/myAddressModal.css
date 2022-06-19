@@ -34,7 +34,7 @@
   padding: 0.2rem 0;
   width: 50%;
   border-radius: 1rem;
-  box-shadow: 3px 4px rgb(189, 137, 238);
+  box-shadow: 5px 6px rgb(189, 137, 238);
 }
 .address-card:hover {
   box-shadow: 2px 4px 8px blueviolet;
