@@ -4,7 +4,8 @@ import {
   DELETE_ADDRESS,
   ADD_ORDER,
   GET_ORDER,
-  GET_ADDRESS
+  GET_ADDRESS,
+  DEFAULT_ADDRESS
 } from '../types'
 import { v4 as uuid } from 'uuid'
 
@@ -19,10 +20,12 @@ export const UserReducer = (state, { type, payload }) => {
       return { ...state, address: [...state.address, toadd] }
     case DELETE_ADDRESS:
       return { ...state, address: payload }
+    case DEFAULT_ADDRESS:
+      return { ...state, defaultAddress: payload }
 
     // order
     case ADD_ORDER:
-      return { ...state }
+      return { ...state, orders: [...state.orders, payload] }
     case GET_ORDER:
       return { ...state }
 

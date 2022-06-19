@@ -31,22 +31,50 @@ export const MyOrderPage = () => {
           {orders && orders.length !== 0 ? (
             <>
               <h3>Order summary</h3>
-              {/* <div className='summary-container'>
-                <h3 className='summary-header'>Order confirmed</h3>
-                <div className='summary-main'>
-                  <p>
-                    Order id : <span>{orderId}</span>
-                  </p>
-                  <p>
-                    {' '}
-                    Payment Id : : <span>{paymentId}</span>
-                  </p>
-                  <p className='txt-sm'>
-                    Total Amount : <span>₹ {amount}</span>
-                  </p>{' '}
-                  <p>order will</p>
-                </div>
-              </div> */}
+              {orders.map(order => {
+                const {
+                  products,
+                  paymentId,
+                  orderId,
+                  name,
+                  mobileNo,
+                  delivery,
+                  amount
+                } = order
+
+                return (
+                  <div>
+                    <p>{paymentId}</p>
+                    <p>{orderId}</p>
+                    <p>{name}</p>
+                    {products &&
+                      products.map((product, index) => {
+                        const {
+                          imageSrc,
+                          noOfItemInCart,
+                          title,
+                          price,
+                          priceMrp
+                        } = product
+
+                        return (
+                          <>
+                            <div key={index}>
+                              {priceMrp}
+                              {noOfItemInCart}
+                              {title}
+                              {price}
+                              <img
+                                src={imageSrc}
+                                className='product__image '
+                              ></img>
+                            </div>
+                          </>
+                        )
+                      })}
+                  </div>
+                )
+              })}
             </>
           ) : (
             <h2>no order added</h2>

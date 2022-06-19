@@ -11,7 +11,7 @@ export const MyAddressPage = () => {
   } = useAuth()
   const [toogleAddressModal, setToogleAddressModal] = useState(false)
   const {
-    userState: { address },
+    userState: { address, defaultAddress },
     userDispatch
   } = useUser()
   return (
@@ -44,7 +44,7 @@ export const MyAddressPage = () => {
                 onAddClick
               />
             )}
-            <AddressCard />
+            <AddressCard defaultAddress={defaultAddress} />
           </div>
         </>
       ) : (

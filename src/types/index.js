@@ -36,6 +36,7 @@ export const UPDATE_ADDRESS = 'UPDATE_ADDRESS'
 export const ADD_ADDRESS = 'ADD_ADDRESS'
 export const DELETE_ADDRESS = 'DELETE_ADDRESS'
 export const GET_ADDRESS = 'GET_ADDRESS'
-//
+export const DEFAULT_ADDRESS = 'DEFAULT_ADDRESS'
+//order
 export const ADD_ORDER = 'ADD_ORDER'
 export const GET_ORDER = 'GET_ADDRESS'

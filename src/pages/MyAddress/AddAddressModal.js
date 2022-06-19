@@ -131,7 +131,7 @@ export const AddAddressModal = ({ onClose }) => {
           onChange={e => fillFormValue(e, 'zipCode')}
           required
         />
-        {/* FIXME: DEFAULT VALUE */}
+        {/* FIXME: DEFAULT_ADDRESS VALUE */}
         <select
           type='text'
           name=''

@@ -66,8 +66,16 @@ export const deleteFromCart = async (productId, cartDispatch) => {
 
 export const emptyCart = async cartDispatch => {
   try {
-    cartDispatch({ type: 'EMPTY_CART', payload: [] })
-  } catch (error) {}
+    const { data } = await axios.delete('/user/cart', {
+      headers
+    })
+    cartDispatch({
+      type: 'EMPTY_CART',
+      payload: data.cart
+    })
+  } catch (error) {
+    console.warn(error)
+  }
 }
 export const updateQuantity = async (productId, toDo, cartDispatch) => {
   const toastId = toast.loading('Updating quantity...')

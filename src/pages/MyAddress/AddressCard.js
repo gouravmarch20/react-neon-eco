@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useUser } from '../../context/UserContext'
 import { deleteAddress } from '../../helpers/'
 import { EditAddressModal } from './EditAddressModal'
-
-export const AddressCard = () => {
+export const AddressCard = ({ defaultAddress }) => {
   const [toggleEditAddressModal, setToggleEditAddressModal] = useState(false)
   const {
     userState: { address },
@@ -24,8 +23,11 @@ export const AddressCard = () => {
             city,
             _id
           } = userAddress
+
+          const isDefaultAddress = _id == defaultAddress._id
+
           return (
-            <div key={_id}>
+            <div key={_id} className={`${isDefaultAddress ? 'bg-light ' : ''}`}>
               <p>{name}</p>
               <p>{zipCode}</p>
               <p>{city}</p>
@@ -33,6 +35,7 @@ export const AddressCard = () => {
               <p>{mobileNo}</p>
               <p>{country}</p>
               <p>{street}</p>
+              {isDefaultAddress && <mark> Default address</mark>}
               <button
                 onClick={() => {
                   deleteAddress(_id, address, userDispatch)
@@ -43,6 +46,18 @@ export const AddressCard = () => {
               <button onClick={() => setToggleEditAddressModal(true)}>
                 edit
               </button>
+              {!isDefaultAddress && (
+                <button
+                  onClick={() =>
+                    userDispatch({
+                      type: 'DEFAULT_ADDRESS',
+                      payload: userAddress
+                    })
+                  }
+                >
+                  Make Default
+                </button>
+              )}
 
               {toggleEditAddressModal && (
                 <EditAddressModal

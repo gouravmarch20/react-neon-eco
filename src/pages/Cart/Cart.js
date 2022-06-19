@@ -11,7 +11,7 @@ export const Cart = () => {
   } = useAuth()
   const { cartState } = useCart()
   const { cart } = cartState
-
+  console.log(cart)
   return (
     <>
       <div>

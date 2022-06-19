@@ -8,7 +8,6 @@ export const updateAddress = async (
     const tempAddress = address.map(_address =>
       _address._id !== _id ? _address : updateAddress
     )
-    console.log(tempAddress)
     userDispatch({ type: 'UPDATE_ADDRESS', payload: tempAddress })
   } catch (error) {
     console.warn(error)
@@ -29,9 +28,9 @@ export const addAddress = async () => {
   }
 }
 //TODO:
-export const addOrder = async order => {
+export const addOrder = async (order, userDispatch) => {
   try {
-    console.log(order)
+    userDispatch({ type: 'ADD_ORDER', payload: order })
   } catch (error) {
     console.warn(error)
   }

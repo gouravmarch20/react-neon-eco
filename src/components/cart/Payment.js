@@ -5,10 +5,15 @@ import { v4 as uuid } from 'uuid'
 import { useNavigate } from 'react-router-dom'
 import { addOrder, emptyCart } from '../../helpers'
 import './css/payment.css'
+import { useUser } from '../../context/UserContext'
 const Payment = () => {
   const navigate = useNavigate()
 
   const { cartState, cartDispatch } = useCart()
+  const {
+    userState: { defaultAddress },
+    userDispatch
+  } = useUser()
   const [value, setValue] = useState({
     price: 0,
     priceMrp: 0,
@@ -59,15 +64,15 @@ const Payment = () => {
           orderId,
           products: [...cart],
           amount: value.price,
-          paymentId: response.razorpay_payment_id
-          // name: defaultAddress.name,
-          // mobile: defaultAddress.mobile,
-          // delivery: orderAddress
+          paymentId: response.razorpay_payment_id,
+          name: defaultAddress?.name,
+          mobileNo: defaultAddress?.mobileNo,
+          delivery: ` ${defaultAddress?.street} ${defaultAddress?.city},${defaultAddress?.state}, ${defaultAddress?.zipCode}`
         }
 
         // TODO: CLEAR CART , ADD ORDER
         // clearCartService(token, dispatch)
-        addOrder(orderData)
+        addOrder(orderData ,userDispatch)
         emptyCart(cartDispatch)
         navigate('/my-order', { state: orderData })
       },
