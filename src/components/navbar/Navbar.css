@@ -8,16 +8,29 @@
   margin-left: 5vw;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+}
+.navbar-center {
+  margin-left: 1rem;
+  display: flex;
 }
 
 .navbar-right {
+  /* margin- */
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex: 1.3;
-  margin-right: 5vw;
+  /* flex: 1.3; */
+  /* margin-right: 5vw; */
 }
-
+.navbar-header {
+  /* text-align: center; */
+  font-size: 1.6rem;
+  /* margin: 0.5rem; */
+  color: #02b290;
+  font-family: cursive;
+  text-transform: capitalize;
+}
 .navbar-link {
   margin-left: 0.8rem;
   font-weight: 700;
@@ -65,4 +78,9 @@
   font-size: 18px;
   padding: 0.4rem;
   border-radius: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  navbar-header {
+    font-size: 1rem;
+  }
 }

@@ -65,7 +65,7 @@ export const products = [
     categoryName: 'pen',
     inStock: 12,
     featured: true,
-    rating: 4.6,
+    rating: 3.6,
     noOfItemInCart: 1,
 
     cashOnDelivery: true,
@@ -81,7 +81,7 @@ export const products = [
     categoryName: 'book',
     inStock: 12,
     featured: true,
-    rating: 4.6,
+    rating: 2.6,
     noOfItemInCart: 1,
 
     cashOnDelivery: true,

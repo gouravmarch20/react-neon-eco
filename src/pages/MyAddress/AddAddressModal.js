@@ -93,7 +93,7 @@ export const AddAddressModal = ({ onClose }) => {
   return (
     <main className='modal-container add-address-modal'>
       <div className='modal-main '>
-        <h4>Add Address</h4>
+        <h3>Close Me </h3>
 
         <button className='btn btn-danger p-10' onClick={onClose}>
           <i className='modal-close-icon'>

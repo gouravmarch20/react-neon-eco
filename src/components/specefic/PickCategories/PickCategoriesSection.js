@@ -22,7 +22,7 @@ const PickCategoriesSection = ({ category }) => {
         navigate('/products')
       }}
     >
-      <div className=' pick-category-section cursor-pointer'>
+      <div className='  cursor-pointer'>
      
         <LazyLoadImage src={category.imgUrl} alt='' className='home_featured-image mt-1' />
 

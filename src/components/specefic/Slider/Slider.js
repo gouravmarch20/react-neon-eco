@@ -29,20 +29,6 @@ const Slider = () => {
           </div>
         )
       })}
-      {/* <div className='slider'>
-        <img
-          className='slider-image'
-          src='https://cdn.shopify.com/s/files/1/0173/7644/4470/files/Desktop_Banner_aee1dc3f-b336-484f-a919-699b9a32b09d.jpg?v=1647869070'
-          alt=''
-        />
-        <div className='slider-left'>
-          <ArrowBackIosIcon />
-        </div>
-
-        <div className='slider-right'>
-          <ArrowForwardIosIcon />
-        </div>
-      </div> */}
     </div>
   )
 }

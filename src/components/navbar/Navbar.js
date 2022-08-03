@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      {currentTab === ('/home' || '/' )? <Annoncement /> : null}
+      {currentTab === ('/home' || '/') ? <Annoncement /> : null}
       <div
         className='navbar'
         style={{
@@ -51,18 +51,18 @@ const Navbar = () => {
           <div className='navbar-left'>
             <Link to='/home' className='navbar-link'>
               <h2
-                className='subheading'
+                className='navbar-header'
                 style={{
                   color: '#5DA3FA'
                 }}
               >
                 {' '}
-                railcom{' '}
+                Stationery Hut{' '}
               </h2>
             </Link>
+            
           </div>
-
-          <div className='navbar-right'>
+          <div className='navbar-center'>
             <Link
               to='/products'
               className='navbar-link 
@@ -72,6 +72,8 @@ const Navbar = () => {
                 Shop Now
               </button>
             </Link>
+          </div>
+          <div className='navbar-right'>
             <Link
               to='/cart'
               className='navbar-link navbar-link-icon
