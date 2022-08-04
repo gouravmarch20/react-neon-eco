@@ -11,6 +11,7 @@ import { TiHeartFullOutline, TiShoppingCart, TiUser } from 'react-icons/ti'
 // context
 import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
+import { resetCart } from '../../helpers/CartHelper'
 
 const Navbar = () => {
   let location = useLocation()
@@ -25,7 +26,8 @@ const Navbar = () => {
     logoutHandler
   } = useAuth()
   const {
-    cartState: { totalProductInCart }
+    cartState: { totalProductInCart },
+    cartDispatch
   } = useCart()
   const {
     wishlistState: { totalProductInWishlist }
@@ -34,6 +36,10 @@ const Navbar = () => {
   const { themeState, themeDispatch } = useTheme()
   const currectTheme = AppTheme[themeState.themeMode]
 
+  const handleLogOutClick = () => {
+    logoutHandler()
+    // resetCart(cartDispatch)
+  }
   return (
     <>
       {currentTab === ('/home' || '/') ? <Annoncement /> : null}
@@ -60,7 +66,6 @@ const Navbar = () => {
                 Stationery Hut{' '}
               </h2>
             </Link>
-            
           </div>
           <div className='navbar-center'>
             <Link
@@ -151,7 +156,10 @@ const Navbar = () => {
                 className='navbar-link 
 '
               >
-                <button className='btn-auth' onClick={logoutHandler}>
+                <button
+                  className='btn btn-danger-light'
+                  onClick={handleLogOutClick}
+                >
                   Signout
                 </button>
               </Link>
