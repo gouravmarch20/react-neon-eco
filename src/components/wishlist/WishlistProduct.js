@@ -102,8 +102,12 @@ const WishlistProduct = () => {
                               <button
                                 className=' card-button card-btn-add-to-cart'
                                 onClick={() => {
-                                  deleteFromWishlist(_id, wishlistDispatch)
-                                  addToCart(product, cartDispatch)
+                                  deleteFromWishlist(
+                                    _id,
+                                    token,
+                                    wishlistDispatch
+                                  )
+                                  addToCart(product, token, cartDispatch)
                                 }}
                               >
                                 Move to Cart
@@ -113,7 +117,7 @@ const WishlistProduct = () => {
                             <button
                               className='card-button card-btn-remove '
                               onClick={() => {
-                                deleteFromWishlist(_id, wishlistDispatch)
+                                deleteFromWishlist(_id, token, wishlistDispatch)
                               }}
                             >
                               Remove{' '}

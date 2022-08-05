@@ -30,7 +30,8 @@ const Navbar = () => {
     cartDispatch
   } = useCart()
   const {
-    wishlistState: { totalProductInWishlist }
+    wishlistState: { totalProductInWishlist },
+    wishlistDispatch
   } = useWishlist()
 
   const { themeState, themeDispatch } = useTheme()
@@ -38,7 +39,8 @@ const Navbar = () => {
 
   const handleLogOutClick = () => {
     logoutHandler()
-    // resetCart(cartDispatch)
+    cartDispatch({ type: 'RESET_CART' })
+    wishlistDispatch({ type: 'RESET_WISHLIST' })
   }
   return (
     <>
@@ -66,17 +68,17 @@ const Navbar = () => {
                 Stationery Hut{' '}
               </h2>
             </Link>
-          </div>
-          <div className='navbar-center'>
+
             <Link
               to='/products'
               className='navbar-link 
               '
             >
-              <button className='btn bg-pink btn-lg btn-danger'>
-                Shop Now
-              </button>
+              <button className='btn btn-info'>Shop Now</button>
             </Link>
+          </div>
+          <div className='navbar-center'>
+            {/* <input type='search' name='' id='navbar-search' /> */}
           </div>
           <div className='navbar-right'>
             <Link

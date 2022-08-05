@@ -6,16 +6,21 @@ import { addToCart } from '../../../helpers/index'
 import { discontInPercent } from '../../../utils/index'
 import { useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating'
+import { useAuth } from '../../../context/AuthContext'
 
 import './FeatureProduct.css'
 const FeatureProduct = () => {
   const navigate = useNavigate()
-
+  const {
+    authState: { token }
+  } = useAuth()
   const {
     cartState: { cart },
     cartDispatch
   } = useCart()
-
+  const handleAddToCart = product => {
+    token ? addToCart(product, token, cartDispatch) : navigate('/signin')
+  }
   const {
     productState: { products }
   } = useProduct()
@@ -81,7 +86,7 @@ const FeatureProduct = () => {
                     <button
                       className='card-button card-btn-add-to-cart '
                       onClick={() => {
-                        addToCart(product, cartDispatch)
+                        handleAddToCart(product)
                       }}
                     >
                       Add to cart

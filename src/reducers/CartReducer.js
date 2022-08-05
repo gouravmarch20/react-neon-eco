@@ -1,20 +1,27 @@
 import {
-  GET_ALL_CART_PRODUCTS,
+  GET_CART,
   ADD_CART_PRODUCT,
   REMOVE_FROM_CART,
   INCREMENT_DECREMENT__QUANTITY,
-  EMPTY_CART
+  EMPTY_CART,
+  RESET_CART
 } from '../types'
 export const CartReducer = (state, { type, payload }) => {
   let noOfItemInCart
   switch (type) {
-    // case GET_ALL_CART_PRODUCTS:
-    //   return { ...state, cart: payload }
+    case GET_CART:
+      console.log('get cart reducer ')
+      noOfItemInCart = payload.length
+      console.log(noOfItemInCart)
+      return { ...state, cart: payload, totalProductInCart: noOfItemInCart }
     case ADD_CART_PRODUCT:
       noOfItemInCart = payload.length
       return { ...state, cart: payload, totalProductInCart: noOfItemInCart }
     case EMPTY_CART: {
       return { ...state, cart: payload, totalProductInCart: 0 }
+    }
+    case RESET_CART: {
+      return { ...state, cart: [], totalProductInCart: 0 }
     }
     case REMOVE_FROM_CART:
       noOfItemInCart = payload.length

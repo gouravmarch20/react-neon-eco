@@ -17,7 +17,7 @@ export const Cart = () => {
         <div className='container'>
           <OrderProduct />
 
-          {token && cart.length && <Payment />}
+          {token && cart.length !== 0 && <Payment />}
         </div>
       </div>
     </>

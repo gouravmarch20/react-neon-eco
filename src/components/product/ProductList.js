@@ -34,15 +34,14 @@ const ProductList = () => {
     wishlistDispatch
   } = useWishlist()
   const handleAddToCart = product => {
-    token ? addToCart(product, cartDispatch) : navigate('/signin')
+    token ? addToCart(product, token, cartDispatch) : navigate('/signin')
   }
   const handleAddToWishlist = product => {
-    token ? addToWishlist(product, wishlistDispatch) : navigate('/signin')
+    token ? addToWishlist(product,token, wishlistDispatch) : navigate('/signin')
   }
   const sortedProducts = getSortedProducts(products, filterState)
   const filteredProducts = getFilteredProducts(sortedProducts, filterState)
 
-  console.log(token)
   return (
     <div className='productList'>
       <h1 className='heading mt-1'>
