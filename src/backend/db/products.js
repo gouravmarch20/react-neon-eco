@@ -87,8 +87,8 @@ export const products = [
   {
     _id: uuid(),
     id: 5,
-    title: 'link ocean',
-    brand: 'link',
+    title: 'Reynolds Trimax',
+    brand: 'Reynolds',
     price: 399,
     priceMrp: 400,
     categoryName: 'Pen',
@@ -96,11 +96,12 @@ export const products = [
     featured: true,
     rating: 2.6,
     noOfItemInCart: 1,
-    description: `
-    Welcome to the world of writing, a world of expression. Welcome to the world of Linc. Our range of innovative products are designed to make your life smoother and better. Linc is the newest addition into our wide range of mighty weapon. It is retractable pen with higher writing length. Comes with the feature of Steady flow Ink Technology for higher writing length, Comfortable Elastomeric Rubber Grip , Smudge-free writing for document safety.`,
+    description: `Discover max writing length, max precision, and max smoothness with the Reynolds Trimax Gel Pen. These gel ink pens have a refillable fluid ink system for a smooth writing experience. They come with a fine 0.5 mm tip to give you incredible precision whether you're writing or illustrating. Plus, the waterproof ink keeps your work safe from spills. The Trimax Gel Pen also comes in a stylish, pocketable design, so you can write as you go. Each order comes with 5 Reynolds pens in blue gel ink.
+    `,
     cashOnDelivery: true,
     assuredProuduct: false,
-    imageSrc: './assets/pen/link.webp'
+    imageSrc:
+      'https://rukminim1.flixcart.com/image/416/416/kle24cw0/pen/u/g/f/trimax-liquid-gel-pens-needle-point-0-5mm-blue-ink-set-of-10-pcs-original-imagygtynnfkdpx9.jpeg?q=70'
   },
   {
     _id: uuid(),

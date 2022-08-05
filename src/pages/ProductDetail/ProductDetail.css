@@ -26,7 +26,6 @@
   width: 70%;
 }
 .a__product__details-2 > h4 > span {
-  
 }
 .a__product__details-3 {
   width: 70%;
@@ -41,27 +40,18 @@
   border-radius: 1rem;
 }
 .a__product__details-3__action__add__to__cart {
-  background-color: tomato;
+  background-color: lightcyan;
+  color: #777;
+  font-weight: 400;
+  font-size: 1.5;
   margin: 1rem;
-  padding: 0.7rem 2rem;
+  padding: 1.4rem 2rem;
 }
 .a__product__details-4 > p {
   margin-left: 1rem;
   text-align: center;
 }
-.a__product__details-4__sumit__review {
-  background-color: tomato;
-  margin: 1rem;
-  padding: 0.7rem 2rem;
-  border-radius: 1rem;
-}
 
-.a__product__review {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 @media (max-width: 768px) {
   .a__product {
     display: flex;

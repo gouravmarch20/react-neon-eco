@@ -207,10 +207,7 @@ li {
   font-family: cursive;
   text-transform: capitalize;
 }
-.mt-10 {
-  margin: 0 auto;
-  width: 100%;
-}
+
 .flex-column {
   flex-direction: column;
 }
