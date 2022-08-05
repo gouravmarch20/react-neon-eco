@@ -12,8 +12,7 @@
 }
 .navbar-center {
   display: flex;
-  justify-content: start;
-  align-items: flex-start;
+ 
 }
 
 .navbar-right {
@@ -21,7 +20,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 }
 .navbar-header {
   /* text-align: center; */

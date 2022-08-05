@@ -16,9 +16,17 @@
 .a__product__details-2 {
   display: flex;
   justify-content: flex-start;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 1rem;
+  background-color: lavender;
+
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   width: 70%;
+}
+.a__product__details-2 > h4 > span {
+  
 }
 .a__product__details-3 {
   width: 70%;

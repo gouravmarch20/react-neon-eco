@@ -37,7 +37,9 @@ const ProductList = () => {
     token ? addToCart(product, token, cartDispatch) : navigate('/signin')
   }
   const handleAddToWishlist = product => {
-    token ? addToWishlist(product,token, wishlistDispatch) : navigate('/signin')
+    token
+      ? addToWishlist(product, token, wishlistDispatch)
+      : navigate('/signin')
   }
   const sortedProducts = getSortedProducts(products, filterState)
   const filteredProducts = getFilteredProducts(sortedProducts, filterState)
@@ -61,13 +63,13 @@ const ProductList = () => {
             )
 
             return (
-              <section className='products card' key={product._id}>
+              <section className='products ' key={product._id}>
                 <LazyLoadImage
                   src={product.imageSrc}
                   alt='no found'
                   className='product__image '
                   onClick={() => {
-                    navigate(`/products/${_id}`)
+                    navigate(`/products/${product._id}`)
                   }}
                 />
 

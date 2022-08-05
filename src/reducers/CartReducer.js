@@ -10,9 +10,7 @@ export const CartReducer = (state, { type, payload }) => {
   let noOfItemInCart
   switch (type) {
     case GET_CART:
-      console.log('get cart reducer ')
       noOfItemInCart = payload.length
-      console.log(noOfItemInCart)
       return { ...state, cart: payload, totalProductInCart: noOfItemInCart }
     case ADD_CART_PRODUCT:
       noOfItemInCart = payload.length

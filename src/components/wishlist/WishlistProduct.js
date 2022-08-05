@@ -7,7 +7,7 @@ import { discontInPercent } from '../../utils'
 import { useAuth } from '../../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating'
-
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 const WishlistProduct = () => {
   const {
     wishlistState: { wishlist },
@@ -63,10 +63,12 @@ const WishlistProduct = () => {
                     return (
                       <div key={index}>
                         <section className='cart__items'>
-                          <img
+                          <LazyLoadImage
                             src={imageSrc}
-                            alt='ws'
-                            className='cart__image '
+                            className='cart__image cursor-pointer'
+                            onClick={() => {
+                              navigate(`/products/${_id}`)
+                            }}
                           />
 
                           <p className='card-title'>{title}</p>
