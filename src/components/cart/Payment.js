@@ -70,10 +70,8 @@ const Payment = () => {
           delivery: ` ${defaultAddress?.street} ${defaultAddress?.city},${defaultAddress?.state}, ${defaultAddress?.zipCode}`
         }
 
-        // TODO: CLEAR CART , ADD ORDER
-        // clearCartService(token, dispatch)
-        addOrder(orderData ,userDispatch)
-        emptyCart(cart , token , cartDispatch)
+        addOrder(orderData, userDispatch)
+        emptyCart(cart, token, cartDispatch)
         navigate('/my-order', { state: orderData })
       },
       prefill: {
@@ -113,14 +111,16 @@ const Payment = () => {
   return (
     <>
       {' '}
-      <div className='payment'>
-        <div className=''>
+      <div className='payment-wrapper'>
+        <div>
           <h2 className='payment-heading'>Price Detail</h2>
           <p className='payment-item'>
             No of items - <span> &nbsp; {value?.totalItemsInCart} </span>
           </p>
         </div>
-        <div>
+
+
+        <div className='payment-details'>
           <p className='payment-mrp '>
             Total Mrp : &nbsp;
             <span>
@@ -136,6 +136,8 @@ const Payment = () => {
             Final Payment - <span> &nbsp; {value.price}</span>
           </p>
         </div>
+
+
         <div className=''>
           <button className='ctn-btn-pay  ' onClick={proceedToPay}>
             Pay now

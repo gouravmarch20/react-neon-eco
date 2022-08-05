@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './ProductDetail.css'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getSpeceficProductDetail } from '../../helpers/'
 import Rating from '@mui/material/Rating'
 
-import axios from 'axios'
 export const ProductDetail = () => {
+  const navigate = useNavigate()
+
   const { productId } = useParams()
   const [product, setProduct] = useState({})
   useEffect(() => {
@@ -23,65 +24,79 @@ export const ProductDetail = () => {
   return (
     <div>
       {typeof product === 'string' ? (
-        <h1 className='align-center heading'>{product}</h1>
+        <>
+          <h1 className='align-center heading'>{product}</h1>
+          <button className='ctn-btn mt-1' onClick={() => navigate(-1)}>
+            Go back
+          </button>
+        </>
       ) : (
-        <div className='a__product'>
-          <div className='product-detail-wrapper'>
-            <img src={product.imageSrc} alt='' className='' />
-          </div>
-          <section className='a__product__details'>
-            <div className='a__product__details-1'>
-              <h2 className='subheading'>{product.title}</h2>
+        <>
+          <div className='a__product'>
+            <div className='product-detail-wrapper'>
+              <img src={product.imageSrc} alt='' className='' />
             </div>
-            <div className='a__product__details-2'>
-              <h4>
-                {console.log(product.rating)}
-                Rating :
-                <p className='card-rating'>
-                  {' '}
+            <section className='a__product__details'>
+              <div className='a__product__details-1'>
+                <h2 className='subheading'>{product.title}</h2>
+              </div>
+              <div className='a__product__details-2'>
+                <h4>
+                  Rating :
+                  {/* <p className='card-rating'>
+                  {' '} */}
                   <Rating
+                    className='card-rating'
                     value={product.rating || 2}
                     readOnly={true}
                     precision={0.5}
                   />
-                </p>
-              </h4>
-            </div>
-            <div className='a__product__details-2'>
-              <h4>
-                Brand : <span> {product.brand} </span>
-              </h4>
-            </div>
-            <div className='a__product__details-2'>
-              <h4>
-                Category : <span>{product.categoryName}</span>
-              </h4>
-            </div>
-            <div className='a__product__details-3'>
-              <h4 className='card-price'>
-                <span className='card-price'>Price : {product.price}</span>
-              </h4>
-              <h4>
-                Mrp :<span className='card-price-mrp'>{product.priceMrp}</span>{' '}
-              </h4>
+                  {/* </p> */}
+                </h4>
+              </div>
+              <div className='a__product__details-2'>
+                <h4>
+                  Brand : <span className='text-danger'> {product.brand} </span>
+                </h4>
+              </div>
+              <div className='a__product__details-2'>
+                <h4>
+                  Category :{' '}
+                  <span className='text-info'>{product.categoryName}</span>
+                </h4>
+              </div>
+              <div className='a__product__details-3'>
+                <h4 className='mt-1'>
+                  Price :<span className='card-price'>{product.price}</span>
+                </h4>
+                <h4 className='mt-1'>
+                  Mrp :
+                  <span className='card-price-mrp'>{product.priceMrp}</span>{' '}
+                </h4>
 
-              <div className='a__product__details-3__action'>
-                {/* <input type='number' value='1' id='' />
+                <div className='a__product__details-3__action   '>
+                  {/* <input type='number' value='1' id='' />
               <button>+</button>
 
               <button>-</button> */}
-                <h4>Description </h4>
-                <button className='a__product__details-3__action__add__to__cart'>
-                  {product.description}
-                </button>
+                  <h4>Description </h4>
+                  <button className='a__product__details-3__action__add__to__cart p-10'>
+                    {product.description}
+                  </button>
+                </div>
               </div>
-            </div>
-            {/* <div className='a__product__details-4'>{product.description}</div> */}
-            {/* <button className='a__product__details-4__sumit__review'>
+              {/* <div className='a__product__details-4'>{product.description}</div> */}
+              {/* <button className='a__product__details-4__sumit__review'>
             Sumit Review
           </button> */}
-          </section>
-        </div>
+            </section>
+          </div>
+          <div>
+            <button className='ctn-btn btn-lg mt-1' onClick={() => navigate(-1)}>
+              Go back
+            </button>
+          </div>
+        </>
       )}
     </div>
   )
