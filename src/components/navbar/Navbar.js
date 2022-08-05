@@ -11,6 +11,7 @@ import { TiHeartFullOutline, TiShoppingCart, TiUser } from 'react-icons/ti'
 // context
 import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
+import { resetCart } from '../../helpers/CartHelper'
 
 const Navbar = () => {
   let location = useLocation()
@@ -25,18 +26,25 @@ const Navbar = () => {
     logoutHandler
   } = useAuth()
   const {
-    cartState: { totalProductInCart }
+    cartState: { totalProductInCart },
+    cartDispatch
   } = useCart()
   const {
-    wishlistState: { totalProductInWishlist }
+    wishlistState: { totalProductInWishlist },
+    wishlistDispatch
   } = useWishlist()
 
   const { themeState, themeDispatch } = useTheme()
   const currectTheme = AppTheme[themeState.themeMode]
 
+  const handleLogOutClick = () => {
+    logoutHandler()
+    cartDispatch({ type: 'RESET_CART' })
+    wishlistDispatch({ type: 'RESET_WISHLIST' })
+  }
   return (
     <>
-      {currentTab === ('/home' || '/' )? <Annoncement /> : null}
+      {currentTab === ('/home' || '/') ? <Annoncement /> : null}
       <div
         className='navbar'
         style={{
@@ -51,27 +59,28 @@ const Navbar = () => {
           <div className='navbar-left'>
             <Link to='/home' className='navbar-link'>
               <h2
-                className='subheading'
+                className='navbar-header'
                 style={{
                   color: '#5DA3FA'
                 }}
               >
                 {' '}
-                railcom{' '}
+                Stationery Hut{' '}
               </h2>
             </Link>
-          </div>
 
-          <div className='navbar-right'>
             <Link
               to='/products'
               className='navbar-link 
               '
             >
-              <button className='btn bg-pink btn-lg btn-danger'>
-                Shop Now
-              </button>
+              <button className='btn btn-info'>Shop Now</button>
             </Link>
+          </div>
+          <div className='navbar-center'>
+            {/* <input type='search' name='' id='navbar-search' /> */}
+          </div>
+          <div className='navbar-right'>
             <Link
               to='/cart'
               className='navbar-link navbar-link-icon
@@ -149,7 +158,10 @@ const Navbar = () => {
                 className='navbar-link 
 '
               >
-                <button className='btn-auth' onClick={logoutHandler}>
+                <button
+                  className='btn btn-danger-light'
+                  onClick={handleLogOutClick}
+                >
                   Signout
                 </button>
               </Link>

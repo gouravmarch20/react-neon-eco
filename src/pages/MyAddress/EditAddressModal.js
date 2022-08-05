@@ -83,7 +83,7 @@ export const EditAddressModal = ({
   return (
     <main className='modal-container add-address-modal'>
       <div className='modal-main '>
-        <h4>Add Address</h4>
+        <h4>Close Me </h4>
 
         <button className='btn btn-danger p-10' onClick={onClose}>
           <i className='modal-close-icon'>
@@ -93,7 +93,6 @@ export const EditAddressModal = ({
       </div>
 
       <form onSubmit={e => e.preventDefault()}>
-        <h2>Edit Address</h2>
         <input
           className='input-block'
           type='text'

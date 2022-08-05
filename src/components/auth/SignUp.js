@@ -18,6 +18,9 @@ const SignUp = () => {
   const { firstName, lastName, email, password } = userSignUpData
 
   const handleSubmit = e => {
+    if (!email.includes('@')) {
+      return
+    }
     if (
       firstName !== '' &&
       lastName !== '' &&

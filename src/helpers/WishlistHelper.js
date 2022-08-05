@@ -6,13 +6,14 @@ const headers = {
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4MTAyMWNjNC00YjFkLTQyOGItYjJmMC0wNjhkYTQ4YTk4MzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.45ynQ6aZhoM1zsNwIKCYR_IATaszKn0ssvnPPQkKL8E'
 }
 
-export const getWishlist = async wishlistDispatch => {
+export const getWishlist = async (token, wishlistDispatch) => {
   try {
-    const response = await axios.get('/api/user/wishlist', { headers })
-    const { data, status } = response
+    const { data, status } = await axios.get('/api/user/wishlist', {
+      headers: { authorization: token }
+    })
     if (status === 200) {
       wishlistDispatch({
-        type: 'GET_ALL_WISHLIST_PRODUCTS',
+        type: 'GET_WISHLIST',
         payload: data.wishlist
       })
     }
@@ -20,13 +21,13 @@ export const getWishlist = async wishlistDispatch => {
     console.warn(error.message)
   }
 }
-export const addToWishlist = async (product, wishlistDispatch) => {
+export const addToWishlist = async (product, token, wishlistDispatch) => {
   const toastId = toast.loading('Adding item to wishlist...')
   try {
     const response = await axios.post(
       '/api/user/wishlist',
       { product },
-      { headers }
+      { headers: { authorization: token } }
     )
     const { data, status } = response
     if (status === 201) {
@@ -44,11 +45,11 @@ export const addToWishlist = async (product, wishlistDispatch) => {
     })
   }
 }
-export const deleteFromWishlist = async (productId, wishlistDispatch) => {
+export const deleteFromWishlist = async (productId, token , wishlistDispatch) => {
   const toastId = toast.loading('Deleting item from wishlist...')
   try {
     const response = await axios.delete(`/api/user/wishlist/${productId}`, {
-      headers
+      headers: { authorization: token }
     })
     const { status, data } = response
 

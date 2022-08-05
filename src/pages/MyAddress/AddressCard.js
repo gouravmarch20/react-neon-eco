@@ -34,13 +34,36 @@ export const AddressCard = ({ defaultAddress }) => {
                   isDefaultAddress ? 'bg-light  address-card' : 'address-card'
                 }`}
               >
-                <p>{name}</p>
-                <p>{zipCode}</p>
-                <p>{city}</p>
-                <p>{state}</p>
-                <p>{mobileNo}</p>
-                <p>{country}</p>
-                <p>{street}</p>
+                <div className='address-text'>
+                  <p className='my-address-content '>
+                    {' '}
+                    Name : <span className='text-grey-600'> {name}</span>
+                  </p>
+                  <p className='my-address-content'>
+                    {' '}
+                    ZipCode :<span className='text-grey-600'> {zipCode}</span>
+                  </p>
+                  <p className='my-address-content'>
+                    {' '}
+                    CityName :<span className='text-grey-600'>
+                      {' '}
+                      {city}
+                    </span>{' '}
+                  </p>
+                  <p className='my-address-content'>
+                    State : <span className='text-grey-600'> {state}</span>
+                  </p>
+                  <p className='my-address-content'>
+                    Phone no :{' '}
+                    <span className='text-grey-600'> {mobileNo}</span>{' '}
+                  </p>
+                  <p className='my-address-content'>
+                    Country : <span className='text-grey-600'> {country}</span>{' '}
+                  </p>
+                  <p className='my-address-content'>
+                    Address: <span className='text-grey-600'> {street}</span>
+                  </p>
+                </div>
                 {isDefaultAddress && (
                   <mark className='default-address'> Default address</mark>
                 )}

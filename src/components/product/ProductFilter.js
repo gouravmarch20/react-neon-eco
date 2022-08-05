@@ -2,14 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { useProduct } from '../../context/ProductContext'
 import { useFilter } from '../../context/FilterContext'
 import { getUniqueValues } from '../../utils/filterUtils'
+import axios from 'axios'
 
 import './ProductFilter.css'
 const ProductFilter = () => {
   const [uniqueCategories, setUniqueCategories] = useState([])
   const [priceRange, setPriceRange] = useState(1000)
   const {
-    productState: { products }
+    productState: { products },
+    productDispatch
   } = useProduct()
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const { data, status } = await axios.get('api/products')
+        if (status === 200) {
+          productDispatch({ type: 'GET_ALL_PRODUCTS', payload: data.products })
+        }
+        console.log(data)
+      } catch (error) {
+        console.warn(error)
+        productDispatch({ type: 'ERROR', payload: error })
+      }
+    })()
+  }, [])
   const { filterState, filterDispatch } = useFilter()
 
   const {
@@ -87,11 +103,7 @@ const ProductFilter = () => {
             <h4>Product rating</h4>
 
             <li>
-              <label
-                className='d-block'
-                htmlFor='fourStarRating'
-          
-              >
+              <label className='d-block' htmlFor='fourStarRating'>
                 <input
                   className=''
                   id='fourStarRating'

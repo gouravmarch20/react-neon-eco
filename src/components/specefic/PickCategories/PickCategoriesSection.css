@@ -1,6 +1,9 @@
 .pick-category-section {
-  background-color: #03203C;
+  background-color: #03203c;
   margin: 1rem;
+}
+.pick-category-section:hover {
+  transform: scale(1.05);
 }
 .card-image {
   width: 300px;
@@ -9,8 +12,10 @@
   border-radius: 50%;
 }
 .pick-category-section:hover {
-  background-color: #50DBB4;
+  background-color: #120e43;
 
+  transform: scale(-1.3vmax);
+  box-shadow: 2px 5px 8px #758283;
 }
 .pick-category-section-heading {
   text-transform: capitalize;

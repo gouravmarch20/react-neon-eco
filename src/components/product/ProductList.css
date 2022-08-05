@@ -28,6 +28,11 @@
   max-width: 27vw;
   max-height: 24vh;
 }
+.product__image:hover {
+ 
+  transform: scale(1.1);
+  transition-timing-function: cubic-bezier(0.25, 0.10, 0.25, 1);
+}
 .product__name {
   font-weight: bold;
   margin-bottom: 0rem;

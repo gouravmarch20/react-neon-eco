@@ -19,6 +19,11 @@
 .modal-container::-webkit-scrollbar {
   width: 6px;
 }
+.my-address-content {
+  margin: 0.5rem 0rem;
+  font-weight: 500;
+}
+
 .modal-container::-webkit-scrollbar-thumb {
   background: red;
   border-radius: 4px;
@@ -36,6 +41,14 @@
   border-radius: 1rem;
   box-shadow: 5px 6px rgb(189, 137, 238);
 }
+.address-text {
+  /* display: flex;
+  flex-direction: column; */
+  color: #03203c;
+
+  /* margin-left: auto; */
+  /* background-color: red; */
+}
 .address-card:hover {
   box-shadow: 2px 4px 8px blueviolet;
 
@@ -49,10 +62,12 @@
   width: 50%;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .default-address {
   padding: 0.1rem;
-  background-color: red;
+  font-weight: 500;
+  background-color: #0d0d0d;
   color: white;
 }
 .modal-item {

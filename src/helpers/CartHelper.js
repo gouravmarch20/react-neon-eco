@@ -1,32 +1,30 @@
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
-const headers = {
-  authorization:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI4MTAyMWNjNC00YjFkLTQyOGItYjJmMC0wNjhkYTQ4YTk4MzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.45ynQ6aZhoM1zsNwIKCYR_IATaszKn0ssvnPPQkKL8E'
-}
-
-export const getCart = async cartDispatch => {
+export const getCart = async (token, cartDispatch) => {
   try {
-    const response = await axios.get('/api/user/wishlist', { headers })
-    const { data, status } = { ...response }
+    const response = await axios.get('/api/user/cart', {
+      headers: { authorization: token }
+    })
+    const { data, status } = response
+
     if (status === 200) {
       cartDispatch({
-        type: '',
-        payload: data.wishlist
+        type: 'GET_CART',
+        payload: data.cart
       })
     }
   } catch (error) {
     console.warn(error.message)
   }
 }
-export const addToCart = async (product, cartDispatch) => {
+export const addToCart = async (product, token, cartDispatch) => {
   const toastId = toast.loading('Adding item to cart...')
   try {
     const response = await axios.post(
       '/api/user/cart',
       { product },
-      { headers }
+      { headers: { authorization: token } }
     )
     const { data, status } = response
     if (status === 201) {
@@ -44,11 +42,11 @@ export const addToCart = async (product, cartDispatch) => {
     })
   }
 }
-export const deleteFromCart = async (productId, cartDispatch) => {
+export const deleteFromCart = async (productId, token, cartDispatch) => {
   const toastId = toast.loading('Deleting item from cart...')
   try {
     const response = await axios.delete(`/api/user/cart/${productId}`, {
-      headers
+      headers: { authorization: token }
     })
     const { status, data } = response
     if (status === 200) {
@@ -67,7 +65,7 @@ export const deleteFromCart = async (productId, cartDispatch) => {
 export const emptyCart = async (cart, token, cartDispatch) => {
   const removeOneByOne = async productId =>
     await axios.delete(`/api/user/cart/${productId}`, {
-      headers
+      headers: { authorization: token }
     })
   try {
     cart.forEach(cartItem => {
@@ -82,7 +80,7 @@ export const emptyCart = async (cart, token, cartDispatch) => {
     console.warn(error)
   }
 }
-export const updateQuantity = async (productId, toDo, cartDispatch) => {
+export const updateQuantity = async (productId, token, toDo, cartDispatch) => {
   const toastId = toast.loading('Updating quantity...')
   try {
     // TODO: NOTE THIS
@@ -93,7 +91,7 @@ export const updateQuantity = async (productId, toDo, cartDispatch) => {
           type: `${toDo}`
         }
       },
-      { headers }
+      { headers: { authorization: token } }
     )
     const { data, status } = response
 

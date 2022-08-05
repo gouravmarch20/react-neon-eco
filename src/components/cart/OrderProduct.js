@@ -33,7 +33,7 @@ const OrderProduct = () => {
             <div>
               <h2 className='heading'>No product add to cart</h2>
               <h3 className='   subheading'>
-                Your saved <span> {cart.length} product . </span>
+                Your saved <span> {cart.length} product </span>
               </h3>
 
               <div className='login-cta'>
@@ -70,7 +70,10 @@ const OrderProduct = () => {
                         <LazyLoadImage
                           src={imageSrc}
                           alt=''
-                          className='cart__image cursor-pointer-none'
+                          className='cart__image cursor-pointer '
+                          onClick={() => {
+                            navigate(`/products/${_id}`)
+                          }}
                         />
 
                         <p className='card-title'>{title}</p>
@@ -101,7 +104,12 @@ const OrderProduct = () => {
                             onClick={() => {
                               cart.qty < 2
                                 ? ''
-                                : updateQuantity(_id, 'decrement', cartDispatch)
+                                : updateQuantity(
+                                    _id,
+                                    token,
+                                    'decrement',
+                                    cartDispatch
+                                  )
                             }}
                           >
                             -
@@ -110,7 +118,12 @@ const OrderProduct = () => {
                           <button
                             className='btn btn-info'
                             onClick={() => {
-                              updateQuantity(_id, 'increment', cartDispatch)
+                              updateQuantity(
+                                _id,
+                                token,
+                                'increment',
+                                cartDispatch
+                              )
                             }}
                           >
                             +
@@ -128,8 +141,8 @@ const OrderProduct = () => {
                             <button
                               className='card-button card-btn-add-to-wishlist'
                               onClick={() => {
-                                deleteFromCart(_id, cartDispatch)
-                                addToWishlist(cart, wishlistDispatch)
+                                deleteFromCart(_id, token, cartDispatch)
+                                addToWishlist(cart, token, wishlistDispatch)
                               }}
                             >
                               Move to wishlist
@@ -139,7 +152,7 @@ const OrderProduct = () => {
                           <button
                             className='card-button card-btn-remove'
                             onClick={() => {
-                              deleteFromCart(_id, cartDispatch)
+                              deleteFromCart(_id, token, cartDispatch)
                             }}
                           >
                             Remove{' '}

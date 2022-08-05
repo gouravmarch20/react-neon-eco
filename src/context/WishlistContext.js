@@ -7,15 +7,20 @@ const initialState = {
   wishlistError: null,
   totalProductInWishlist: 0
 }
+import { useAuth } from '../context/AuthContext'
+
 const WishlistProvider = ({ children }) => {
   const [wishlistState, wishlistDispatch] = useReducer(
     WishlistReducer,
     initialState
   )
+  const {
+    authState: { token, isLoggedIn }
+  } = useAuth()
 
   useEffect(() => {
-    // getWishlist(wishlistDispatch)
-  }, [])
+    token && getWishlist(token, wishlistDispatch)
+  }, [token])
 
   return (
     <WishlistContext.Provider value={{ wishlistState, wishlistDispatch }}>

@@ -14,8 +14,12 @@ import { useFilter } from '../../context/FilterContext'
 import { useNavigate } from 'react-router-dom'
 import { useWishlist } from '../../context/WishlistContext'
 import { useCart } from '../../context/CartContext'
+import { useAuth } from '../../context/AuthContext'
 
 const ProductList = () => {
+  const {
+    authState: { token }
+  } = useAuth()
   const navigate = useNavigate()
   const {
     productState: { products }
@@ -29,7 +33,14 @@ const ProductList = () => {
     wishlistState: { wishlist },
     wishlistDispatch
   } = useWishlist()
-
+  const handleAddToCart = product => {
+    token ? addToCart(product, token, cartDispatch) : navigate('/signin')
+  }
+  const handleAddToWishlist = product => {
+    token
+      ? addToWishlist(product, token, wishlistDispatch)
+      : navigate('/signin')
+  }
   const sortedProducts = getSortedProducts(products, filterState)
   const filteredProducts = getFilteredProducts(sortedProducts, filterState)
 
@@ -52,13 +63,13 @@ const ProductList = () => {
             )
 
             return (
-              <section className='products card' key={product._id}>
+              <section className='products ' key={product._id}>
                 <LazyLoadImage
                   src={product.imageSrc}
                   alt='no found'
                   className='product__image '
                   onClick={() => {
-                    navigate(`/products/${_id}`)
+                    navigate(`/products/${product._id}`)
                   }}
                 />
 
@@ -93,7 +104,7 @@ const ProductList = () => {
                     <button
                       className='card-button card-btn-add-to-cart'
                       onClick={() => {
-                        addToCart(product, cartDispatch)
+                        handleAddToCart(product)
                       }}
                     >
                       add to cart{' '}
@@ -111,7 +122,7 @@ const ProductList = () => {
                   ) : (
                     <button
                       className='card-button card-btn-add-to-wishlist'
-                      onClick={() => addToWishlist(product, wishlistDispatch)}
+                      onClick={() => handleAddToWishlist(product)}
                     >
                       add to wishlist{' '}
                     </button>

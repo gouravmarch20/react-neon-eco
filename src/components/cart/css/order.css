@@ -16,6 +16,10 @@
   object-fit: contain;
   margin-top: 1rem;
 }
+.cart__image:hover {
+  transform: scale(1.1);
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
 
 .cart__detail {
   text-align: center;
@@ -34,4 +38,3 @@
   justify-content: center;
   margin-bottom: 0.5rem;
 }
-

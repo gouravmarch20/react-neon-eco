@@ -22,7 +22,10 @@ export const MyAddressPage = () => {
           <MyTabThree />
 
           <div>
-            <button onClick={() => setToogleAddressModal(!toogleAddressModal)} className="btn btn mini-ctn-btn" >
+            <button
+              onClick={() => setToogleAddressModal(!toogleAddressModal)}
+              className='btn btn mini-ctn-btn'
+            >
               Add Address
             </button>
 

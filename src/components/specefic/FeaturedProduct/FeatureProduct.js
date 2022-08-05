@@ -1,23 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useProduct } from '../../../context/ProductContext'
-
+import axios from 'axios'
 import { useCart } from '../../../context/CartContext'
 import { addToCart } from '../../../helpers/index'
 import { discontInPercent } from '../../../utils/index'
 import { useNavigate } from 'react-router-dom'
 import Rating from '@mui/material/Rating'
-
+import { useAuth } from '../../../context/AuthContext'
 import './FeatureProduct.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 const FeatureProduct = () => {
+  useEffect(() => {
+    // productDispatch({ type: 'LOADING' })
+    ;(async () => {
+      try {
+        const { data, status } = await axios.get('api/products')
+        if (status === 200) {
+          productDispatch({ type: 'GET_ALL_PRODUCTS', payload: data.products })
+        }
+        console.log(data)
+      } catch (error) {
+        console.warn(error)
+        productDispatch({ type: 'ERROR', payload: error })
+      }
+    })()
+  }, [])
   const navigate = useNavigate()
-
+  const {
+    authState: { token }
+  } = useAuth()
   const {
     cartState: { cart },
     cartDispatch
   } = useCart()
-
+  const handleAddToCart = product => {
+    token ? addToCart(product, token, cartDispatch) : navigate('/signin')
+  }
   const {
-    productState: { products }
+    productState: { products },
+    productDispatch
   } = useProduct()
   let featuredProducts = [...products].filter(
     product => product.featured === true
@@ -34,13 +55,13 @@ const FeatureProduct = () => {
               cardProduct => cardProduct._id === product._id
             )
             return (
-              <section className='products card' key={product._id}>
-                <img
+              <section className='products ' key={product._id}>
+                <LazyLoadImage
                   src={product.imageSrc}
                   alt='no found'
-                  className='product__image cursor-pointer-none'
+                  className='product__image '
                   onClick={() => {
-                    navigate(`/products/${_id}`)
+                    navigate(`/products/${product._id}`)
                   }}
                 />
                 <p className='card-title'>{product.title}</p>
@@ -81,7 +102,7 @@ const FeatureProduct = () => {
                     <button
                       className='card-button card-btn-add-to-cart '
                       onClick={() => {
-                        addToCart(product, cartDispatch)
+                        handleAddToCart(product)
                       }}
                     >
                       Add to cart
