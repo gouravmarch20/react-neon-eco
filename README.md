@@ -1,6 +1,6 @@
 # [stationeryhut](https://stationery-hut.netlify.app/)
 
-stationeryhut is an ecommerce store related to sttionery product
+stationeryhut is an ecommerce store related to stationery product
 
 ## Features
 

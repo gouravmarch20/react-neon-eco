@@ -7,6 +7,8 @@ import { useAuth } from '../../context/AuthContext'
 
 import { Link, useLocation } from 'react-router-dom'
 import { MdDarkMode, MdOutlineFlashlightOn } from 'react-icons/md'
+import { SiDarkreader } from 'react-icons/si'
+import { RiLightbulbFill, RiLightbulbFlashFill } from 'react-icons/ri'
 import { TiHeartFullOutline, TiShoppingCart, TiUser } from 'react-icons/ti'
 // context
 import { useCart } from '../../context/CartContext'
@@ -126,7 +128,7 @@ const Navbar = () => {
                       })
                     }
                   >
-                    <MdDarkMode />
+                    <RiLightbulbFill />
                   </div>
                 ) : (
                   <div
@@ -138,7 +140,7 @@ const Navbar = () => {
                       })
                     }
                   >
-                    <MdOutlineFlashlightOn />
+                    <RiLightbulbFlashFill />
                   </div>
                 )}
               </span>

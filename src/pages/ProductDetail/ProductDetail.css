@@ -32,6 +32,7 @@
 }
 .a__product__details-3__action {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .a__product__details-3__action > button {
@@ -39,14 +40,7 @@
   border: none;
   border-radius: 1rem;
 }
-.a__product__details-3__action__add__to__cart {
-  background-color: lightcyan;
-  color: #777;
-  font-weight: 400;
-  font-size: 1.5;
-  margin: 1rem;
-  padding: 1.4rem 2rem;
-}
+
 .a__product__details-4 > p {
   margin-left: 1rem;
   text-align: center;

@@ -67,32 +67,29 @@ export const ProductDetail = () => {
               </div>
               <div className='a__product__details-3'>
                 <h4 className='mt-1'>
-                  Price :<span className='card-price'>{product.price}</span>
+                  <span className='text-md mb-1 text-grey-700'> Price : </span>
+
+                  <span className='card-price'>{product.price}</span>
                 </h4>
-                <h4 className='mt-1'>
-                  Mrp :
-                  <span className='card-price-mrp'>{product.priceMrp}</span>{' '}
+                <h4 className='mt-1 text-grey-700'>
+                  <span className='text-md mb-1 text-grey-700'> Mrp : </span>
+                  <span className='card-price-mrp'>
+                    <s> {product.priceMrp}</s>
+                  </span>{' '}
                 </h4>
 
-                <div className='a__product__details-3__action   '>
-                  {/* <input type='number' value='1' id='' />
-              <button>+</button>
-
-              <button>-</button> */}
-                  <h4>Description </h4>
-                  <button className='a__product__details-3__action__add__to__cart p-10'>
-                    {product.description}
-                  </button>
+                <div className='a__product__details-3__action  mt-1  '>
+                  <h4 className='text-md mb-1 text-grey-700'>Description </h4>
+                  <p className='text-grey-400'>{product.description}</p>
                 </div>
               </div>
-              {/* <div className='a__product__details-4'>{product.description}</div> */}
-              {/* <button className='a__product__details-4__sumit__review'>
-            Sumit Review
-          </button> */}
             </section>
           </div>
           <div>
-            <button className='ctn-btn btn-lg mt-1' onClick={() => navigate(-1)}>
+            <button
+              className='ctn-btn btn-lg mt-1 '
+              onClick={() => navigate(-1)}
+            >
               Go back
             </button>
           </div>
