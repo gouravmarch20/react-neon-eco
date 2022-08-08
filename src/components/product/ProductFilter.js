@@ -153,7 +153,7 @@ const ProductFilter = () => {
 
             <label
               htmlFor='priceHighLow'
-              className='input-text-red d-block cursor-pointer '
+              className=' d-block cursor-pointer '
             >
               <input
                 type='radio'
@@ -171,7 +171,7 @@ const ProductFilter = () => {
             </label>
             <label
               htmlFor='priceLowHigh'
-              className='input-text-red d-block cursor-pointer '
+              className=' d-block cursor-pointer '
             >
               <input
                 type='radio'

@@ -27,13 +27,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
   height: 9px;
-  background-color: #38cc77;
+  background-color: #5da3fa;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb {
-  backgroudnd-color: #e83a59;
+  background: #e03b8b;
   border-radius: 10px;
-  width: 10px;
+}
+/* text */
+.text-md {
+  font-size: 1.8rem;
 }
 /* button  */
 button {
