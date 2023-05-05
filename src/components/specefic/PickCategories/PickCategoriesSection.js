@@ -2,7 +2,7 @@ import React from 'react'
 import './PickCategoriesSection.css'
 import { useNavigate } from 'react-router-dom'
 import { useFilter } from '../../../context/FilterContext'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const PickCategoriesSection = ({ category }) => {
   const navigate = useNavigate()
@@ -23,12 +23,13 @@ const PickCategoriesSection = ({ category }) => {
       }}
     >
       <div className='  cursor-pointer'>
-     
-        <LazyLoadImage src={category.imgUrl} alt='' className='home_featured-image mt-1' />
+        <LazyLoadImage
+          src={category.imgUrl}
+          alt=''
+          className='home_featured-image mt-1'
+        />
 
-        <h2 className='subheading'>
-          {category.categoryName}
-        </h2>
+        <h2 className='subheading'>{category.categoryName}</h2>
       </div>
     </div>
   )

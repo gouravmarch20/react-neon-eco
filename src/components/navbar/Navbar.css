@@ -4,15 +4,17 @@
   padding: 1rem;
   flex-wrap: wrap;
 }
+
 .navbar-left {
   margin-left: 5vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
+
 .navbar-center {
   display: flex;
- 
+
 }
 
 .navbar-right {
@@ -21,6 +23,7 @@
   justify-content: flex-end;
   align-items: center;
 }
+
 .navbar-header {
   /* text-align: center; */
   font-size: 1.6rem;
@@ -29,17 +32,20 @@
   font-family: cursive;
   text-transform: capitalize;
 }
+
 .navbar-link {
   margin-left: 0.8rem;
   font-weight: 700;
   text-decoration: none;
   color: white;
 }
+
 .navbar-link-icon {
   margin: 0rem 0.8rem;
   font-size: 2rem;
   color: white;
 }
+
 .nav-theme-link {
   font-size: 2rem;
 }
@@ -50,9 +56,11 @@
 
   padding: 3px;
 }
+
 .relative {
   position: relative;
 }
+
 .badge-counter-red {
   position: absolute;
   background-color: #e21717;
@@ -61,6 +69,7 @@
   font-size: 18px;
   padding: 0rem 0.2rem;
 }
+
 .badge-counter-green {
   position: absolute;
   background-color: #02b290;
@@ -69,6 +78,7 @@
   font-size: 18px;
   padding: 0rem 0.2rem;
 }
+
 .btn-auth {
   color: white;
   background-color: #758283;
@@ -76,11 +86,31 @@
   padding: 0.4rem;
   border-radius: 1rem;
 }
+
 @media only screen and (max-width: 600px) {
+
+  .navbar-warpper {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   navbar-header {
     font-size: 1rem;
   }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 10px;
+
+  }
 }
+
 @media only screen and (min-width: 1000px) {
   .navbar-header {
     margin-right: 13vh;

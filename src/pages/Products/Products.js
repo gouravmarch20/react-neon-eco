@@ -7,8 +7,12 @@ export const Products = () => {
   return (
     <div>
       <section className='product'>
-        <ProductFilter />
-        <ProductList />
+        <div>
+          <ProductFilter />
+        </div>
+        <div>
+          <ProductList />
+        </div>
       </section>
     </div>
   )

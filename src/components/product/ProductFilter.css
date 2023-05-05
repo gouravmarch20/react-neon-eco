@@ -14,6 +14,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .product__filter__container {
   margin: 0 auto;
   width: 90%;
@@ -22,13 +23,21 @@
 .filter-section input {
   margin: 1rem 0.5rem;
 }
+
 .input-text-red {
   font-family: monospace;
   font-weight: 0px;
   color: #D82E2F;
 }
+
 .price-detail {
   width: 80%;
   display: flex;
   justify-content: space-around;
+}
+
+@media only screen and (max-width: 600px) {
+  .product__filter {
+    width: 100vw;
+  }
 }

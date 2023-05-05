@@ -1,28 +1,44 @@
 .pick-category-section {
   background-color: #03203c;
   margin: 1rem;
+
 }
+
 .pick-category-section:hover {
   transform: scale(1.05);
 }
+
 .card-image {
   width: 300px;
   height: 350px;
   object-fit: contain;
   border-radius: 50%;
 }
+
 .pick-category-section:hover {
   background-color: #120e43;
 
   transform: scale(-1.3vmax);
   box-shadow: 2px 5px 8px #758283;
 }
+
 .pick-category-section-heading {
   text-transform: capitalize;
   border-bottom: 2px solid transparent;
 }
+
 .home_featured-image {
   height: 30vh;
   width: 20vw;
   border-radius: 50%;
+}
+
+/*  */
+@media only screen and (max-width: 600px) {
+  .pick-category-section {
+    display: flex ;
+    width: 250px;
+    align-items: center ;
+    justify-content: center;
+  }
 }

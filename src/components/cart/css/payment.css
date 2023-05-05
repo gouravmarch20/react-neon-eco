@@ -52,3 +52,11 @@
   margin: 0.5rem;
   font-size: 1.5rem;
 }
+@media only screen and (max-width: 600px) {
+  .payment-wrapper {
+    margin: 0px;
+    margin-top: 2rem;
+    display: flex;
+    background-color: #E07C24 ;
+  }
+}
